@@ -1,0 +1,20 @@
+{
+    "Arduino nano": {
+        "category": "Semicondutores",
+        "tag": "ARDUIN",
+        "description": "Tipo customizado criado pelo usuario.",
+        "base": {
+            "nome": "Arduino nano",
+            "categoria": "Semicondutores",
+            "unidade": "un"
+        },
+        "fields": [
+            {
+                "name": "pdb",
+                "label": "Capacitor",
+                "placeholder": "100nF"
+            }
+        ],
+        "presets": []
+    }
+}
