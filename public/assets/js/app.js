@@ -3,6 +3,23 @@
 
     var storageKey = 'meu-estoque-theme';
 
+    function fallbackUuid() {
+        return '10000000-1000-4000-8000-100000000000'.replace(/[018]/g, function (c) {
+            return (Number(c) ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> Number(c) / 4).toString(16);
+        });
+    }
+
+    window.getOrCreateAnonymousUserId = window.getOrCreateAnonymousUserId || function () {
+        var key = 'anonymousUserId';
+        var id = localStorage.getItem(key);
+        if (!id) {
+            id = crypto.randomUUID ? crypto.randomUUID() : fallbackUuid();
+            localStorage.setItem(key, id);
+        }
+        document.cookie = key + '=' + encodeURIComponent(id) + '; Max-Age=31536000; Path=/; SameSite=Lax';
+        return id;
+    };
+
     function toggleDarkMode(isDark) {
         var root = document.documentElement;
         if (isDark) {

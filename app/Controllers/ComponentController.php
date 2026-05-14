@@ -25,9 +25,6 @@ class ComponentController
         Auth::requireAuth();
         $user = Auth::user();
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         $params = [
             'page' => $_GET['page'] ?? 1,
@@ -36,7 +33,7 @@ class ComponentController
             'category' => $_GET['category'] ?? '',
             'zeroed' => isset($_GET['zeroed']) ? (bool)$_GET['zeroed'] : false,
             'below_min' => isset($_GET['below_min']) ? (bool)$_GET['below_min'] : false,
-            'sort' => $_GET['sort'] ?? 'Nãome',
+            'sort' => $_GET['sort'] ?? 'nome',
             'direction' => $_GET['direction'] ?? 'asc',
         ];
 
@@ -68,7 +65,7 @@ class ComponentController
         }
 
         View::render('components/new_dynamic', [
-            'title' => 'Nãovo componente',
+            'title' => 'Novo componente',
             'csrfToken' => Csrf::token('components_store'),
             'selectedType' => $selectedType,
         ]);
@@ -84,7 +81,7 @@ class ComponentController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('components_store', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sess+ï¿½o expirada. Tente Nãovamente.');
+            $this->flash('error', 'Sessao expirada. Tente novamente.');
             $this->redirect('/components/new');
         }
 
@@ -96,12 +93,9 @@ class ComponentController
         }
 
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         if (Component::findBySku($data['sku'], $userId) !== null) {
-            $_SESSION['_component_errors'] = ['SKU j+ï¿½ utilizado por outro componente.'];
+            $_SESSION['_component_errors'] = ['SKU ja utilizado por outro componente.'];
             $_SESSION['_old_component'] = $data;
             $this->redirect('/components/new');
         }
@@ -131,12 +125,9 @@ class ComponentController
         }
 
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         View::render('components/show', [
-            'title' => 'Detalhes do componente',
+            'title' => 'Novo componente',
             'component' => $component,
             'images' => Image::listByComponent((int)$component['id'], $userId),
             'stockMoves' => StockMove::listForComponent($userId, (int)$component['id'], 15),
@@ -158,7 +149,7 @@ class ComponentController
         }
 
         View::render('components/edit', [
-            'title' => 'Editar componente',
+            'title' => 'Novo componente',
             'component' => $component,
             'csrfToken' => Csrf::token('components_update'),
             'errors' => $_SESSION['_component_errors'] ?? [],
@@ -171,7 +162,7 @@ class ComponentController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('components_update', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sess+ï¿½o expirada. Tente Nãovamente.');
+            $this->flash('error', 'Sessao expirada. Tente novamente.');
             $this->redirect('/components');
         }
 
@@ -189,7 +180,7 @@ class ComponentController
 
         $userId = (int)$component['user_id'];
         if ($data['sku'] !== $component['sku'] && Component::findBySku($data['sku'], $userId, $componentId) !== null) {
-            $_SESSION['_component_errors'] = ['SKU j+ï¿½ utilizado por outro componente.'];
+            $_SESSION['_component_errors'] = ['SKU ja utilizado por outro componente.'];
             $this->redirect('/components/edit?id=' . $componentId);
         }
 
@@ -218,7 +209,7 @@ class ComponentController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('components_delete', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sess+ï¿½o expirada.');
+            $this->flash('error', 'Sessao expirada.');
             $this->redirect('/components');
         }
 
@@ -249,7 +240,7 @@ class ComponentController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('components_inline', $_POST['_token'] ?? null)) {
-            $this->jsonResponse(['success' => false, 'message' => 'Sess+ï¿½o expirada.'], 419);
+            $this->jsonResponse(['success' => false, 'message' => 'Sessao expirada.'], 419);
         }
 
         $componentId = isset($_POST['id']) ? (int)$_POST['id'] : 0;
@@ -258,12 +249,12 @@ class ComponentController
 
         $component = $this->findComponent($componentId);
         if ($component === null) {
-            $this->jsonResponse(['success' => false, 'message' => 'Componente n+ï¿½o encontrado.'], 404);
+            $this->jsonResponse(['success' => false, 'message' => 'Componente nao encontrado.'], 404);
         }
 
         $allowed = ['quantidade', 'localizacao', 'tags'];
         if (!in_array($field, $allowed, true)) {
-            $this->jsonResponse(['success' => false, 'message' => 'Campo n+ï¿½o permitido.'], 400);
+            $this->jsonResponse(['success' => false, 'message' => 'Campo nao permitido.'], 400);
         }
 
         $newValue = $value;
@@ -293,7 +284,7 @@ class ComponentController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('components_stock', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sess+ï¿½o expirada.');
+            $this->flash('error', 'Sessao expirada.');
             $this->redirect('/components');
         }
 
@@ -308,7 +299,7 @@ class ComponentController
         $reason = trim((string)($_POST['reason'] ?? ''));
 
         if (!in_array($type, StockMove::TYPES, true)) {
-            $this->flash('error', 'Movimentaï¿½ï¿½o invï¿½lida.');
+            $this->flash('error', 'Movimentacao invalida.');
             $this->redirect('/components/view?id=' . $componentId);
         }
 
@@ -320,7 +311,7 @@ class ComponentController
         switch ($type) {
             case 'entrada':
                 if ($absQuantity === 0) {
-                    $this->flash('error', 'Informe uma quantidade vï¿½lida.');
+                    $this->flash('error', 'Informe uma quantidade valida.');
                     $this->redirect('/components/view?id=' . $componentId);
                 }
                 $delta = $absQuantity;
@@ -328,7 +319,7 @@ class ComponentController
                 break;
             case 'saida':
                 if ($absQuantity === 0) {
-                    $this->flash('error', 'Informe uma quantidade vï¿½lida.');
+                    $this->flash('error', 'Informe uma quantidade valida.');
                     $this->redirect('/components/view?id=' . $componentId);
                 }
                 if ($absQuantity >= $currentQty) {
@@ -342,7 +333,7 @@ class ComponentController
             case 'ajuste':
                 $target = max(0, (int)$quantity);
                 if ($target === $currentQty) {
-                    $this->flash('warning', 'Nenhuma alteraï¿½ï¿½o detectada.');
+                    $this->flash('warning', 'Nenhuma alteracao detectada.');
                     $this->redirect('/components/view?id=' . $componentId);
                 }
                 $delta = $target - $currentQty;
@@ -379,7 +370,7 @@ class ComponentController
             );
         });
 
-        $this->flash('success', 'Movimenta+ï¿½+ï¿½o registrada.');
+        $this->flash('success', 'Movimentacao registrada.');
         $this->redirect('/components/view?id=' . $componentId);
     }
 
@@ -388,7 +379,7 @@ class ComponentController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('components_upload_image', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sess+ï¿½o expirada.');
+            $this->flash('error', 'Sessao expirada.');
             $this->redirect('/components');
         }
 
@@ -439,7 +430,7 @@ class ComponentController
         }
 
         if ($uploads === 0) {
-            $this->flash('warning', 'Nenhuma imagem v+ï¿½lida foi enviada.');
+            $this->flash('warning', 'Nenhuma imagem valida foi enviada.');
         } else {
             $this->flash('success', 'Imagem(s) adicionada(s) com sucesso.');
         }
@@ -452,7 +443,7 @@ class ComponentController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('components_delete_image', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sess+ï¿½o expirada.');
+            $this->flash('error', 'Sessao expirada.');
             $this->redirect('/components');
         }
 
@@ -482,7 +473,7 @@ class ComponentController
 
             $this->flash('success', 'Imagem removida.');
         } else {
-            $this->flash('warning', 'Imagem n+ï¿½o encontrada.');
+            $this->flash('warning', 'Imagem nao encontrada.');
         }
 
         $this->redirect('/components/view?id=' . $componentId . '#imagens');
@@ -493,7 +484,7 @@ class ComponentController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('components_set_cover', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sess+ï¿½o expirada.');
+            $this->flash('error', 'Sessao expirada.');
             $this->redirect('/components');
         }
 
@@ -525,7 +516,7 @@ class ComponentController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('components_datasheet', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sess+ï¿½o expirada.');
+            $this->flash('error', 'Sessao expirada.');
             $this->redirect('/components');
         }
 
@@ -536,7 +527,7 @@ class ComponentController
         }
 
         if (empty($_FILES['datasheet']) || $_FILES['datasheet']['error'] !== UPLOAD_ERR_OK) {
-            $this->flash('error', 'Nenhum arquivo v+ï¿½lido foi enviado.');
+            $this->flash('error', 'Nenhum arquivo valido foi enviado.');
             $this->redirect('/components/view?id=' . $componentId . '#arquivos');
         }
 
@@ -544,7 +535,7 @@ class ComponentController
         $finfo = new \finfo(FILEINFO_MIME_TYPE);
         $mime = $finfo->file($file['tmp_name']) ?: '';
         if ($mime !== 'application/pdf') {
-            $this->flash('error', 'Apenas arquivos PDF s+ï¿½o permitidos.');
+            $this->flash('error', 'Apenas arquivos PDF sao permitidos.');
             $this->redirect('/components/view?id=' . $componentId . '#arquivos');
         }
 
@@ -611,7 +602,7 @@ class ComponentController
         Auth::requireAuth();
         $imageId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
         $userId = Auth::userId();
-        if ($imageId <= 0 || $userId === null) {
+        if ($imageId <= 0) {
             $this->abort404();
         }
 
@@ -648,9 +639,6 @@ class ComponentController
         }
 
         $userId = Auth::userId();
-        if ($userId === null) {
-            return null;
-        }
 
         return Component::findById($componentId, $userId);
     }
@@ -662,9 +650,9 @@ class ComponentController
     {
         $errors = [];
 
-        $Nãome = trim((string)($input['Nãome'] ?? ''));
-        if ($Nãome === '') {
-            $errors[] = 'Informe o Nãome do componente.';
+        $nome = trim((string)($input['nome'] ?? ''));
+        if ($nome === '') {
+            $errors[] = 'Informe o nome do componente.';
         }
 
         $sku = trim((string)($input['sku'] ?? ''));
@@ -680,15 +668,15 @@ class ComponentController
         $precoMedio = $precoMedioRaw !== null && $precoMedioRaw !== '' ? (float)$precoMedioRaw : null;
 
         if ($custoUnitario < 0) {
-            $errors[] = 'Custo unit+ï¿½rio inv+ï¿½lido.';
+            $errors[] = 'Custo unitario invalido.';
         }
 
         if ($precoMedio !== null && $precoMedio < 0) {
-            $errors[] = 'Pre+ï¿½o m+ï¿½dio inv+ï¿½lido.';
+            $errors[] = 'Preco medio invalido.';
         }
 
         $data = [
-            'Nãome' => $Nãome,
+            'nome' => $nome,
             'sku' => $sku,
             'fabricante' => $this->nullable($input['fabricante'] ?? null),
             'cod_fabricante' => $this->nullable($input['cod_fabricante'] ?? null),
@@ -760,7 +748,7 @@ class ComponentController
     {
         if (!is_dir(self::STORAGE_PATH)) {
             if (!mkdir(self::STORAGE_PATH, 0755, true) && !is_dir(self::STORAGE_PATH)) {
-                throw new RuntimeException('N+ï¿½o foi poss+ï¿½vel criar diret+ï¿½rio de uploads.');
+                throw new RuntimeException('Nao foi possivel criar diretorio de uploads.');
             }
         }
     }
@@ -768,7 +756,7 @@ class ComponentController
     private function abort404(): void
     {
         http_response_code(404);
-        echo 'Recurso n+ï¿½o encontrado.';
+        echo 'Recurso nao encontrado.';
         exit;
     }
 
@@ -794,6 +782,9 @@ class ComponentController
         exit;
     }
 }
+
+
+
 
 
 

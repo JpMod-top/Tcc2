@@ -11,13 +11,13 @@ if ($definition === null) {
     ?>
     <div class="space-y-6">
         <div class="rounded-2xl border border-amber-300 bg-amber-50 p-6 text-amber-800 dark:border-amber-500/60 dark:bg-amber-900/40 dark:text-amber-100">
-            <h1 class="text-lg font-semibold">Tipo de componente não reconhecido</h1>
+            <h1 class="text-lg font-semibold">Tipo de componente nao reconhecido</h1>
             <p class="mt-1 text-sm">
                 Selecione novamente o tipo para que possamos preencher os campos com um modelo adequado.
             </p>
             <a href="/components/new"
                class="mt-4 inline-flex items-center gap-2 rounded-full border border-amber-300 px-4 py-2 text-sm font-medium text-amber-700 hover:bg-amber-100 dark:border-amber-400 dark:text-amber-100 dark:hover:bg-amber-900/60">
-                Voltar para seleção de tipo
+                Voltar para selecao de tipo
             </a>
         </div>
     </div>
@@ -25,11 +25,11 @@ if ($definition === null) {
     return;
 }
 
-$base = $definition['base'] ?? [];
-$presets = $definition['presets'] ?? [];
+$base = is_array($definition['base'] ?? null) ? $definition['base'] : [];
+$presets = is_array($definition['presets'] ?? null) ? $definition['presets'] : [];
 $defaultPresetKey = array_key_first($presets);
-$defaultPreset = $defaultPresetKey ? $presets[$defaultPresetKey] : ['values' => []];
-$currentValues = array_merge($base, $defaultPreset['values'] ?? []);
+$defaultPreset = $defaultPresetKey && is_array($presets[$defaultPresetKey] ?? null) ? $presets[$defaultPresetKey] : ['values' => []];
+$currentValues = array_merge($base, is_array($defaultPreset['values'] ?? null) ? $defaultPreset['values'] : []);
 
 // Helper para inputs
 function renderInput(string $name, string $label, string $value = '', string $placeholder = '', string $extra = '', ?string $hint = null): void
@@ -51,10 +51,14 @@ HTML;
 
 $presetOptions = [];
 foreach ($presets as $key => $preset) {
+    if (!is_array($preset)) {
+        continue;
+    }
+
     $presetOptions[] = [
-        'key' => $key,
-        'label' => $preset['label'],
-        'values' => array_merge($base, $preset['values'] ?? []),
+        'key' => (string)$key,
+        'label' => (string)($preset['label'] ?? 'Modelo sem nome'),
+        'values' => array_merge($base, is_array($preset['values'] ?? null) ? $preset['values'] : []),
     ];
 }
 ?>
@@ -83,9 +87,9 @@ foreach ($presets as $key => $preset) {
         <section class="rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
             <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                 <div class="max-w-xl space-y-1.5">
-                    <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Modelos rápidos</h2>
+                    <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Modelos rapidos</h2>
                     <p class="text-sm text-slate-500 dark:text-slate-300">
-                        Comece com um preset típico e ajuste os campos abaixo como preferir.
+                        Comece com um preset tipico e ajuste os campos abaixo como preferir.
                     </p>
                 </div>
                 <div class="relative w-full max-w-md">
@@ -99,7 +103,7 @@ foreach ($presets as $key => $preset) {
                         data-current="<?php echo htmlspecialchars($defaultPresetKey ?? '', ENT_QUOTES, 'UTF-8'); ?>"
                         value="<?php echo htmlspecialchars($defaultPreset['label'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"
                         class="w-full rounded-xl border border-slate-300 bg-white/90 px-3.5 py-2.5 text-sm text-slate-700 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400/40 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100"
-                        placeholder="Selecionar modelo…"
+                        placeholder="Selecionar modelo..."
                     >
                     <ul
                         id="quick-model-list"
@@ -114,10 +118,10 @@ foreach ($presets as $key => $preset) {
             <div class="mb-6 flex items-center justify-between gap-4">
                 <div>
                     <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                        Informações principais
+                        Informacoes principais
                     </h2>
                     <p class="text-sm text-slate-500 dark:text-slate-300">
-                        Nome e identificação do componente no estoque.
+                        Nome e identificacao do componente no estoque.
                     </p>
                 </div>
             </div>
@@ -126,7 +130,7 @@ foreach ($presets as $key => $preset) {
                 renderInput('nome', 'Nome *', (string)($currentValues['nome'] ?? ''));
                 renderInput('sku', 'SKU *', (string)($currentValues['sku'] ?? ''));
                 renderInput('fabricante', 'Fabricante', (string)($currentValues['fabricante'] ?? ''));
-                renderInput('localizacao', 'Localização', (string)($currentValues['localizacao'] ?? ''), 'ex.: Gaveta A1');
+                renderInput('localizacao', 'Localizacao', (string)($currentValues['localizacao'] ?? ''), 'ex.: Gaveta A1');
                 ?>
             </div>
         </section>
@@ -138,7 +142,7 @@ foreach ($presets as $key => $preset) {
                         Estoque e custo
                     </h2>
                     <p class="text-sm text-slate-500 dark:text-slate-300">
-                        Quantidade atual, unidade padrão e custo médio.
+                        Quantidade atual, unidade padrao e custo medio.
                     </p>
                 </div>
             </div>
@@ -146,10 +150,10 @@ foreach ($presets as $key => $preset) {
                 <?php
                 renderInput('quantidade', 'Quantidade', (string)($currentValues['quantidade'] ?? 0), '', 'type="number" min="0" step="1"');
                 renderInput('unidade', 'Unidade', (string)($currentValues['unidade'] ?? 'un'), 'ex.: un / rolo / pc');
-                renderInput('min_estoque', 'Estoque mínimo', (string)($currentValues['min_estoque'] ?? 0), '', 'type="number" min="0" step="1"');
+                renderInput('min_estoque', 'Estoque minimo', (string)($currentValues['min_estoque'] ?? 0), '', 'type="number" min="0" step="1"');
                 renderInput('footprint', 'Footprint / Encapsulamento', (string)($currentValues['footprint'] ?? ''), 'ex.: 0603 / TQFP-32');
-                renderInput('custo_unitario', 'Custo unitário', (string)($currentValues['custo_unitario'] ?? 0), '', 'type="number" min="0" step="0.01"');
-                renderInput('preco_medio', 'Preço médio', (string)($currentValues['preco_medio'] ?? ''), '', 'type="number" min="0" step="0.01"');
+                renderInput('custo_unitario', 'Custo unitario', (string)($currentValues['custo_unitario'] ?? 0), '', 'type="number" min="0" step="0.01"');
+                renderInput('preco_medio', 'Preco medio', (string)($currentValues['preco_medio'] ?? ''), '', 'type="number" min="0" step="0.01"');
                 ?>
             </div>
         </section>
@@ -159,10 +163,10 @@ foreach ($presets as $key => $preset) {
                 <div class="mb-6 flex items-center justify-between gap-4">
                     <div>
                         <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                            Específicos de <?php echo htmlspecialchars($type, ENT_QUOTES, 'UTF-8'); ?>
+                            Especificos de <?php echo htmlspecialchars($type, ENT_QUOTES, 'UTF-8'); ?>
                         </h2>
                         <p class="text-sm text-slate-500 dark:text-slate-300">
-                            Campos relevantes pré-preenchidos pelo modelo escolhido.
+                            Campos relevantes pre-preenchidos pelo modelo escolhido.
                         </p>
                     </div>
                 </div>
@@ -199,46 +203,52 @@ foreach ($presets as $key => $preset) {
 
 <script>
 (function () {
-    const presets = <?php echo json_encode($presetOptions, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>;
+    const presetPayload = <?php echo json_encode(array_values($presetOptions), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?: '[]'; ?>;
+    const presets = Array.isArray(presetPayload) ? presetPayload.filter((item) => item && typeof item === 'object') : [];
     const comboInput = document.getElementById('quick-model-input');
     const comboList = document.getElementById('quick-model-list');
     const form = document.getElementById('dynamic-component-form');
 
-    const fields = Array.from(form.querySelectorAll('[data-field]')).reduce((acc, input) => {
+    if (!comboInput || !comboList || !form) {
+        return;
+    }
+
+    const fields = Array.from(form?.querySelectorAll('[data-field]') || []).reduce((acc, input) => {
         acc[input.dataset.field] = input;
         return acc;
     }, {});
 
     function applyPreset(values) {
-        Object.entries(values).forEach(([key, value]) => {
+        Object.entries(values || {}).forEach(([key, value]) => {
             if (fields[key]) {
-                fields[key].value = value;
+                fields[key].value = value ?? '';
             }
         });
     }
 
     function renderList(items) {
-        if (!items.length) {
+        const safeItems = Array.isArray(items) ? items : [];
+        if (!safeItems.length) {
             comboList.innerHTML = '<li class="px-4 py-3 text-sm text-slate-500 dark:text-slate-300">Nenhum modelo encontrado</li>';
             return;
         }
 
-        comboList.innerHTML = items.map((item, index) => `
+        comboList.innerHTML = safeItems.map((item, index) => `
             <li role="option"
                 id="quick-model-option-${index}"
-                data-key="${item.key}"
+                data-key="${escapeHtml(item?.key || '')}"
                 class="cursor-pointer border-b border-slate-100 px-4 py-3 text-sm text-slate-700 transition hover:bg-blue-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-blue-500/10">
-                ${item.label}
+                ${escapeHtml(item?.label || 'Modelo sem nome')}
             </li>
         `).join('');
     }
 
     function filterList(term) {
-        const lower = term.trim().toLowerCase();
+        const lower = String(term || '').trim().toLowerCase();
         if (!lower) {
             return presets;
-    }
-        return presets.filter((preset) => preset.label.toLowerCase().includes(lower));
+        }
+        return presets.filter((preset) => String(preset?.label || '').toLowerCase().includes(lower));
     }
 
     function openList(items) {
@@ -250,6 +260,15 @@ foreach ($presets as $key => $preset) {
     function closeList() {
         comboList.classList.add('hidden');
         comboInput.setAttribute('aria-expanded', 'false');
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replaceAll('&', '&amp;')
+            .replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;')
+            .replaceAll('"', '&quot;')
+            .replaceAll("'", '&#039;');
     }
 
     comboInput.addEventListener('focus', () => {
@@ -267,13 +286,13 @@ foreach ($presets as $key => $preset) {
             return;
         }
         const key = option.dataset.key;
-        const preset = presets.find((item) => item.key === key);
+        const preset = presets.find((item) => item?.key === key);
         if (!preset) {
             return;
         }
-        comboInput.value = preset.label;
+        comboInput.value = preset.label || '';
         comboInput.dataset.current = key;
-        applyPreset(preset.values);
+        applyPreset(preset.values || {});
         closeList();
     });
 
@@ -284,7 +303,7 @@ foreach ($presets as $key => $preset) {
     });
 
     if (presets.length > 0) {
-        applyPreset(presets[0].values);
+        applyPreset(presets[0]?.values || {});
     }
 })();
 </script>

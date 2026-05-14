@@ -5,7 +5,6 @@ declare(strict_types=1);
 use App\Core\View;
 
 $title = $title ?? 'Meu Estoque Eletronicos';
-$appUrl = $_ENV['APP_URL'] ?? 'http://localhost:8000';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR" class="h-full">
@@ -13,7 +12,40 @@ $appUrl = $_ENV['APP_URL'] ?? 'http://localhost:8000';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($title . ' | Meu Estoque', ENT_QUOTES, 'UTF-8'); ?></title>
-    <link rel="icon" href="<?php echo htmlspecialchars(rtrim($appUrl, '/') . '/favicon.ico', ENT_QUOTES, 'UTF-8'); ?>">
+    <link rel="icon" href="/favicon.ico">
+    <script>
+        (function () {
+            function fallbackUuid() {
+                return '10000000-1000-4000-8000-100000000000'.replace(/[018]/g, function (c) {
+                    return (Number(c) ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> Number(c) / 4).toString(16);
+                });
+            }
+
+            function readCookie(name) {
+                return document.cookie.split('; ').reduce(function (carry, part) {
+                    var pieces = part.split('=');
+                    return pieces[0] === name ? decodeURIComponent(pieces.slice(1).join('=')) : carry;
+                }, '');
+            }
+
+            window.getOrCreateAnonymousUserId = function () {
+                var key = 'anonymousUserId';
+                var id = localStorage.getItem(key);
+                if (!id) {
+                    id = crypto.randomUUID ? crypto.randomUUID() : fallbackUuid();
+                    localStorage.setItem(key, id);
+                }
+                document.cookie = key + '=' + encodeURIComponent(id) + '; Max-Age=31536000; Path=/; SameSite=Lax';
+                return id;
+            };
+
+            var anonymousUserId = window.getOrCreateAnonymousUserId();
+            if (readCookie('anonymousUserId') !== anonymousUserId) {
+                document.documentElement.style.visibility = 'hidden';
+                window.location.reload();
+            }
+        })();
+    </script>
     <script>
         (function () {
             var storageKey = 'meu-estoque-theme';
@@ -29,7 +61,7 @@ $appUrl = $_ENV['APP_URL'] ?? 'http://localhost:8000';
             }
         })();
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body class="h-full bg-slate-100 text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-100">
     <div class="min-h-screen flex flex-col">

@@ -18,9 +18,6 @@ class ReportController
     {
         Auth::requireAuth();
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         $summary = Component::dashboardSummary($userId);
 
@@ -35,9 +32,6 @@ class ReportController
     {
         Auth::requireAuth();
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         View::render('reports/low_stock', [
             'title' => 'Componentes abaixo do mínimo',
@@ -49,9 +43,6 @@ class ReportController
     {
         Auth::requireAuth();
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         View::render('reports/zeroed', [
             'title' => 'Componentes zerados',
@@ -63,9 +54,6 @@ class ReportController
     {
         Auth::requireAuth();
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         View::render('reports/value_by_category', [
             'title' => 'Valor total por categoria',
@@ -77,9 +65,6 @@ class ReportController
     {
         Auth::requireAuth();
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         $defaultFrom = (new DateTimeImmutable('now'))->sub(new DateInterval('P30D'));
         $defaultTo = new DateTimeImmutable('now');
@@ -124,9 +109,6 @@ class ReportController
         }
 
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         $from = $this->parseDate($_POST['from'] ?? '') ?? new DateTimeImmutable('first day of this month');
         $to = $this->parseDate($_POST['to'] ?? '') ?? new DateTimeImmutable('now');

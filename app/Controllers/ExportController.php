@@ -29,9 +29,6 @@ class ExportController
         }
 
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         $rows = Component::allForExport($userId);
 

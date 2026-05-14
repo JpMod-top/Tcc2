@@ -2,21 +2,46 @@
 
 declare(strict_types=1);
 
-use App\Controllers\AuthController;
 use App\Controllers\ComponentController;
 use App\Controllers\ComponentTypeController;
 use App\Controllers\DashboardController;
 use App\Controllers\ExportController;
 use App\Controllers\ImportController;
-use App\Controllers\ProfileController;
 use App\Controllers\ReportController;
 use App\Core\Auth;
 use App\Core\DB;
 use App\Core\Router;
 
-require __DIR__ . '/../vendor/autoload.php';
+$projectRoot = dirname(__DIR__);
 
-$config = require __DIR__ . '/../config/config.php';
+if (!is_file($projectRoot . '/vendor/autoload.php') && is_file(__DIR__ . '/../estoque/vendor/autoload.php')) {
+    $projectRoot = realpath(__DIR__ . '/../estoque') ?: __DIR__ . '/../estoque';
+}
+
+require $projectRoot . '/vendor/autoload.php';
+
+$config = require $projectRoot . '/config/config.php';
+
+$debug = (bool)($config['app']['debug'] ?? false);
+ini_set('display_errors', $debug ? '1' : '0');
+ini_set('log_errors', '1');
+error_reporting(E_ALL);
+
+set_exception_handler(static function (Throwable $throwable) use ($debug): void {
+    error_log((string)$throwable);
+
+    if (!headers_sent()) {
+        http_response_code(500);
+        header('Content-Type: text/html; charset=utf-8');
+    }
+
+    if ($debug) {
+        echo '<pre>' . htmlspecialchars((string)$throwable, ENT_QUOTES, 'UTF-8') . '</pre>';
+        return;
+    }
+
+    echo 'Erro interno. Tente novamente em instantes.';
+});
 
 $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (($_SERVER['SERVER_PORT'] ?? '80') === '443');
 
@@ -38,6 +63,57 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+function has_valid_anonymous_user_cookie(): bool
+{
+    $value = (string)($_COOKIE['anonymousUserId'] ?? '');
+
+    return preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i', $value) === 1;
+}
+
+function render_anonymous_user_bootstrap(): void
+{
+    header('Content-Type: text/html; charset=utf-8');
+    echo <<<'HTML'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Preparando estoque</title>
+    <script>
+        (function () {
+            function fallbackUuid() {
+                return '10000000-1000-4000-8000-100000000000'.replace(/[018]/g, function (c) {
+                    return (Number(c) ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> Number(c) / 4).toString(16);
+                });
+            }
+
+            window.getOrCreateAnonymousUserId = function () {
+                var key = 'anonymousUserId';
+                var id = localStorage.getItem(key);
+                if (!id) {
+                    id = crypto.randomUUID ? crypto.randomUUID() : fallbackUuid();
+                    localStorage.setItem(key, id);
+                }
+                document.cookie = key + '=' + encodeURIComponent(id) + '; Max-Age=31536000; Path=/; SameSite=Lax';
+                return id;
+            };
+
+            window.getOrCreateAnonymousUserId();
+            window.location.replace(window.location.href);
+        })();
+    </script>
+</head>
+<body>Preparando seu estoque...</body>
+</html>
+HTML;
+}
+
+if (!has_valid_anonymous_user_cookie()) {
+    render_anonymous_user_bootstrap();
+    exit;
+}
+
 DB::init($config['db']);
 Auth::init($isHttps);
 
@@ -50,15 +126,16 @@ $router->get('/', static function (): void {
 
 $router->get('/dashboard', [DashboardController::class, 'index']);
 
-$router->get('/login', [AuthController::class, 'showLogin']);
-$router->post('/login', [AuthController::class, 'login']);
-$router->get('/register', [AuthController::class, 'showRegister']);
-$router->post('/register', [AuthController::class, 'register']);
-$router->get('/forgot', [AuthController::class, 'showForgot']);
-$router->post('/forgot', [AuthController::class, 'forgot']);
-$router->get('/reset', [AuthController::class, 'showReset']);
-$router->post('/reset', [AuthController::class, 'reset']);
-$router->post('/logout', [AuthController::class, 'logout']);
+$legacyRedirect = static function (): void {
+    header('Location: /dashboard', true, 302);
+    exit;
+};
+
+$router->get('/login', $legacyRedirect);
+$router->get('/register', $legacyRedirect);
+$router->get('/forgot', $legacyRedirect);
+$router->get('/reset', $legacyRedirect);
+$router->get('/profile', $legacyRedirect);
 
 $router->get('/components', [ComponentController::class, 'index']);
 $router->get('/components/new', [ComponentController::class, 'create']);
@@ -91,10 +168,5 @@ $router->post('/import/process', [ImportController::class, 'process']);
 
 $router->get('/export', [ExportController::class, 'index']);
 $router->post('/export/csv', [ExportController::class, 'exportCsv']);
-
-$router->get('/profile', [ProfileController::class, 'index']);
-$router->post('/profile/update', [ProfileController::class, 'update']);
-$router->post('/profile/password', [ProfileController::class, 'updatePassword']);
-$router->post('/profile/delete', [ProfileController::class, 'delete']);
 
 $router->dispatch();

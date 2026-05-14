@@ -16,10 +16,12 @@ $pdo->beginTransaction();
 
 $results = [];
 
-function assertTrue(bool $condition, string $message): void
-{
-    global $results;
-    $results[] = [$condition, $message];
+if (!function_exists('assertTrue')) {
+    function assertTrue(bool $condition, string $message): void
+    {
+        global $results;
+        $results[] = [$condition, $message];
+    }
 }
 
 try {

@@ -14,10 +14,6 @@ class DashboardController
     {
         Auth::requireAuth();
         $userId = Auth::userId();
-        if ($userId === null) {
-            header('Location: /login', true, 302);
-            exit;
-        }
 
         $summary = Component::dashboardSummary($userId);
         $recent = Component::recent($userId, 5);

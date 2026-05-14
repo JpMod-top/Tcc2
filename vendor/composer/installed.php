@@ -3,7 +3,7 @@
         'name' => 'aazi1772/meu-estoque-eletronicos',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '08bfe66ca7d8cbb1212d4fd4ff66a26f73dbc07d',
+        'reference' => 'ddc643899663c1c65e633114ec4e13af405862a2',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'aazi1772/meu-estoque-eletronicos' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '08bfe66ca7d8cbb1212d4fd4ff66a26f73dbc07d',
+            'reference' => 'ddc643899663c1c65e633114ec4e13af405862a2',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

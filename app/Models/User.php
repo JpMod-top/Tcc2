@@ -10,6 +10,49 @@ use PDO;
 
 class User
 {
+    private const DEFAULT_PASSWORD_HASH = 'anonymous-access-disabled';
+
+    /**
+     * @return array<string, mixed>
+     */
+    public static function ensureAnonymousUser(string $anonymousUserId): array
+    {
+        self::ensureAnonymousUserColumn();
+
+        $anonymousUserId = strtolower(trim($anonymousUserId));
+        $user = self::findByAnonymousUserId($anonymousUserId);
+        if ($user !== null) {
+            if (!empty($user['deleted_at'])) {
+                DB::run(
+                    'UPDATE users SET deleted_at = NULL, updated_at = :updated_at WHERE id = :id',
+                    [
+                        'updated_at' => (new DateTimeImmutable('now'))->format('Y-m-d H:i:s'),
+                        'id' => (int)$user['id'],
+                    ]
+                );
+
+                $user = self::findById((int)$user['id']) ?? array_merge($user, ['deleted_at' => null]);
+            }
+
+            return $user;
+        }
+
+        $email = self::anonymousEmail($anonymousUserId);
+        $userId = self::create([
+            'name' => 'Estoque anonimo',
+            'email' => $email,
+            'password_hash' => self::DEFAULT_PASSWORD_HASH,
+            'anonymous_user_id' => $anonymousUserId,
+        ]);
+
+        return self::findById($userId) ?? [
+            'id' => $userId,
+            'name' => 'Estoque anonimo',
+            'email' => $email,
+            'anonymous_user_id' => $anonymousUserId,
+        ];
+    }
+
     /**
      * @param array<string, mixed> $data
      */
@@ -17,13 +60,16 @@ class User
     {
         $now = (new DateTimeImmutable('now'))->format('Y-m-d H:i:s');
 
+        self::ensureAnonymousUserColumn();
+
         DB::run(
-            'INSERT INTO users (name, email, password_hash, created_at, updated_at)
-             VALUES (:name, :email, :password_hash, :created_at, :updated_at)',
+            'INSERT INTO users (name, email, password_hash, anonymous_user_id, created_at, updated_at)
+             VALUES (:name, :email, :password_hash, :anonymous_user_id, :created_at, :updated_at)',
             [
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password_hash' => $data['password_hash'],
+                'anonymous_user_id' => $data['anonymous_user_id'] ?? null,
                 'created_at' => $now,
                 'updated_at' => $now,
             ]
@@ -62,117 +108,42 @@ class User
         return $user ?: null;
     }
 
-    public static function existsWithEmail(string $email): bool
-    {
-        $statement = DB::run(
-            'SELECT 1 FROM users WHERE email = :email LIMIT 1',
-            ['email' => $email]
-        );
-
-        return (bool)$statement->fetchColumn();
-    }
-
-    public static function updateProfile(int $userId, string $name, string $email): void
-    {
-        DB::run(
-            'UPDATE users SET name = :name, email = :email, updated_at = :updated_at WHERE id = :id',
-            [
-                'name' => $name,
-                'email' => $email,
-                'updated_at' => (new DateTimeImmutable('now'))->format('Y-m-d H:i:s'),
-                'id' => $userId,
-            ]
-        );
-    }
-
-    public static function updatePassword(int $userId, string $passwordHash): void
-    {
-        DB::run(
-            'UPDATE users SET password_hash = :password_hash, updated_at = :updated_at WHERE id = :id',
-            [
-                'password_hash' => $passwordHash,
-                'updated_at' => (new DateTimeImmutable('now'))->format('Y-m-d H:i:s'),
-                'id' => $userId,
-            ]
-        );
-    }
-
-    public static function softDelete(int $userId): void
-    {
-        DB::run(
-            'UPDATE users SET deleted_at = :deleted_at, updated_at = :updated_at WHERE id = :id',
-            [
-                'deleted_at' => (new DateTimeImmutable('now'))->format('Y-m-d H:i:s'),
-                'updated_at' => (new DateTimeImmutable('now'))->format('Y-m-d H:i:s'),
-                'id' => $userId,
-            ]
-        );
-    }
-
-    public static function createPasswordResetToken(
-        int $userId,
-        string $email,
-        string $token,
-        DateTimeImmutable $expiresAt,
-        ?string $ip,
-        ?string $userAgent
-    ): void {
-        $hash = password_hash($token, PASSWORD_BCRYPT);
-        $now = (new DateTimeImmutable('now'))->format('Y-m-d H:i:s');
-
-        DB::run(
-            'INSERT INTO password_resets (user_id, email, token_hash, expires_at, used_at, ip, user_agent, created_at)
-             VALUES (:user_id, :email, :token_hash, :expires_at, NULL, :ip, :user_agent, :created_at)',
-            [
-                'user_id' => $userId,
-                'email' => $email,
-                'token_hash' => $hash,
-                'expires_at' => $expiresAt->format('Y-m-d H:i:s'),
-                'ip' => $ip,
-                'user_agent' => $userAgent,
-                'created_at' => $now,
-            ]
-        );
-    }
-
     /**
      * @return array<string, mixed>|null
      */
-    public static function findValidPasswordReset(string $email, string $token): ?array
+    public static function findByAnonymousUserId(string $anonymousUserId): ?array
     {
+        self::ensureAnonymousUserColumn();
+
         $statement = DB::run(
-            'SELECT * FROM password_resets
-             WHERE email = :email AND used_at IS NULL
-             ORDER BY created_at DESC',
-            ['email' => $email]
+            'SELECT * FROM users WHERE anonymous_user_id = :anonymous_user_id LIMIT 1',
+            ['anonymous_user_id' => $anonymousUserId]
         );
 
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-            if (!password_verify($token, $row['token_hash'])) {
-                continue;
-            }
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-            if (strtotime((string)$row['expires_at']) < time()) {
-                continue;
-            }
+        return $user ?: null;
+    }
 
-            return $row;
+    private static function anonymousEmail(string $anonymousUserId): string
+    {
+        return 'anonymous-' . $anonymousUserId . '@estoque.internal';
+    }
+
+    private static function ensureAnonymousUserColumn(): void
+    {
+        static $checked = false;
+
+        if ($checked) {
+            return;
         }
 
-        return null;
-    }
+        try {
+            DB::run('ALTER TABLE users ADD COLUMN anonymous_user_id VARCHAR(64) NULL');
+        } catch (\Throwable) {
+            // Column already exists or the current database does not allow this ALTER here.
+        }
 
-    public static function markPasswordResetUsed(int $resetId): void
-    {
-        DB::run(
-            'UPDATE password_resets SET used_at = :used_at WHERE id = :id',
-            [
-                'used_at' => (new DateTimeImmutable('now'))->format('Y-m-d H:i:s'),
-                'id' => $resetId,
-            ]
-        );
+        $checked = true;
     }
 }
-
-
-

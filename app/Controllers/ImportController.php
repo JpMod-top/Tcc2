@@ -28,12 +28,12 @@ class ImportController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('import_preview', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sessão expirada.');
+            $this->flash('error', 'Sessao expirada.');
             $this->redirect('/import');
         }
 
         if (empty($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-            $this->flash('error', 'Arquivo inválido.');
+            $this->flash('error', 'Arquivo invalido.');
             $this->redirect('/import');
         }
 
@@ -41,7 +41,7 @@ class ImportController
         $rows = $this->parseCsv($file);
 
         if (empty($rows)) {
-            $this->flash('error', 'Não foi possível ler dados válidos do CSV.');
+            $this->flash('error', 'Nao foi possivel ler dados validos do CSV.');
             $this->redirect('/import');
         }
 
@@ -50,7 +50,7 @@ class ImportController
         $preview = array_slice($rows, 0, 5);
 
         View::render('import/preview', [
-            'title' => 'Pré-visualização da importação',
+            'title' => 'Pre-visualizacao da importacao',
             'preview' => $preview,
             'total' => count($rows),
             'csrfProcess' => Csrf::token('import_process'),
@@ -62,14 +62,11 @@ class ImportController
         Auth::requireAuth();
 
         if (!$this->verifyCsrf('import_process', $_POST['_token'] ?? null)) {
-            $this->flash('error', 'Sessão expirada.');
+            $this->flash('error', 'Sessao expirada.');
             $this->redirect('/import');
         }
 
         $userId = Auth::userId();
-        if ($userId === null) {
-            $this->redirect('/login');
-        }
 
         $rows = $_SESSION[self::SESSION_KEY] ?? [];
         unset($_SESSION[self::SESSION_KEY]);
@@ -125,19 +122,40 @@ class ImportController
             return [];
         }
 
-        $header = array_map(static fn($value) => strtolower(trim((string)$value)), $header);
+        $header = array_map(
+            static fn($value) => strtolower(trim((string)$value, " \t\n\r\0\x0B\xEF\xBB\xBF")),
+            $header
+        );
+
+        if (!in_array('sku', $header, true) || !in_array('nome', $header, true)) {
+            fclose($handle);
+            return [];
+        }
 
         $rows = [];
         $rowCount = 0;
 
         while (($data = fgetcsv($handle, 0, $delimiter)) !== false) {
+            if ($data === [null] || $data === []) {
+                continue;
+            }
+
             if (count($data) !== count($header)) {
                 continue;
             }
 
             $row = [];
             foreach ($header as $index => $column) {
-                $row[$column] = $data[$index] ?? null;
+                if ($column === '') {
+                    continue;
+                }
+
+                $value = isset($data[$index]) ? trim((string)$data[$index]) : null;
+                $row[$column] = $value === '' ? null : $value;
+            }
+
+            if (($row['sku'] ?? null) === null && ($row['nome'] ?? null) === null) {
+                continue;
             }
 
             $rows[] = $row;
@@ -169,3 +187,4 @@ class ImportController
         exit;
     }
 }
+

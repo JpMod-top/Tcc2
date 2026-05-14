@@ -8,13 +8,11 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Config\\ComponentTypeRegistry' => $baseDir . '/app/Config/ComponentTypeRegistry.php',
     'App\\Config\\ComponentTypeStore' => $baseDir . '/app/Config/ComponentTypeStore.php',
-    'App\\Controllers\\AuthController' => $baseDir . '/app/Controllers/AuthController.php',
     'App\\Controllers\\ComponentController' => $baseDir . '/app/Controllers/ComponentController.php',
     'App\\Controllers\\ComponentTypeController' => $baseDir . '/app/Controllers/ComponentTypeController.php',
     'App\\Controllers\\DashboardController' => $baseDir . '/app/Controllers/DashboardController.php',
     'App\\Controllers\\ExportController' => $baseDir . '/app/Controllers/ExportController.php',
     'App\\Controllers\\ImportController' => $baseDir . '/app/Controllers/ImportController.php',
-    'App\\Controllers\\ProfileController' => $baseDir . '/app/Controllers/ProfileController.php',
     'App\\Controllers\\ReportController' => $baseDir . '/app/Controllers/ReportController.php',
     'App\\Core\\Auth' => $baseDir . '/app/Core/Auth.php',
     'App\\Core\\Csrf' => $baseDir . '/app/Core/Csrf.php',

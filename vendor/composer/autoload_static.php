@@ -23,13 +23,11 @@ class ComposerStaticInit50362cce77074a0afa31e67060bc8267
     public static $classMap = array (
         'App\\Config\\ComponentTypeRegistry' => __DIR__ . '/../..' . '/app/Config/ComponentTypeRegistry.php',
         'App\\Config\\ComponentTypeStore' => __DIR__ . '/../..' . '/app/Config/ComponentTypeStore.php',
-        'App\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Controllers/AuthController.php',
         'App\\Controllers\\ComponentController' => __DIR__ . '/../..' . '/app/Controllers/ComponentController.php',
         'App\\Controllers\\ComponentTypeController' => __DIR__ . '/../..' . '/app/Controllers/ComponentTypeController.php',
         'App\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Controllers/DashboardController.php',
         'App\\Controllers\\ExportController' => __DIR__ . '/../..' . '/app/Controllers/ExportController.php',
         'App\\Controllers\\ImportController' => __DIR__ . '/../..' . '/app/Controllers/ImportController.php',
-        'App\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Controllers/ProfileController.php',
         'App\\Controllers\\ReportController' => __DIR__ . '/../..' . '/app/Controllers/ReportController.php',
         'App\\Core\\Auth' => __DIR__ . '/../..' . '/app/Core/Auth.php',
         'App\\Core\\Csrf' => __DIR__ . '/../..' . '/app/Core/Csrf.php',

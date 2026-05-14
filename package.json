@@ -1,0 +1,13 @@
+{
+  "name": "meu-estoque-eletronicos",
+  "private": true,
+  "scripts": {
+    "build:css": "set BROWSERSLIST_IGNORE_OLD_DATA=1&& tailwindcss -i ./resources/css/app.css -o ./public/assets/css/app.css --minify",
+    "watch:css": "set BROWSERSLIST_IGNORE_OLD_DATA=1&& tailwindcss -i ./resources/css/app.css -o ./public/assets/css/app.css --watch"
+  },
+  "devDependencies": {
+    "browserslist": "^4.28.2",
+    "caniuse-lite": "^1.0.30001792",
+    "tailwindcss": "^3.4.17"
+  }
+}

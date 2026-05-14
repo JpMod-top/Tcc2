@@ -16,26 +16,21 @@ $pdo->beginTransaction();
 
 $results = [];
 
-function assertTrue(bool $condition, string $message): void
-{
-    global $results;
-    $results[] = [$condition, $message];
+if (!function_exists('assertTrue')) {
+    function assertTrue(bool $condition, string $message): void
+    {
+        global $results;
+        $results[] = [$condition, $message];
+    }
 }
 
 try {
-    $userA = User::create([
-        'name' => 'Usuário A',
-        'email' => 'multiA+' . bin2hex(random_bytes(3)) . '@example.com',
-        'password_hash' => password_hash('Senha123A', PASSWORD_ARGON2ID),
-    ]);
+    $userA = User::ensureAnonymousUser('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa');
+    $userB = User::ensureAnonymousUser('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb');
+    $userAId = (int)$userA['id'];
+    $userBId = (int)$userB['id'];
 
-    $userB = User::create([
-        'name' => 'Usuário B',
-        'email' => 'multiB+' . bin2hex(random_bytes(3)) . '@example.com',
-        'password_hash' => password_hash('Senha123B', PASSWORD_ARGON2ID),
-    ]);
-
-    $compA = Component::create($userA, [
+    $compA = Component::create($userAId, [
         'nome' => 'Capacitor 100nF',
         'sku' => 'ISO-A-' . bin2hex(random_bytes(2)),
         'quantidade' => 50,
@@ -43,7 +38,7 @@ try {
         'min_estoque' => 10,
     ]);
 
-    $compB = Component::create($userB, [
+    $compB = Component::create($userBId, [
         'nome' => 'Mosfet 30V',
         'sku' => 'ISO-B-' . bin2hex(random_bytes(2)),
         'quantidade' => 30,
@@ -51,13 +46,13 @@ try {
         'min_estoque' => 5,
     ]);
 
-    $listA = Component::paginateForUser($userA, ['per_page' => 20]);
+    $listA = Component::paginateForUser($userAId, ['per_page' => 20]);
     $idsA = array_map(static fn($item) => (int)$item['id'], $listA['data']);
-    assertTrue(in_array($compA, $idsA, true) && !in_array($compB, $idsA, true), 'Usuário A recebe apenas seus componentes.');
+    assertTrue(in_array($compA, $idsA, true) && !in_array($compB, $idsA, true), 'Navegador A recebe apenas seus componentes.');
 
-    $listB = Component::paginateForUser($userB, ['per_page' => 20]);
+    $listB = Component::paginateForUser($userBId, ['per_page' => 20]);
     $idsB = array_map(static fn($item) => (int)$item['id'], $listB['data']);
-    assertTrue(in_array($compB, $idsB, true) && !in_array($compA, $idsB, true), 'Usuário B recebe apenas seus componentes.');
+    assertTrue(in_array($compB, $idsB, true) && !in_array($compA, $idsB, true), 'Navegador B recebe apenas seus componentes.');
 
     echo "MultitenancyIsolationTest:\n";
     foreach ($results as [$passed, $message]) {

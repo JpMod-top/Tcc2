@@ -15,9 +15,9 @@ $csrfStock = $csrfStock ?? '';
                 <th class="px-4 py-3">SKU</th>
                 <th class="px-4 py-3">Categoria</th>
                 <th class="px-4 py-3">Quantidade</th>
-                <th class="px-4 py-3">Localização</th>
+                <th class="px-4 py-3">Localizacao</th>
                 <th class="px-4 py-3">Tags</th>
-                <th class="px-4 py-3 text-right">Ações</th>
+                <th class="px-4 py-3 text-right">Acoes</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-slate-200 text-sm dark:divide-slate-700 dark:text-slate-100">
@@ -44,7 +44,7 @@ $csrfStock = $csrfStock ?? '';
                             <?php echo htmlspecialchars($component['sku'], ENT_QUOTES, 'UTF-8'); ?>
                         </td>
                         <td class="px-4 py-3 text-slate-600 dark:text-slate-300">
-                            <?php echo htmlspecialchars($component['categoria'] ?? '—', ENT_QUOTES, 'UTF-8'); ?>
+                            <?php echo htmlspecialchars($component['categoria'] ?? 'â€”', ENT_QUOTES, 'UTF-8'); ?>
                         </td>
                         <td class="px-4 py-3">
                             <input
@@ -177,7 +177,7 @@ $csrfStock = $csrfStock ?? '';
                 })
                 .then(function (data) {
                     if (!data.success) {
-                        window.showToast && window.showToast(data.message || 'Não foi possível atualizar.', 'error');
+                        window.showToast && window.showToast(data.message || 'Nao foi possivel atualizar.', 'error');
                         return;
                     }
                     if (field === 'quantidade') {
