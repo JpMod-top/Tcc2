@@ -7,12 +7,13 @@ use App\Core\View;
 
 $user = Auth::user();
 ?>
-<header class="border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-700 dark:bg-slate-900/80">
+<header data-tour="topbar" class="border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-700 dark:bg-slate-900/80">
     <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-8 md:py-4">
         <div class="flex items-center justify-between md:justify-start md:gap-3">
             <button
                 type="button"
                 data-sidebar-toggle
+                data-tour="sidebar-toggle"
                 class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-400/60 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 md:hidden"
                 aria-label="Abrir menu"
             >
@@ -20,20 +21,23 @@ $user = Auth::user();
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
-            <a href="/dashboard" class="text-lg font-semibold text-blue-600 dark:text-blue-400">Meu Estoque</a>
-            <form method="GET" action="/components" class="hidden items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 shadow-sm focus-within:border-blue-400 focus-within:bg-white focus-within:text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 md:flex">
+            <a href="/dashboard" data-tour="brand-dashboard" class="text-lg font-semibold text-blue-600 dark:text-blue-400">Meu Estoque</a>
+            <form method="GET" action="/components" data-tour="global-search" class="hidden items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 shadow-sm focus-within:border-blue-400 focus-within:bg-white focus-within:text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 md:flex">
                 <input name="q" type="search" placeholder="Buscar componentes..." class="w-48 bg-transparent outline-none" aria-label="Buscar componentes">
                 <button type="submit" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">Buscar</button>
             </form>
         </div>
         <div class="flex items-center gap-4 md:justify-end">
             <?php View::partial('partials.darkmode_toggle'); ?>
+            <button type="button" data-onboarding-reopen class="inline-flex items-center rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-blue-400 hover:text-blue-500 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-500 dark:hover:text-blue-400">
+                Tour
+            </button>
             <div class="hidden flex-col text-right text-xs text-slate-500 dark:text-slate-400 sm:flex">
                 <span class="font-semibold text-slate-700 dark:text-slate-100"><?php echo htmlspecialchars($user['name'] ?? 'Estoque anonimo', ENT_QUOTES, 'UTF-8'); ?></span>
                 <span>Estoque deste navegador</span>
             </div>
         </div>
-        <form method="GET" action="/components" class="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 shadow-sm focus-within:border-blue-400 focus-within:bg-white focus-within:text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 md:hidden">
+        <form method="GET" action="/components" data-tour="global-search" class="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 shadow-sm focus-within:border-blue-400 focus-within:bg-white focus-within:text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 md:hidden">
             <input name="q" type="search" placeholder="Buscar componentes..." class="flex-1 bg-transparent outline-none" aria-label="Buscar componentes">
             <button type="submit" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">Buscar</button>
         </form>

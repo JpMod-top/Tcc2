@@ -1,5 +1,6 @@
 <aside
     id="app-sidebar"
+    data-tour="main-nav"
     class="fixed inset-y-0 left-0 z-40 w-64 -translate-x-full transform border-r border-slate-200 bg-white/90 px-4 py-6 text-sm shadow-xl transition duration-200 ease-out dark:border-slate-800 dark:bg-slate-900/90 md:static md:z-0 md:translate-x-0 md:shadow-none"
     aria-label="Menu lateral"
 >
@@ -20,19 +21,19 @@
         <p class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">Menu</p>
     </div>
     <nav class="space-y-1">
-        <a href="/dashboard" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
+        <a href="/dashboard" data-tour="nav-dashboard" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
             <span class="mr-2 inline-flex h-2 w-2 rounded-full bg-blue-500"></span>Dashboard
         </a>
-        <a href="/components" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
+        <a href="/components" data-tour="nav-components" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
             <span class="mr-2 inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>Componentes
         </a>
-        <a href="/reports" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
+        <a href="/reports" data-tour="nav-reports" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
             <span class="mr-2 inline-flex h-2 w-2 rounded-full bg-purple-500"></span>Relatorios
         </a>
-        <a href="/import" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
+        <a href="/import" data-tour="nav-import" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
             <span class="mr-2 inline-flex h-2 w-2 rounded-full bg-amber-500"></span>Importar CSV
         </a>
-        <a href="/export" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
+        <a href="/export" data-tour="nav-export" class="flex items-center rounded-lg px-3 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
             <span class="mr-2 inline-flex h-2 w-2 rounded-full bg-rose-500"></span>Exportar CSV
         </a>
     </nav>

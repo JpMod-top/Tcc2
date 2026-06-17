@@ -12,7 +12,7 @@ $csrfToken = $csrfToken ?? '';
         </p>
     </div>
 
-    <form method="POST" action="/export/csv" class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <form method="POST" action="/export/csv" data-tour="export-action" class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
         <input type="hidden" name="_token" value="<?php echo htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8'); ?>">
         <p class="text-sm text-slate-600 dark:text-slate-300">
             O arquivo conterá campos como nome, SKU, categoria, quantidade, custo unitário e demais atributos. Nenhum dado de outros usuários será incluído.

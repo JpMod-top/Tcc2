@@ -128,6 +128,23 @@ class Component
         );
     }
 
+    public static function softDeleteAllForUser(int $userId): int
+    {
+        $timestamp = (new DateTimeImmutable('now'))->format('Y-m-d H:i:s');
+
+        $statement = DB::run(
+            'UPDATE components
+             SET deleted_at = :deleted_at
+             WHERE user_id = :user_id AND deleted_at IS NULL',
+            [
+                'deleted_at' => $timestamp,
+                'user_id' => $userId,
+            ]
+        );
+
+        return $statement->rowCount();
+    }
+
     /**
      * @param array<string, mixed> $fields
      */

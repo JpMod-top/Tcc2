@@ -71,7 +71,7 @@ $title = $title ?? 'Meu Estoque Eletronicos';
             <?php View::partial('partials/sidebar'); ?>
             <div id="app-sidebar-backdrop" class="fixed inset-0 z-30 hidden bg-slate-900/60 backdrop-blur-sm md:hidden" data-sidebar-backdrop></div>
 
-            <main class="flex-1 overflow-x-auto px-4 py-6 md:px-10 md:py-10">
+            <main data-tour="page-content" class="flex-1 overflow-x-auto px-4 py-6 md:px-10 md:py-10">
                 <?php View::partial('partials/flash'); ?>
                 <div class="mt-4 space-y-6">
                     <?php echo $content ?? ''; ?>

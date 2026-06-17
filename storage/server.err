@@ -1,1958 +1,305 @@
-[Wed May 13 15:23:26 2026] PHP 8.2.12 Development Server (http://127.0.0.1:8000) started
-[Wed May 13 15:23:41 2026] 127.0.0.1:53727 Accepted
-[Wed May 13 15:23:41 2026] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [14] unable to open database file in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php:48
-Stack trace:
-#0 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(48): PDO->__construct('sqlite:storage/...')
-#1 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(86): App\Core\DB::connection()
-#2 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(79): App\Core\DB::run('SELECT * FROM u...', Array)
-#3 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(22): App\Models\User::findByEmail('local@estoque.i...')
-#4 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(58): App\Models\User::ensureDefaultUser()
-#5 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(19): App\Core\Auth::user()
-#6 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\public\index.php(40): App\Core\Auth::init(NULL)
-#7 {main}
-
-Next RuntimeException: Database connection failed: SQLSTATE[HY000] [14] unable to open database file in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php:75
-Stack trace:
-#0 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(86): App\Core\DB::connection()
-#1 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(79): App\Core\DB::run('SELECT * FROM u...', Array)
-#2 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(22): App\Models\User::findByEmail('local@estoque.i...')
-#3 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(58): App\Models\User::ensureDefaultUser()
-#4 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(19): App\Core\Auth::user()
-#5 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\public\index.php(40): App\Core\Auth::init(NULL)
-#6 {main}
-  thrown in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php on line 75
-[Wed May 13 15:23:41 2026] 127.0.0.1:53727 [200]: GET /dashboard - Uncaught PDOException: SQLSTATE[HY000] [14] unable to open database file in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php:48
-Stack trace:
-#0 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(48): PDO->__construct('sqlite:storage/...')
-#1 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(86): App\Core\DB::connection()
-#2 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(79): App\Core\DB::run('SELECT * FROM u...', Array)
-#3 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(22): App\Models\User::findByEmail('local@estoque.i...')
-#4 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(58): App\Models\User::ensureDefaultUser()
-#5 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(19): App\Core\Auth::user()
-#6 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\public\index.php(40): App\Core\Auth::init(NULL)
-#7 {main}
-
-Next RuntimeException: Database connection failed: SQLSTATE[HY000] [14] unable to open database file in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php:75
-Stack trace:
-#0 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(86): App\Core\DB::connection()
-#1 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(79): App\Core\DB::run('SELECT * FROM u...', Array)
-#2 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(22): App\Models\User::findByEmail('local@estoque.i...')
-#3 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(58): App\Models\User::ensureDefaultUser()
-#4 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(19): App\Core\Auth::user()
-#5 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\public\index.php(40): App\Core\Auth::init(NULL)
-#6 {main}
-  thrown in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php on line 75
-[Wed May 13 15:23:41 2026] 127.0.0.1:53727 Closing
-[Wed May 13 15:23:51 2026] 127.0.0.1:65526 Accepted
-[Wed May 13 15:23:51 2026] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [14] unable to open database file in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php:48
-Stack trace:
-#0 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(48): PDO->__construct('sqlite:storage/...')
-#1 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(86): App\Core\DB::connection()
-#2 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(79): App\Core\DB::run('SELECT * FROM u...', Array)
-#3 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(22): App\Models\User::findByEmail('local@estoque.i...')
-#4 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(58): App\Models\User::ensureDefaultUser()
-#5 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(19): App\Core\Auth::user()
-#6 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\public\index.php(40): App\Core\Auth::init(NULL)
-#7 {main}
-
-Next RuntimeException: Database connection failed: SQLSTATE[HY000] [14] unable to open database file in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php:75
-Stack trace:
-#0 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(86): App\Core\DB::connection()
-#1 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(79): App\Core\DB::run('SELECT * FROM u...', Array)
-#2 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(22): App\Models\User::findByEmail('local@estoque.i...')
-#3 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(58): App\Models\User::ensureDefaultUser()
-#4 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(19): App\Core\Auth::user()
-#5 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\public\index.php(40): App\Core\Auth::init(NULL)
-#6 {main}
-  thrown in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php on line 75
-[Wed May 13 15:23:51 2026] 127.0.0.1:65526 [200]: GET /login - Uncaught PDOException: SQLSTATE[HY000] [14] unable to open database file in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php:48
-Stack trace:
-#0 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(48): PDO->__construct('sqlite:storage/...')
-#1 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(86): App\Core\DB::connection()
-#2 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(79): App\Core\DB::run('SELECT * FROM u...', Array)
-#3 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(22): App\Models\User::findByEmail('local@estoque.i...')
-#4 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(58): App\Models\User::ensureDefaultUser()
-#5 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(19): App\Core\Auth::user()
-#6 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\public\index.php(40): App\Core\Auth::init(NULL)
-#7 {main}
-
-Next RuntimeException: Database connection failed: SQLSTATE[HY000] [14] unable to open database file in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php:75
-Stack trace:
-#0 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php(86): App\Core\DB::connection()
-#1 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(79): App\Core\DB::run('SELECT * FROM u...', Array)
-#2 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Models\User.php(22): App\Models\User::findByEmail('local@estoque.i...')
-#3 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(58): App\Models\User::ensureDefaultUser()
-#4 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\Auth.php(19): App\Core\Auth::user()
-#5 C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\public\index.php(40): App\Core\Auth::init(NULL)
-#6 {main}
-  thrown in C:\Users\JpMod\Documents\JoaoPedro\Faculdade\TCC\Tcc2-1\app\Core\DB.php on line 75
-[Wed May 13 15:23:51 2026] 127.0.0.1:65526 Closing
-[Wed May 13 15:24:23 2026] 127.0.0.1:49179 Accepted
-[Wed May 13 15:24:23 2026] 127.0.0.1:49179 [200]: GET /dashboard
-[Wed May 13 15:24:23 2026] 127.0.0.1:49179 Closing
-[Wed May 13 15:24:23 2026] 127.0.0.1:49180 Accepted
-[Wed May 13 15:24:23 2026] 127.0.0.1:49180 [302]: GET /login
-[Wed May 13 15:24:23 2026] 127.0.0.1:49180 Closing
-[Wed May 13 15:24:23 2026] 127.0.0.1:49181 Accepted
-[Wed May 13 15:24:23 2026] 127.0.0.1:49181 [200]: GET /dashboard
-[Wed May 13 15:24:23 2026] 127.0.0.1:49181 Closing
-[Wed May 13 15:24:53 2026] 127.0.0.1:58586 Accepted
-[Wed May 13 15:24:53 2026] 127.0.0.1:58586 [200]: GET /dashboard
-[Wed May 13 15:24:53 2026] 127.0.0.1:58586 Closing
-[Wed May 13 15:27:10 2026] 127.0.0.1:53454 Accepted
-[Wed May 13 15:27:10 2026] 127.0.0.1:53454 [302]: GET /
-[Wed May 13 15:27:10 2026] 127.0.0.1:53454 Closing
-[Wed May 13 15:27:10 2026] 127.0.0.1:54137 Accepted
-[Wed May 13 15:27:10 2026] 127.0.0.1:54137 [200]: GET /dashboard
-[Wed May 13 15:27:10 2026] 127.0.0.1:54137 Closing
-[Wed May 13 15:27:10 2026] 127.0.0.1:55359 Accepted
-[Wed May 13 15:27:10 2026] 127.0.0.1:55359 [200]: GET /assets/js/app.js
-[Wed May 13 15:27:10 2026] 127.0.0.1:55359 Closing
-[Wed May 13 15:27:10 2026] 127.0.0.1:54994 Accepted
-[Wed May 13 15:27:10 2026] 127.0.0.1:54994 [200]: GET /assets/js/charts.js
-[Wed May 13 15:27:10 2026] 127.0.0.1:54994 Closing
-[Wed May 13 15:27:15 2026] 127.0.0.1:51921 Accepted
-[Wed May 13 15:27:15 2026] 127.0.0.1:51921 [200]: GET /dashboard
-[Wed May 13 15:27:15 2026] 127.0.0.1:51921 Closing
-[Wed May 13 15:27:15 2026] 127.0.0.1:61510 Accepted
-[Wed May 13 15:27:15 2026] 127.0.0.1:65382 Accepted
-[Wed May 13 15:27:15 2026] 127.0.0.1:61510 [200]: GET /assets/js/app.js
-[Wed May 13 15:27:15 2026] 127.0.0.1:65382 [200]: GET /assets/js/charts.js
-[Wed May 13 15:27:15 2026] 127.0.0.1:61510 Closing
-[Wed May 13 15:27:15 2026] 127.0.0.1:65382 Closing
-[Wed May 13 15:27:16 2026] 127.0.0.1:58635 Accepted
-[Wed May 13 15:27:16 2026] 127.0.0.1:58635 [200]: GET /components
-[Wed May 13 15:27:16 2026] 127.0.0.1:58635 Closing
-[Wed May 13 15:27:16 2026] 127.0.0.1:52255 Accepted
-[Wed May 13 15:27:16 2026] 127.0.0.1:62454 Accepted
-[Wed May 13 15:27:16 2026] 127.0.0.1:52255 [200]: GET /assets/js/app.js
-[Wed May 13 15:27:16 2026] 127.0.0.1:62454 [200]: GET /assets/js/charts.js
-[Wed May 13 15:27:16 2026] 127.0.0.1:52255 Closing
-[Wed May 13 15:27:16 2026] 127.0.0.1:62454 Closing
-[Wed May 13 15:27:32 2026] 127.0.0.1:49609 Accepted
-[Wed May 13 15:27:32 2026] 127.0.0.1:49609 [200]: GET /components?q=&category=&sort=nome&direction=asc&per_page=50
-[Wed May 13 15:27:32 2026] 127.0.0.1:49609 Closing
-[Wed May 13 15:27:32 2026] 127.0.0.1:59357 Accepted
-[Wed May 13 15:27:32 2026] 127.0.0.1:52428 Accepted
-[Wed May 13 15:27:32 2026] 127.0.0.1:59357 [200]: GET /assets/js/app.js
-[Wed May 13 15:27:32 2026] 127.0.0.1:52428 [200]: GET /assets/js/charts.js
-[Wed May 13 15:27:32 2026] 127.0.0.1:59357 Closing
-[Wed May 13 15:27:32 2026] 127.0.0.1:52428 Closing
-[Wed May 13 15:27:37 2026] 127.0.0.1:63811 Accepted
-[Wed May 13 15:27:37 2026] 127.0.0.1:63811 [200]: GET /import
-[Wed May 13 15:27:37 2026] 127.0.0.1:63811 Closing
-[Wed May 13 15:27:37 2026] 127.0.0.1:60805 Accepted
-[Wed May 13 15:27:37 2026] 127.0.0.1:60805 [200]: GET /assets/js/app.js
-[Wed May 13 15:27:37 2026] 127.0.0.1:60805 Closing
-[Wed May 13 15:27:37 2026] 127.0.0.1:61616 Accepted
-[Wed May 13 15:27:37 2026] 127.0.0.1:61616 [200]: GET /assets/js/charts.js
-[Wed May 13 15:27:37 2026] 127.0.0.1:61616 Closing
-[Wed May 13 15:34:51 2026] 127.0.0.1:52469 Accepted
-[Wed May 13 15:34:51 2026] 127.0.0.1:52469 [200]: POST /import/preview
-[Wed May 13 15:34:51 2026] 127.0.0.1:52469 Closing
-[Wed May 13 15:34:51 2026] 127.0.0.1:65180 Accepted
-[Wed May 13 15:34:51 2026] 127.0.0.1:60383 Accepted
-[Wed May 13 15:34:51 2026] 127.0.0.1:65180 [200]: GET /assets/js/app.js
-[Wed May 13 15:34:51 2026] 127.0.0.1:60383 [200]: GET /assets/js/charts.js
-[Wed May 13 15:34:51 2026] 127.0.0.1:65180 Closing
-[Wed May 13 15:34:51 2026] 127.0.0.1:60383 Closing
-[Wed May 13 15:35:02 2026] 127.0.0.1:53235 Accepted
-[Wed May 13 15:35:02 2026] 127.0.0.1:53235 [200]: GET /components
-[Wed May 13 15:35:02 2026] 127.0.0.1:53235 Closing
-[Wed May 13 15:35:02 2026] 127.0.0.1:49717 Accepted
-[Wed May 13 15:35:02 2026] 127.0.0.1:49717 [200]: GET /assets/js/app.js
-[Wed May 13 15:35:02 2026] 127.0.0.1:49717 Closing
-[Wed May 13 15:35:02 2026] 127.0.0.1:54905 Accepted
-[Wed May 13 15:35:02 2026] 127.0.0.1:54905 [200]: GET /assets/js/charts.js
-[Wed May 13 15:35:02 2026] 127.0.0.1:54905 Closing
-[Wed May 13 15:35:04 2026] 127.0.0.1:53259 Accepted
-[Wed May 13 15:35:05 2026] 127.0.0.1:53259 [200]: GET /dashboard
-[Wed May 13 15:35:05 2026] 127.0.0.1:53259 Closing
-[Wed May 13 15:35:05 2026] 127.0.0.1:56117 Accepted
-[Wed May 13 15:35:05 2026] 127.0.0.1:54681 Accepted
-[Wed May 13 15:35:05 2026] 127.0.0.1:56117 [200]: GET /assets/js/app.js
-[Wed May 13 15:35:05 2026] 127.0.0.1:54681 [200]: GET /assets/js/charts.js
-[Wed May 13 15:35:05 2026] 127.0.0.1:56117 Closing
-[Wed May 13 15:35:05 2026] 127.0.0.1:54681 Closing
-[Wed May 13 15:35:06 2026] 127.0.0.1:65395 Accepted
-[Wed May 13 15:35:06 2026] 127.0.0.1:65395 [200]: GET /export
-[Wed May 13 15:35:06 2026] 127.0.0.1:65395 Closing
-[Wed May 13 15:35:06 2026] 127.0.0.1:55381 Accepted
-[Wed May 13 15:35:06 2026] 127.0.0.1:55059 Accepted
-[Wed May 13 15:35:06 2026] 127.0.0.1:55381 [200]: GET /assets/js/app.js
-[Wed May 13 15:35:06 2026] 127.0.0.1:55059 [200]: GET /assets/js/charts.js
-[Wed May 13 15:35:06 2026] 127.0.0.1:55381 Closing
-[Wed May 13 15:35:06 2026] 127.0.0.1:55059 Closing
-[Wed May 13 15:35:08 2026] 127.0.0.1:57282 Accepted
-[Wed May 13 15:35:08 2026] 127.0.0.1:57282 [200]: GET /import
-[Wed May 13 15:35:08 2026] 127.0.0.1:57282 Closing
-[Wed May 13 15:35:08 2026] 127.0.0.1:62625 Accepted
-[Wed May 13 15:35:08 2026] 127.0.0.1:59177 Accepted
-[Wed May 13 15:35:08 2026] 127.0.0.1:62625 [200]: GET /assets/js/app.js
-[Wed May 13 15:35:08 2026] 127.0.0.1:59177 [200]: GET /assets/js/charts.js
-[Wed May 13 15:35:08 2026] 127.0.0.1:62625 Closing
-[Wed May 13 15:35:08 2026] 127.0.0.1:59177 Closing
-[Wed May 13 15:35:15 2026] 127.0.0.1:59255 Accepted
-[Wed May 13 15:35:15 2026] 127.0.0.1:59255 [200]: GET /export
-[Wed May 13 15:35:15 2026] 127.0.0.1:59255 Closing
-[Wed May 13 15:35:15 2026] 127.0.0.1:60225 Accepted
-[Wed May 13 15:35:15 2026] 127.0.0.1:62503 Accepted
-[Wed May 13 15:35:15 2026] 127.0.0.1:60225 [200]: GET /assets/js/app.js
-[Wed May 13 15:35:15 2026] 127.0.0.1:62503 [200]: GET /assets/js/charts.js
-[Wed May 13 15:35:15 2026] 127.0.0.1:60225 Closing
-[Wed May 13 15:35:15 2026] 127.0.0.1:62503 Closing
-[Wed May 13 15:35:16 2026] 127.0.0.1:51464 Accepted
-[Wed May 13 15:35:16 2026] 127.0.0.1:51464 [200]: POST /export/csv
-[Wed May 13 15:35:16 2026] 127.0.0.1:51464 Closing
-[Wed May 13 15:35:20 2026] 127.0.0.1:50814 Accepted
-[Wed May 13 15:35:20 2026] 127.0.0.1:50814 [200]: GET /import
-[Wed May 13 15:35:20 2026] 127.0.0.1:50814 Closing
-[Wed May 13 15:35:20 2026] 127.0.0.1:57226 Accepted
-[Wed May 13 15:35:20 2026] 127.0.0.1:52207 Accepted
-[Wed May 13 15:35:20 2026] 127.0.0.1:57226 [200]: GET /assets/js/app.js
-[Wed May 13 15:35:20 2026] 127.0.0.1:52207 [200]: GET /assets/js/charts.js
-[Wed May 13 15:35:20 2026] 127.0.0.1:57226 Closing
-[Wed May 13 15:35:20 2026] 127.0.0.1:52207 Closing
-[Wed May 13 15:35:45 2026] 127.0.0.1:59582 Accepted
-[Wed May 13 15:35:45 2026] 127.0.0.1:59582 [200]: GET /import
-[Wed May 13 15:35:45 2026] 127.0.0.1:59582 Closing
-[Wed May 13 15:35:45 2026] 127.0.0.1:54090 Accepted
-[Wed May 13 15:35:45 2026] 127.0.0.1:54778 Accepted
-[Wed May 13 15:35:45 2026] 127.0.0.1:54090 [200]: GET /assets/js/app.js
-[Wed May 13 15:35:45 2026] 127.0.0.1:54778 [200]: GET /assets/js/charts.js
-[Wed May 13 15:35:45 2026] 127.0.0.1:54090 Closing
-[Wed May 13 15:35:45 2026] 127.0.0.1:54778 Closing
-[Wed May 13 15:35:48 2026] 127.0.0.1:51404 Accepted
-[Wed May 13 15:35:48 2026] 127.0.0.1:51404 [200]: POST /import/preview
-[Wed May 13 15:35:48 2026] 127.0.0.1:51404 Closing
-[Wed May 13 15:35:48 2026] 127.0.0.1:54810 Accepted
-[Wed May 13 15:35:48 2026] 127.0.0.1:53869 Accepted
-[Wed May 13 15:35:48 2026] 127.0.0.1:54810 [200]: GET /assets/js/app.js
-[Wed May 13 15:35:48 2026] 127.0.0.1:53869 [200]: GET /assets/js/charts.js
-[Wed May 13 15:35:48 2026] 127.0.0.1:54810 Closing
-[Wed May 13 15:35:48 2026] 127.0.0.1:53869 Closing
-[Wed May 13 15:35:56 2026] 127.0.0.1:58578 Accepted
-[Wed May 13 15:35:56 2026] 127.0.0.1:58578 [302]: POST /import/process
-[Wed May 13 15:35:56 2026] 127.0.0.1:58578 Closing
-[Wed May 13 15:35:56 2026] 127.0.0.1:58041 Accepted
-[Wed May 13 15:35:56 2026] 127.0.0.1:58041 [200]: GET /components
-[Wed May 13 15:35:56 2026] 127.0.0.1:58041 Closing
-[Wed May 13 15:35:57 2026] 127.0.0.1:52260 Accepted
-[Wed May 13 15:35:57 2026] 127.0.0.1:52260 [200]: GET /assets/js/app.js
-[Wed May 13 15:35:57 2026] 127.0.0.1:52260 Closing
-[Wed May 13 15:35:57 2026] 127.0.0.1:65458 Accepted
-[Wed May 13 15:35:57 2026] 127.0.0.1:65458 [200]: GET /assets/js/charts.js
-[Wed May 13 15:35:57 2026] 127.0.0.1:65458 Closing
-[Wed May 13 15:36:15 2026] 127.0.0.1:51669 Accepted
-[Wed May 13 15:36:15 2026] 127.0.0.1:51669 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:36:15 2026] 127.0.0.1:51669 Closing
-[Wed May 13 15:41:07 2026] 127.0.0.1:54814 Accepted
-[Wed May 13 15:41:07 2026] 127.0.0.1:54814 [200]: GET /dashboard
-[Wed May 13 15:41:07 2026] 127.0.0.1:54814 Closing
-[Wed May 13 15:41:07 2026] 127.0.0.1:54815 Accepted
-[Wed May 13 15:41:07 2026] 127.0.0.1:54815 [200]: GET /components
-[Wed May 13 15:41:07 2026] 127.0.0.1:54815 Closing
-[Wed May 13 15:41:07 2026] 127.0.0.1:54817 Accepted
-[Wed May 13 15:41:07 2026] 127.0.0.1:54817 [200]: GET /components/new
-[Wed May 13 15:41:07 2026] 127.0.0.1:54817 Closing
-[Wed May 13 15:41:07 2026] 127.0.0.1:54818 Accepted
-[Wed May 13 15:41:07 2026] 127.0.0.1:54818 [200]: GET /import
-[Wed May 13 15:41:07 2026] 127.0.0.1:54818 Closing
-[Wed May 13 15:41:07 2026] 127.0.0.1:54820 Accepted
-[Wed May 13 15:41:07 2026] 127.0.0.1:54820 [200]: GET /favicon.ico
-[Wed May 13 15:41:07 2026] 127.0.0.1:54820 Closing
-[Wed May 13 15:41:23 2026] 127.0.0.1:53986 Accepted
-[Wed May 13 15:41:23 2026] 127.0.0.1:53986 [200]: GET /import
-[Wed May 13 15:41:23 2026] 127.0.0.1:53986 Closing
-[Wed May 13 15:41:23 2026] 127.0.0.1:53987 Accepted
-[Wed May 13 15:41:23 2026] 127.0.0.1:53987 [200]: POST /import/preview
-[Wed May 13 15:41:23 2026] 127.0.0.1:53987 Closing
-[Wed May 13 15:41:23 2026] 127.0.0.1:53988 Accepted
-[Wed May 13 15:41:23 2026] 127.0.0.1:53988 [302]: POST /import/process
-[Wed May 13 15:41:23 2026] 127.0.0.1:53988 Closing
-[Wed May 13 15:42:03 2026] 127.0.0.1:64193 Accepted
-[Wed May 13 15:42:03 2026] 127.0.0.1:64193 [200]: GET /components/new?type=Resistor
-[Wed May 13 15:42:03 2026] 127.0.0.1:64193 Closing
-[Wed May 13 15:42:28 2026] 127.0.0.1:65057 Accepted
-[Wed May 13 15:42:28 2026] 127.0.0.1:65057 [200]: GET /components/new?type=Resistor
-[Wed May 13 15:42:28 2026] 127.0.0.1:65057 Closing
-[Wed May 13 15:43:21 2026] 127.0.0.1:52042 Accepted
-[Wed May 13 15:43:21 2026] 127.0.0.1:52042 [200]: GET /components
-[Wed May 13 15:43:21 2026] 127.0.0.1:52042 Closing
-[Wed May 13 15:43:21 2026] 127.0.0.1:53008 Accepted
-[Wed May 13 15:43:21 2026] 127.0.0.1:58642 Accepted
-[Wed May 13 15:43:21 2026] 127.0.0.1:53008 [200]: GET /assets/js/app.js
-[Wed May 13 15:43:21 2026] 127.0.0.1:58642 [200]: GET /assets/js/charts.js
-[Wed May 13 15:43:21 2026] 127.0.0.1:53008 Closing
-[Wed May 13 15:43:21 2026] 127.0.0.1:58642 Closing
-[Wed May 13 15:43:21 2026] 127.0.0.1:57321 Accepted
-[Wed May 13 15:43:21 2026] 127.0.0.1:57321 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:43:21 2026] 127.0.0.1:57321 Closing
-[Wed May 13 15:43:30 2026] 127.0.0.1:61719 Accepted
-[Wed May 13 15:43:30 2026] 127.0.0.1:61719 [200]: GET /import
-[Wed May 13 15:43:30 2026] 127.0.0.1:61719 Closing
-[Wed May 13 15:43:30 2026] 127.0.0.1:65465 Accepted
-[Wed May 13 15:43:30 2026] 127.0.0.1:50625 Accepted
-[Wed May 13 15:43:30 2026] 127.0.0.1:65465 [200]: GET /assets/js/app.js
-[Wed May 13 15:43:30 2026] 127.0.0.1:50625 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:43:30 2026] 127.0.0.1:60856 Accepted
-[Wed May 13 15:43:30 2026] 127.0.0.1:50625 Closing
-[Wed May 13 15:43:30 2026] 127.0.0.1:60856 [200]: GET /assets/js/charts.js
-[Wed May 13 15:43:30 2026] 127.0.0.1:65465 Closing
-[Wed May 13 15:43:30 2026] 127.0.0.1:60856 Closing
-[Wed May 13 15:43:32 2026] 127.0.0.1:58110 Accepted
-[Wed May 13 15:43:32 2026] 127.0.0.1:58110 [200]: GET /components
-[Wed May 13 15:43:32 2026] 127.0.0.1:58110 Closing
-[Wed May 13 15:43:32 2026] 127.0.0.1:65491 Accepted
-[Wed May 13 15:43:32 2026] 127.0.0.1:65491 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:43:32 2026] 127.0.0.1:65491 Closing
-[Wed May 13 15:43:32 2026] 127.0.0.1:51376 Accepted
-[Wed May 13 15:43:32 2026] 127.0.0.1:57374 Accepted
-[Wed May 13 15:43:32 2026] 127.0.0.1:51376 [200]: GET /assets/js/app.js
-[Wed May 13 15:43:32 2026] 127.0.0.1:57374 [200]: GET /assets/js/charts.js
-[Wed May 13 15:43:32 2026] 127.0.0.1:51376 Closing
-[Wed May 13 15:43:32 2026] 127.0.0.1:57374 Closing
-[Wed May 13 15:44:22 2026] 127.0.0.1:57566 Accepted
-[Wed May 13 15:44:22 2026] 127.0.0.1:57566 [200]: GET /import
-[Wed May 13 15:44:22 2026] 127.0.0.1:57566 Closing
-[Wed May 13 15:44:23 2026] 127.0.0.1:49614 Accepted
-[Wed May 13 15:44:23 2026] 127.0.0.1:63798 Accepted
-[Wed May 13 15:44:23 2026] 127.0.0.1:49614 [200]: GET /assets/js/app.js
-[Wed May 13 15:44:23 2026] 127.0.0.1:63798 [200]: GET /assets/js/charts.js
-[Wed May 13 15:44:23 2026] 127.0.0.1:49614 Closing
-[Wed May 13 15:44:23 2026] 127.0.0.1:63798 Closing
-[Wed May 13 15:44:23 2026] 127.0.0.1:50183 Accepted
-[Wed May 13 15:44:23 2026] 127.0.0.1:50183 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:44:23 2026] 127.0.0.1:50183 Closing
-[Wed May 13 15:44:26 2026] 127.0.0.1:51405 Accepted
-[Wed May 13 15:44:26 2026] 127.0.0.1:51405 [200]: POST /import/preview
-[Wed May 13 15:44:26 2026] 127.0.0.1:51405 Closing
-[Wed May 13 15:44:26 2026] 127.0.0.1:62188 Accepted
-[Wed May 13 15:44:26 2026] 127.0.0.1:50752 Accepted
-[Wed May 13 15:44:26 2026] 127.0.0.1:62188 [200]: GET /assets/js/app.js
-[Wed May 13 15:44:26 2026] 127.0.0.1:50752 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:44:26 2026] 127.0.0.1:50752 Closing
-[Wed May 13 15:44:26 2026] 127.0.0.1:60350 Accepted
-[Wed May 13 15:44:26 2026] 127.0.0.1:62188 Closing
-[Wed May 13 15:44:26 2026] 127.0.0.1:60350 [200]: GET /assets/js/charts.js
-[Wed May 13 15:44:26 2026] 127.0.0.1:60350 Closing
-[Wed May 13 15:44:29 2026] 127.0.0.1:57850 Accepted
-[Wed May 13 15:44:29 2026] 127.0.0.1:57850 [302]: POST /import/process
-[Wed May 13 15:44:29 2026] 127.0.0.1:57850 Closing
-[Wed May 13 15:44:29 2026] 127.0.0.1:62240 Accepted
-[Wed May 13 15:44:29 2026] 127.0.0.1:62240 [200]: GET /components
-[Wed May 13 15:44:29 2026] 127.0.0.1:62240 Closing
-[Wed May 13 15:44:29 2026] 127.0.0.1:59389 Accepted
-[Wed May 13 15:44:29 2026] 127.0.0.1:59389 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:44:29 2026] 127.0.0.1:59389 Closing
-[Wed May 13 15:44:29 2026] 127.0.0.1:54493 Accepted
-[Wed May 13 15:44:29 2026] 127.0.0.1:54493 [200]: GET /assets/js/app.js
-[Wed May 13 15:44:29 2026] 127.0.0.1:54493 Closing
-[Wed May 13 15:44:29 2026] 127.0.0.1:53631 Accepted
-[Wed May 13 15:44:29 2026] 127.0.0.1:53631 [200]: GET /assets/js/charts.js
-[Wed May 13 15:44:29 2026] 127.0.0.1:53631 Closing
-[Wed May 13 15:44:34 2026] 127.0.0.1:56145 Accepted
-[Wed May 13 15:44:34 2026] 127.0.0.1:56145 [200]: GET /components?page=2
-[Wed May 13 15:44:34 2026] 127.0.0.1:56145 Closing
-[Wed May 13 15:44:34 2026] 127.0.0.1:58645 Accepted
-[Wed May 13 15:44:34 2026] 127.0.0.1:58645 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:44:34 2026] 127.0.0.1:58645 Closing
-[Wed May 13 15:44:34 2026] 127.0.0.1:57392 Accepted
-[Wed May 13 15:44:34 2026] 127.0.0.1:57392 [200]: GET /assets/js/app.js
-[Wed May 13 15:44:34 2026] 127.0.0.1:57392 Closing
-[Wed May 13 15:44:34 2026] 127.0.0.1:53352 Accepted
-[Wed May 13 15:44:34 2026] 127.0.0.1:53352 [200]: GET /assets/js/charts.js
-[Wed May 13 15:44:34 2026] 127.0.0.1:53352 Closing
-[Wed May 13 15:45:04 2026] 127.0.0.1:49787 Accepted
-[Wed May 13 15:45:04 2026] 127.0.0.1:49787 [200]: GET /components
-[Wed May 13 15:45:04 2026] 127.0.0.1:49787 Closing
-[Wed May 13 15:45:04 2026] 127.0.0.1:49285 Accepted
-[Wed May 13 15:45:04 2026] 127.0.0.1:49285 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:45:04 2026] 127.0.0.1:49285 Closing
-[Wed May 13 15:45:05 2026] 127.0.0.1:60441 Accepted
-[Wed May 13 15:45:05 2026] 127.0.0.1:60441 [200]: GET /assets/js/app.js
-[Wed May 13 15:45:05 2026] 127.0.0.1:60441 Closing
-[Wed May 13 15:45:05 2026] 127.0.0.1:58702 Accepted
-[Wed May 13 15:45:05 2026] 127.0.0.1:58702 [200]: GET /assets/js/charts.js
-[Wed May 13 15:45:05 2026] 127.0.0.1:58702 Closing
-[Wed May 13 15:45:06 2026] 127.0.0.1:58631 Accepted
-[Wed May 13 15:45:06 2026] 127.0.0.1:58631 [200]: GET /dashboard
-[Wed May 13 15:45:06 2026] 127.0.0.1:58631 Closing
-[Wed May 13 15:45:06 2026] 127.0.0.1:49171 Accepted
-[Wed May 13 15:45:06 2026] 127.0.0.1:54995 Accepted
-[Wed May 13 15:45:06 2026] 127.0.0.1:49171 [200]: GET /assets/js/app.js
-[Wed May 13 15:45:06 2026] 127.0.0.1:54995 [200]: GET /assets/js/charts.js
-[Wed May 13 15:45:06 2026] 127.0.0.1:49171 Closing
-[Wed May 13 15:45:06 2026] 127.0.0.1:54995 Closing
-[Wed May 13 15:45:06 2026] 127.0.0.1:61230 Accepted
-[Wed May 13 15:45:06 2026] 127.0.0.1:61230 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:45:06 2026] 127.0.0.1:61230 Closing
-[Wed May 13 15:46:08 2026] 127.0.0.1:53765 Accepted
-[Wed May 13 15:46:08 2026] 127.0.0.1:53765 [200]: GET /reports/value-category
-[Wed May 13 15:46:08 2026] 127.0.0.1:53765 Closing
-[Wed May 13 15:46:08 2026] 127.0.0.1:55600 Accepted
-[Wed May 13 15:46:08 2026] 127.0.0.1:55600 [200]: GET /assets/css/app.css
-[Wed May 13 15:46:08 2026] 127.0.0.1:61056 Accepted
-[Wed May 13 15:46:08 2026] 127.0.0.1:50521 Accepted
-[Wed May 13 15:46:09 2026] 127.0.0.1:61056 [200]: GET /assets/js/app.js
-[Wed May 13 15:46:09 2026] 127.0.0.1:56720 Accepted
-[Wed May 13 15:46:09 2026] 127.0.0.1:50521 [200]: GET /assets/js/charts.js
-[Wed May 13 15:46:09 2026] 127.0.0.1:55600 Closing
-[Wed May 13 15:46:09 2026] 127.0.0.1:56720 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:46:09 2026] 127.0.0.1:61056 Closing
-[Wed May 13 15:46:09 2026] 127.0.0.1:56720 Closing
-[Wed May 13 15:46:09 2026] 127.0.0.1:50521 Closing
-[Wed May 13 15:46:09 2026] 127.0.0.1:61521 Accepted
-[Wed May 13 15:46:09 2026] 127.0.0.1:61521 [200]: GET /favicon.ico
-[Wed May 13 15:46:09 2026] 127.0.0.1:61521 Closing
-[Wed May 13 15:46:17 2026] 127.0.0.1:54517 Accepted
-[Wed May 13 15:46:17 2026] 127.0.0.1:54517 [200]: GET /reports
-[Wed May 13 15:46:17 2026] 127.0.0.1:54517 Closing
-[Wed May 13 15:46:17 2026] 127.0.0.1:53826 Accepted
-[Wed May 13 15:46:17 2026] 127.0.0.1:53826 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:46:17 2026] 127.0.0.1:53826 Closing
-[Wed May 13 15:46:17 2026] 127.0.0.1:57855 Accepted
-[Wed May 13 15:46:17 2026] 127.0.0.1:57855 [200]: GET /assets/css/app.css
-[Wed May 13 15:46:17 2026] 127.0.0.1:57855 Closing
-[Wed May 13 15:46:17 2026] 127.0.0.1:50926 Accepted
-[Wed May 13 15:46:17 2026] 127.0.0.1:54607 Accepted
-[Wed May 13 15:46:17 2026] 127.0.0.1:50926 [200]: GET /assets/js/app.js
-[Wed May 13 15:46:17 2026] 127.0.0.1:54607 [200]: GET /assets/js/charts.js
-[Wed May 13 15:46:17 2026] 127.0.0.1:50926 Closing
-[Wed May 13 15:46:17 2026] 127.0.0.1:54607 Closing
-[Wed May 13 15:46:18 2026] 127.0.0.1:51090 Accepted
-[Wed May 13 15:46:18 2026] 127.0.0.1:51090 [200]: GET /favicon.ico
-[Wed May 13 15:46:18 2026] 127.0.0.1:51090 Closing
-[Wed May 13 15:46:25 2026] 127.0.0.1:51782 Accepted
-[Wed May 13 15:46:25 2026] 127.0.0.1:51782 [200]: GET /reports/moves?from=2026-05-06&to=2026-05-14
-[Wed May 13 15:46:25 2026] 127.0.0.1:51782 Closing
-[Wed May 13 15:46:25 2026] 127.0.0.1:65407 Accepted
-[Wed May 13 15:46:25 2026] 127.0.0.1:57313 Accepted
-[Wed May 13 15:46:25 2026] 127.0.0.1:65407 [200]: GET /assets/css/app.css
-[Wed May 13 15:46:25 2026] 127.0.0.1:57313 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:46:25 2026] 127.0.0.1:57313 Closing
-[Wed May 13 15:46:25 2026] 127.0.0.1:51152 Accepted
-[Wed May 13 15:46:25 2026] 127.0.0.1:65407 Closing
-[Wed May 13 15:46:25 2026] 127.0.0.1:52097 Accepted
-[Wed May 13 15:46:25 2026] 127.0.0.1:51152 [200]: GET /assets/js/app.js
-[Wed May 13 15:46:25 2026] 127.0.0.1:52097 [200]: GET /assets/js/charts.js
-[Wed May 13 15:46:25 2026] 127.0.0.1:51152 Closing
-[Wed May 13 15:46:25 2026] 127.0.0.1:52097 Closing
-[Wed May 13 15:46:26 2026] 127.0.0.1:57961 Accepted
-[Wed May 13 15:46:26 2026] 127.0.0.1:57961 [200]: GET /favicon.ico
-[Wed May 13 15:46:26 2026] 127.0.0.1:57961 Closing
-[Wed May 13 15:46:30 2026] 127.0.0.1:56207 Accepted
-[Wed May 13 15:46:30 2026] 127.0.0.1:56207 [200]: GET /reports
-[Wed May 13 15:46:30 2026] 127.0.0.1:56207 Closing
-[Wed May 13 15:46:30 2026] 127.0.0.1:58170 Accepted
-[Wed May 13 15:46:30 2026] 127.0.0.1:58170 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:46:30 2026] 127.0.0.1:58170 Closing
-[Wed May 13 15:46:30 2026] 127.0.0.1:51996 Accepted
-[Wed May 13 15:46:30 2026] 127.0.0.1:54847 Accepted
-[Wed May 13 15:46:30 2026] 127.0.0.1:58883 Accepted
-[Wed May 13 15:46:30 2026] 127.0.0.1:51996 [200]: GET /assets/css/app.css
-[Wed May 13 15:46:30 2026] 127.0.0.1:54847 [200]: GET /assets/js/app.js
-[Wed May 13 15:46:30 2026] 127.0.0.1:58883 [200]: GET /assets/js/charts.js
-[Wed May 13 15:46:30 2026] 127.0.0.1:51996 Closing
-[Wed May 13 15:46:30 2026] 127.0.0.1:54847 Closing
-[Wed May 13 15:46:30 2026] 127.0.0.1:58883 Closing
-[Wed May 13 15:46:30 2026] 127.0.0.1:58039 Accepted
-[Wed May 13 15:46:30 2026] 127.0.0.1:58039 [200]: GET /favicon.ico
-[Wed May 13 15:46:30 2026] 127.0.0.1:58039 Closing
-[Wed May 13 15:46:32 2026] 127.0.0.1:54972 Accepted
-[Wed May 13 15:46:32 2026] 127.0.0.1:54972 [200]: GET /reports/low-stock
-[Wed May 13 15:46:32 2026] 127.0.0.1:54972 Closing
-[Wed May 13 15:46:32 2026] 127.0.0.1:58491 Accepted
-[Wed May 13 15:46:32 2026] 127.0.0.1:58491 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:46:32 2026] 127.0.0.1:58491 Closing
-[Wed May 13 15:46:32 2026] 127.0.0.1:64206 Accepted
-[Wed May 13 15:46:32 2026] 127.0.0.1:53530 Accepted
-[Wed May 13 15:46:32 2026] 127.0.0.1:64206 [200]: GET /assets/css/app.css
-[Wed May 13 15:46:32 2026] 127.0.0.1:51704 Accepted
-[Wed May 13 15:46:32 2026] 127.0.0.1:64206 Closing
-[Wed May 13 15:46:32 2026] 127.0.0.1:53530 [200]: GET /assets/js/app.js
-[Wed May 13 15:46:32 2026] 127.0.0.1:51704 [200]: GET /assets/js/charts.js
-[Wed May 13 15:46:32 2026] 127.0.0.1:53530 Closing
-[Wed May 13 15:46:32 2026] 127.0.0.1:51704 Closing
-[Wed May 13 15:46:32 2026] 127.0.0.1:52207 Accepted
-[Wed May 13 15:46:32 2026] 127.0.0.1:52207 [200]: GET /favicon.ico
-[Wed May 13 15:46:32 2026] 127.0.0.1:52207 Closing
-[Wed May 13 15:46:39 2026] 127.0.0.1:57618 Accepted
-[Wed May 13 15:46:39 2026] 127.0.0.1:57618 [200]: GET /dashboard
-[Wed May 13 15:46:39 2026] 127.0.0.1:57618 Closing
-[Wed May 13 15:46:40 2026] 127.0.0.1:57619 Accepted
-[Wed May 13 15:46:40 2026] 127.0.0.1:57620 Accepted
-[Wed May 13 15:46:40 2026] 127.0.0.1:57619 [200]: GET /assets/css/app.css
-[Wed May 13 15:46:40 2026] 127.0.0.1:57620 [200]: GET /favicon.ico
-[Wed May 13 15:46:40 2026] 127.0.0.1:57619 Closing
-[Wed May 13 15:46:40 2026] 127.0.0.1:57620 Closing
-[Wed May 13 15:46:48 2026] 127.0.0.1:60771 Accepted
-[Wed May 13 15:46:48 2026] 127.0.0.1:60771 [200]: GET /import
-[Wed May 13 15:46:48 2026] 127.0.0.1:60771 Closing
-[Wed May 13 15:46:48 2026] 127.0.0.1:59690 Accepted
-[Wed May 13 15:46:48 2026] 127.0.0.1:62148 Accepted
-[Wed May 13 15:46:48 2026] 127.0.0.1:59690 [200]: GET /assets/css/app.css
-[Wed May 13 15:46:48 2026] 127.0.0.1:62148 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:46:48 2026] 127.0.0.1:64564 Accepted
-[Wed May 13 15:46:48 2026] 127.0.0.1:62148 Closing
-[Wed May 13 15:46:48 2026] 127.0.0.1:56813 Accepted
-[Wed May 13 15:46:48 2026] 127.0.0.1:59690 Closing
-[Wed May 13 15:46:48 2026] 127.0.0.1:64564 [200]: GET /assets/js/app.js
-[Wed May 13 15:46:48 2026] 127.0.0.1:56813 [200]: GET /assets/js/charts.js
-[Wed May 13 15:46:48 2026] 127.0.0.1:64564 Closing
-[Wed May 13 15:46:48 2026] 127.0.0.1:56813 Closing
-[Wed May 13 15:46:48 2026] 127.0.0.1:57745 Accepted
-[Wed May 13 15:46:48 2026] 127.0.0.1:57745 [200]: GET /favicon.ico
-[Wed May 13 15:46:48 2026] 127.0.0.1:57745 Closing
-[Wed May 13 15:46:49 2026] 127.0.0.1:53929 Accepted
-[Wed May 13 15:46:49 2026] 127.0.0.1:53929 [200]: GET /reports
-[Wed May 13 15:46:49 2026] 127.0.0.1:53929 Closing
-[Wed May 13 15:46:49 2026] 127.0.0.1:51233 Accepted
-[Wed May 13 15:46:49 2026] 127.0.0.1:51233 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:46:49 2026] 127.0.0.1:51233 Closing
-[Wed May 13 15:46:49 2026] 127.0.0.1:56760 Accepted
-[Wed May 13 15:46:49 2026] 127.0.0.1:58689 Accepted
-[Wed May 13 15:46:49 2026] 127.0.0.1:49941 Accepted
-[Wed May 13 15:46:49 2026] 127.0.0.1:56760 [200]: GET /assets/css/app.css
-[Wed May 13 15:46:49 2026] 127.0.0.1:58689 [200]: GET /assets/js/app.js
-[Wed May 13 15:46:49 2026] 127.0.0.1:49941 [200]: GET /assets/js/charts.js
-[Wed May 13 15:46:49 2026] 127.0.0.1:56760 Closing
-[Wed May 13 15:46:49 2026] 127.0.0.1:58689 Closing
-[Wed May 13 15:46:49 2026] 127.0.0.1:49941 Closing
-[Wed May 13 15:46:49 2026] 127.0.0.1:53342 Accepted
-[Wed May 13 15:46:49 2026] 127.0.0.1:53342 [200]: GET /favicon.ico
-[Wed May 13 15:46:49 2026] 127.0.0.1:53342 Closing
-[Wed May 13 15:46:54 2026] 127.0.0.1:55216 Accepted
-[Wed May 13 15:46:54 2026] 127.0.0.1:55216 [200]: GET /components
-[Wed May 13 15:46:54 2026] 127.0.0.1:55216 Closing
-[Wed May 13 15:46:54 2026] 127.0.0.1:62952 Accepted
-[Wed May 13 15:46:54 2026] 127.0.0.1:62952 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:46:54 2026] 127.0.0.1:62952 Closing
-[Wed May 13 15:46:54 2026] 127.0.0.1:63570 Accepted
-[Wed May 13 15:46:54 2026] 127.0.0.1:63570 [200]: GET /assets/css/app.css
-[Wed May 13 15:46:54 2026] 127.0.0.1:63570 Closing
-[Wed May 13 15:46:54 2026] 127.0.0.1:51525 Accepted
-[Wed May 13 15:46:54 2026] 127.0.0.1:57609 Accepted
-[Wed May 13 15:46:54 2026] 127.0.0.1:51525 [200]: GET /assets/js/app.js
-[Wed May 13 15:46:54 2026] 127.0.0.1:57609 [200]: GET /assets/js/charts.js
-[Wed May 13 15:46:54 2026] 127.0.0.1:51525 Closing
-[Wed May 13 15:46:54 2026] 127.0.0.1:57609 Closing
-[Wed May 13 15:46:54 2026] 127.0.0.1:62232 Accepted
-[Wed May 13 15:46:54 2026] 127.0.0.1:62232 [200]: GET /favicon.ico
-[Wed May 13 15:46:54 2026] 127.0.0.1:62232 Closing
-[Wed May 13 15:47:02 2026] 127.0.0.1:61455 Accepted
-[Wed May 13 15:47:02 2026] 127.0.0.1:61455 [200]: GET /components
-[Wed May 13 15:47:02 2026] 127.0.0.1:61455 Closing
-[Wed May 13 15:47:02 2026] 127.0.0.1:59728 Accepted
-[Wed May 13 15:47:02 2026] 127.0.0.1:59728 [200]: GET /assets/css/app.css
-[Wed May 13 15:47:02 2026] 127.0.0.1:59728 Closing
-[Wed May 13 15:47:02 2026] 127.0.0.1:51727 Accepted
-[Wed May 13 15:47:02 2026] 127.0.0.1:49819 Accepted
-[Wed May 13 15:47:02 2026] 127.0.0.1:51727 [200]: GET /assets/js/app.js
-[Wed May 13 15:47:02 2026] 127.0.0.1:49819 [200]: GET /assets/js/charts.js
-[Wed May 13 15:47:02 2026] 127.0.0.1:51727 Closing
-[Wed May 13 15:47:02 2026] 127.0.0.1:49819 Closing
-[Wed May 13 15:47:02 2026] 127.0.0.1:50274 Accepted
-[Wed May 13 15:47:02 2026] 127.0.0.1:50274 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:47:02 2026] 127.0.0.1:50274 Closing
-[Wed May 13 15:47:02 2026] 127.0.0.1:52394 Accepted
-[Wed May 13 15:47:02 2026] 127.0.0.1:52394 [200]: GET /favicon.ico
-[Wed May 13 15:47:02 2026] 127.0.0.1:52394 Closing
-[Wed May 13 15:47:05 2026] 127.0.0.1:62463 Accepted
-[Wed May 13 15:47:05 2026] 127.0.0.1:62463 [200]: GET /components
-[Wed May 13 15:47:05 2026] 127.0.0.1:62463 Closing
-[Wed May 13 15:47:05 2026] 127.0.0.1:63287 Accepted
-[Wed May 13 15:47:05 2026] 127.0.0.1:63287 [200]: GET /assets/css/app.css
-[Wed May 13 15:47:05 2026] 127.0.0.1:63287 Closing
-[Wed May 13 15:47:05 2026] 127.0.0.1:58352 Accepted
-[Wed May 13 15:47:05 2026] 127.0.0.1:58023 Accepted
-[Wed May 13 15:47:05 2026] 127.0.0.1:58352 [200]: GET /assets/js/app.js
-[Wed May 13 15:47:05 2026] 127.0.0.1:58023 [200]: GET /assets/js/charts.js
-[Wed May 13 15:47:05 2026] 127.0.0.1:58352 Closing
-[Wed May 13 15:47:05 2026] 127.0.0.1:58023 Closing
-[Wed May 13 15:47:05 2026] 127.0.0.1:55650 Accepted
-[Wed May 13 15:47:05 2026] 127.0.0.1:55650 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:47:05 2026] 127.0.0.1:55650 Closing
-[Wed May 13 15:47:05 2026] 127.0.0.1:63860 Accepted
-[Wed May 13 15:47:05 2026] 127.0.0.1:63860 [200]: GET /favicon.ico
-[Wed May 13 15:47:05 2026] 127.0.0.1:63860 Closing
-[Wed May 13 15:47:43 2026] 127.0.0.1:59249 Accepted
-[Wed May 13 15:47:43 2026] 127.0.0.1:59249 [200]: GET /components
-[Wed May 13 15:47:43 2026] 127.0.0.1:59249 Closing
-[Wed May 13 15:47:43 2026] 127.0.0.1:54390 Accepted
-[Wed May 13 15:47:43 2026] 127.0.0.1:54390 [200]: GET /assets/css/app.css
-[Wed May 13 15:47:43 2026] 127.0.0.1:54390 Closing
-[Wed May 13 15:47:43 2026] 127.0.0.1:49320 Accepted
-[Wed May 13 15:47:43 2026] 127.0.0.1:49320 [200]: GET /assets/js/app.js
-[Wed May 13 15:47:43 2026] 127.0.0.1:49320 Closing
-[Wed May 13 15:47:43 2026] 127.0.0.1:57468 Accepted
-[Wed May 13 15:47:43 2026] 127.0.0.1:57468 [200]: GET /assets/js/charts.js
-[Wed May 13 15:47:43 2026] 127.0.0.1:57468 Closing
-[Wed May 13 15:47:43 2026] 127.0.0.1:62789 Accepted
-[Wed May 13 15:47:43 2026] 127.0.0.1:62789 [200]: GET /favicon.ico
-[Wed May 13 15:47:43 2026] 127.0.0.1:62789 Closing
-[Wed May 13 15:47:46 2026] 127.0.0.1:63743 Accepted
-[Wed May 13 15:47:46 2026] 127.0.0.1:63743 [200]: GET /assets/css/app.css
-[Wed May 13 15:47:46 2026] 127.0.0.1:63743 Closing
-[Wed May 13 15:47:46 2026] 127.0.0.1:62897 Accepted
-[Wed May 13 15:47:46 2026] 127.0.0.1:62897 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:47:46 2026] 127.0.0.1:62897 Closing
-[Wed May 13 15:47:50 2026] 127.0.0.1:49487 Accepted
-[Wed May 13 15:47:50 2026] 127.0.0.1:49487 [200]: GET /components
-[Wed May 13 15:47:50 2026] 127.0.0.1:49487 Closing
-[Wed May 13 15:47:50 2026] 127.0.0.1:62382 Accepted
-[Wed May 13 15:47:50 2026] 127.0.0.1:62382 [200]: GET /assets/css/app.css
-[Wed May 13 15:47:50 2026] 127.0.0.1:62382 Closing
-[Wed May 13 15:47:50 2026] 127.0.0.1:54291 Accepted
-[Wed May 13 15:47:50 2026] 127.0.0.1:54291 [200]: GET /assets/js/app.js
-[Wed May 13 15:47:50 2026] 127.0.0.1:54291 Closing
-[Wed May 13 15:47:50 2026] 127.0.0.1:63096 Accepted
-[Wed May 13 15:47:50 2026] 127.0.0.1:63096 [200]: GET /assets/js/charts.js
-[Wed May 13 15:47:50 2026] 127.0.0.1:63096 Closing
-[Wed May 13 15:47:50 2026] 127.0.0.1:59508 Accepted
-[Wed May 13 15:47:50 2026] 127.0.0.1:59508 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:47:50 2026] 127.0.0.1:59508 Closing
-[Wed May 13 15:47:50 2026] 127.0.0.1:65472 Accepted
-[Wed May 13 15:47:50 2026] 127.0.0.1:65472 [200]: GET /favicon.ico
-[Wed May 13 15:47:50 2026] 127.0.0.1:65472 Closing
-[Wed May 13 15:47:53 2026] 127.0.0.1:63065 Accepted
-[Wed May 13 15:47:53 2026] 127.0.0.1:63065 [200]: GET /components
-[Wed May 13 15:47:53 2026] 127.0.0.1:63065 Closing
-[Wed May 13 15:47:53 2026] 127.0.0.1:55998 Accepted
-[Wed May 13 15:47:53 2026] 127.0.0.1:55998 [200]: GET /assets/css/app.css
-[Wed May 13 15:47:53 2026] 127.0.0.1:55998 Closing
-[Wed May 13 15:47:53 2026] 127.0.0.1:50998 Accepted
-[Wed May 13 15:47:53 2026] 127.0.0.1:61116 Accepted
-[Wed May 13 15:47:53 2026] 127.0.0.1:50998 [200]: GET /assets/js/app.js
-[Wed May 13 15:47:53 2026] 127.0.0.1:61116 [200]: GET /assets/js/charts.js
-[Wed May 13 15:47:53 2026] 127.0.0.1:50998 Closing
-[Wed May 13 15:47:53 2026] 127.0.0.1:61116 Closing
-[Wed May 13 15:47:53 2026] 127.0.0.1:57216 Accepted
-[Wed May 13 15:47:53 2026] 127.0.0.1:57216 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:47:53 2026] 127.0.0.1:57216 Closing
-[Wed May 13 15:47:54 2026] 127.0.0.1:65366 Accepted
-[Wed May 13 15:47:54 2026] 127.0.0.1:65366 [200]: GET /favicon.ico
-[Wed May 13 15:47:54 2026] 127.0.0.1:65366 Closing
-[Wed May 13 15:48:05 2026] 127.0.0.1:51078 Accepted
-[Wed May 13 15:48:05 2026] 127.0.0.1:51078 [302]: POST /components/delete
-[Wed May 13 15:48:05 2026] 127.0.0.1:51078 Closing
-[Wed May 13 15:48:05 2026] 127.0.0.1:65149 Accepted
-[Wed May 13 15:48:05 2026] 127.0.0.1:65149 [200]: GET /components
-[Wed May 13 15:48:05 2026] 127.0.0.1:65149 Closing
-[Wed May 13 15:48:05 2026] 127.0.0.1:57730 Accepted
-[Wed May 13 15:48:05 2026] 127.0.0.1:57730 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:48:05 2026] 127.0.0.1:57730 Closing
-[Wed May 13 15:48:05 2026] 127.0.0.1:51034 Accepted
-[Wed May 13 15:48:05 2026] 127.0.0.1:51034 [200]: GET /assets/css/app.css
-[Wed May 13 15:48:05 2026] 127.0.0.1:51034 Closing
-[Wed May 13 15:48:05 2026] 127.0.0.1:63611 Accepted
-[Wed May 13 15:48:05 2026] 127.0.0.1:63611 [200]: GET /assets/js/app.js
-[Wed May 13 15:48:05 2026] 127.0.0.1:63611 Closing
-[Wed May 13 15:48:05 2026] 127.0.0.1:50738 Accepted
-[Wed May 13 15:48:05 2026] 127.0.0.1:50738 [200]: GET /assets/js/charts.js
-[Wed May 13 15:48:05 2026] 127.0.0.1:50738 Closing
-[Wed May 13 15:48:05 2026] 127.0.0.1:59057 Accepted
-[Wed May 13 15:48:05 2026] 127.0.0.1:59057 [200]: GET /favicon.ico
-[Wed May 13 15:48:05 2026] 127.0.0.1:59057 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:53411 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:53411 [302]: POST /components/delete
-[Wed May 13 15:48:09 2026] 127.0.0.1:53411 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:53631 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:53631 [200]: GET /components
-[Wed May 13 15:48:09 2026] 127.0.0.1:53631 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:55322 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:55322 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:48:09 2026] 127.0.0.1:55322 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:60058 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:60058 [200]: GET /assets/css/app.css
-[Wed May 13 15:48:09 2026] 127.0.0.1:60058 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:51167 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:51167 [200]: GET /assets/js/app.js
-[Wed May 13 15:48:09 2026] 127.0.0.1:51167 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:57387 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:57387 [200]: GET /assets/js/charts.js
-[Wed May 13 15:48:09 2026] 127.0.0.1:57387 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:64118 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:64118 [200]: GET /favicon.ico
-[Wed May 13 15:48:09 2026] 127.0.0.1:64118 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:63402 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:63402 [200]: GET /components/edit?id=492
-[Wed May 13 15:48:09 2026] 127.0.0.1:63402 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:61530 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:61530 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:48:09 2026] 127.0.0.1:61530 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:53551 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:53551 [200]: GET /assets/css/app.css
-[Wed May 13 15:48:09 2026] 127.0.0.1:53551 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:55636 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:55636 [200]: GET /assets/js/app.js
-[Wed May 13 15:48:09 2026] 127.0.0.1:65070 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:55636 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:65070 [200]: GET /assets/js/charts.js
-[Wed May 13 15:48:09 2026] 127.0.0.1:65070 Closing
-[Wed May 13 15:48:09 2026] 127.0.0.1:56994 Accepted
-[Wed May 13 15:48:09 2026] 127.0.0.1:56994 [200]: GET /favicon.ico
-[Wed May 13 15:48:09 2026] 127.0.0.1:56994 Closing
-[Wed May 13 15:48:11 2026] 127.0.0.1:64768 Accepted
-[Wed May 13 15:48:11 2026] 127.0.0.1:64768 [302]: POST /components/update
-[Wed May 13 15:48:11 2026] 127.0.0.1:64768 Closing
-[Wed May 13 15:48:11 2026] 127.0.0.1:49189 Accepted
-[Wed May 13 15:48:11 2026] 127.0.0.1:49189 [200]: GET /components/view?id=492
-[Wed May 13 15:48:11 2026] 127.0.0.1:49189 Closing
-[Wed May 13 15:48:11 2026] 127.0.0.1:57122 Accepted
-[Wed May 13 15:48:11 2026] 127.0.0.1:57122 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:48:11 2026] 127.0.0.1:57122 Closing
-[Wed May 13 15:48:11 2026] 127.0.0.1:52717 Accepted
-[Wed May 13 15:48:11 2026] 127.0.0.1:52717 [200]: GET /assets/css/app.css
-[Wed May 13 15:48:11 2026] 127.0.0.1:52717 Closing
-[Wed May 13 15:48:11 2026] 127.0.0.1:58479 Accepted
-[Wed May 13 15:48:11 2026] 127.0.0.1:58479 [200]: GET /assets/js/app.js
-[Wed May 13 15:48:11 2026] 127.0.0.1:58479 Closing
-[Wed May 13 15:48:11 2026] 127.0.0.1:63431 Accepted
-[Wed May 13 15:48:11 2026] 127.0.0.1:63431 [200]: GET /assets/js/charts.js
-[Wed May 13 15:48:11 2026] 127.0.0.1:63431 Closing
-[Wed May 13 15:48:11 2026] 127.0.0.1:64205 Accepted
-[Wed May 13 15:48:11 2026] 127.0.0.1:64205 [200]: GET /favicon.ico
-[Wed May 13 15:48:11 2026] 127.0.0.1:64205 Closing
-[Wed May 13 15:48:23 2026] 127.0.0.1:63016 Accepted
-[Wed May 13 15:48:23 2026] 127.0.0.1:63016 [302]: POST /components/stock-move
-[Wed May 13 15:48:23 2026] 127.0.0.1:63016 Closing
-[Wed May 13 15:48:23 2026] 127.0.0.1:58761 Accepted
-[Wed May 13 15:48:23 2026] 127.0.0.1:58761 [200]: GET /components/view?id=492
-[Wed May 13 15:48:23 2026] 127.0.0.1:58761 Closing
-[Wed May 13 15:48:23 2026] 127.0.0.1:60111 Accepted
-[Wed May 13 15:48:23 2026] 127.0.0.1:60111 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:48:23 2026] 127.0.0.1:60111 Closing
-[Wed May 13 15:48:23 2026] 127.0.0.1:49969 Accepted
-[Wed May 13 15:48:23 2026] 127.0.0.1:49969 [200]: GET /assets/css/app.css
-[Wed May 13 15:48:23 2026] 127.0.0.1:49969 Closing
-[Wed May 13 15:48:23 2026] 127.0.0.1:55742 Accepted
-[Wed May 13 15:48:23 2026] 127.0.0.1:55742 [200]: GET /assets/js/app.js
-[Wed May 13 15:48:23 2026] 127.0.0.1:55742 Closing
-[Wed May 13 15:48:23 2026] 127.0.0.1:62857 Accepted
-[Wed May 13 15:48:23 2026] 127.0.0.1:62857 [200]: GET /assets/js/charts.js
-[Wed May 13 15:48:23 2026] 127.0.0.1:62857 Closing
-[Wed May 13 15:48:23 2026] 127.0.0.1:55294 Accepted
-[Wed May 13 15:48:23 2026] 127.0.0.1:55294 [200]: GET /favicon.ico
-[Wed May 13 15:48:23 2026] 127.0.0.1:55294 Closing
-[Wed May 13 15:48:44 2026] 127.0.0.1:59449 Accepted
-[Wed May 13 15:48:44 2026] 127.0.0.1:59449 [200]: GET /dashboard
-[Wed May 13 15:48:44 2026] 127.0.0.1:59449 Closing
-[Wed May 13 15:48:44 2026] 127.0.0.1:56247 Accepted
-[Wed May 13 15:48:44 2026] 127.0.0.1:56247 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:48:44 2026] 127.0.0.1:56247 Closing
-[Wed May 13 15:48:44 2026] 127.0.0.1:56723 Accepted
-[Wed May 13 15:48:44 2026] 127.0.0.1:56723 [200]: GET /assets/css/app.css
-[Wed May 13 15:48:44 2026] 127.0.0.1:56723 Closing
-[Wed May 13 15:48:44 2026] 127.0.0.1:63357 Accepted
-[Wed May 13 15:48:44 2026] 127.0.0.1:63357 [200]: GET /assets/js/app.js
-[Wed May 13 15:48:44 2026] 127.0.0.1:63357 Closing
-[Wed May 13 15:48:44 2026] 127.0.0.1:50062 Accepted
-[Wed May 13 15:48:44 2026] 127.0.0.1:50062 [200]: GET /assets/js/charts.js
-[Wed May 13 15:48:44 2026] 127.0.0.1:50062 Closing
-[Wed May 13 15:48:44 2026] 127.0.0.1:56905 Accepted
-[Wed May 13 15:48:44 2026] 127.0.0.1:56905 [200]: GET /favicon.ico
-[Wed May 13 15:48:44 2026] 127.0.0.1:56905 Closing
-[Wed May 13 15:48:46 2026] 127.0.0.1:53878 Accepted
-[Wed May 13 15:48:46 2026] 127.0.0.1:53878 [200]: GET /components?q=100R+Mini
-[Wed May 13 15:48:46 2026] 127.0.0.1:53878 Closing
-[Wed May 13 15:48:46 2026] 127.0.0.1:60228 Accepted
-[Wed May 13 15:48:46 2026] 127.0.0.1:60228 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:48:46 2026] 127.0.0.1:63820 Accepted
-[Wed May 13 15:48:46 2026] 127.0.0.1:60228 Closing
-[Wed May 13 15:48:46 2026] 127.0.0.1:63820 [200]: GET /assets/css/app.css
-[Wed May 13 15:48:46 2026] 127.0.0.1:63490 Accepted
-[Wed May 13 15:48:46 2026] 127.0.0.1:63820 Closing
-[Wed May 13 15:48:46 2026] 127.0.0.1:63490 [200]: GET /assets/js/app.js
-[Wed May 13 15:48:46 2026] 127.0.0.1:63490 Closing
-[Wed May 13 15:48:46 2026] 127.0.0.1:52711 Accepted
-[Wed May 13 15:48:46 2026] 127.0.0.1:52711 [200]: GET /assets/js/charts.js
-[Wed May 13 15:48:46 2026] 127.0.0.1:52711 Closing
-[Wed May 13 15:48:46 2026] 127.0.0.1:57477 Accepted
-[Wed May 13 15:48:46 2026] 127.0.0.1:57477 [200]: GET /favicon.ico
-[Wed May 13 15:48:46 2026] 127.0.0.1:57477 Closing
-[Wed May 13 15:48:55 2026] 127.0.0.1:52594 Accepted
-[Wed May 13 15:48:55 2026] 127.0.0.1:52594 [200]: GET /components?q=10&category=&sort=nome&direction=asc&per_page=15
-[Wed May 13 15:48:55 2026] 127.0.0.1:52594 Closing
-[Wed May 13 15:48:55 2026] 127.0.0.1:55405 Accepted
-[Wed May 13 15:48:55 2026] 127.0.0.1:55405 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:48:55 2026] 127.0.0.1:55405 Closing
-[Wed May 13 15:48:55 2026] 127.0.0.1:59147 Accepted
-[Wed May 13 15:48:55 2026] 127.0.0.1:59147 [200]: GET /assets/css/app.css
-[Wed May 13 15:48:55 2026] 127.0.0.1:59147 Closing
-[Wed May 13 15:48:55 2026] 127.0.0.1:50313 Accepted
-[Wed May 13 15:48:55 2026] 127.0.0.1:50313 [200]: GET /assets/js/app.js
-[Wed May 13 15:48:55 2026] 127.0.0.1:50313 Closing
-[Wed May 13 15:48:55 2026] 127.0.0.1:64710 Accepted
-[Wed May 13 15:48:55 2026] 127.0.0.1:64710 [200]: GET /assets/js/charts.js
-[Wed May 13 15:48:55 2026] 127.0.0.1:64710 Closing
-[Wed May 13 15:48:55 2026] 127.0.0.1:60795 Accepted
-[Wed May 13 15:48:55 2026] 127.0.0.1:60795 [200]: GET /favicon.ico
-[Wed May 13 15:48:55 2026] 127.0.0.1:60795 Closing
-[Wed May 13 15:49:03 2026] 127.0.0.1:62602 Accepted
-[Wed May 13 15:49:04 2026] 127.0.0.1:62602 [200]: GET /components?q=10&category=&sort=nome&direction=asc&per_page=50
-[Wed May 13 15:49:04 2026] 127.0.0.1:62602 Closing
-[Wed May 13 15:49:04 2026] 127.0.0.1:50819 Accepted
-[Wed May 13 15:49:04 2026] 127.0.0.1:50819 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:49:04 2026] 127.0.0.1:50819 Closing
-[Wed May 13 15:49:04 2026] 127.0.0.1:62132 Accepted
-[Wed May 13 15:49:04 2026] 127.0.0.1:62132 [200]: GET /assets/css/app.css
-[Wed May 13 15:49:04 2026] 127.0.0.1:62132 Closing
-[Wed May 13 15:49:04 2026] 127.0.0.1:49680 Accepted
-[Wed May 13 15:49:04 2026] 127.0.0.1:49680 [200]: GET /assets/js/app.js
-[Wed May 13 15:49:04 2026] 127.0.0.1:49680 Closing
-[Wed May 13 15:49:04 2026] 127.0.0.1:63275 Accepted
-[Wed May 13 15:49:04 2026] 127.0.0.1:63275 [200]: GET /assets/js/charts.js
-[Wed May 13 15:49:04 2026] 127.0.0.1:63275 Closing
-[Wed May 13 15:49:04 2026] 127.0.0.1:53012 Accepted
-[Wed May 13 15:49:04 2026] 127.0.0.1:53012 [200]: GET /favicon.ico
-[Wed May 13 15:49:04 2026] 127.0.0.1:53012 Closing
-[Wed May 13 15:49:07 2026] 127.0.0.1:50706 Accepted
-[Wed May 13 15:49:07 2026] 127.0.0.1:50706 [200]: GET /components?q=10&category=&sort=nome&direction=asc&per_page=50&page=2
-[Wed May 13 15:49:07 2026] 127.0.0.1:50706 Closing
-[Wed May 13 15:49:07 2026] 127.0.0.1:65069 Accepted
-[Wed May 13 15:49:07 2026] 127.0.0.1:65069 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:49:07 2026] 127.0.0.1:65069 Closing
-[Wed May 13 15:49:07 2026] 127.0.0.1:63761 Accepted
-[Wed May 13 15:49:07 2026] 127.0.0.1:63761 [200]: GET /assets/css/app.css
-[Wed May 13 15:49:07 2026] 127.0.0.1:63761 Closing
-[Wed May 13 15:49:07 2026] 127.0.0.1:53434 Accepted
-[Wed May 13 15:49:07 2026] 127.0.0.1:53434 [200]: GET /assets/js/app.js
-[Wed May 13 15:49:07 2026] 127.0.0.1:53434 Closing
-[Wed May 13 15:49:07 2026] 127.0.0.1:64108 Accepted
-[Wed May 13 15:49:07 2026] 127.0.0.1:64108 [200]: GET /assets/js/charts.js
-[Wed May 13 15:49:07 2026] 127.0.0.1:64108 Closing
-[Wed May 13 15:49:07 2026] 127.0.0.1:62643 Accepted
-[Wed May 13 15:49:07 2026] 127.0.0.1:62643 [200]: GET /favicon.ico
-[Wed May 13 15:49:07 2026] 127.0.0.1:62643 Closing
-[Wed May 13 15:49:09 2026] 127.0.0.1:54463 Accepted
-[Wed May 13 15:49:09 2026] 127.0.0.1:54463 [200]: GET /components?q=10&category=&sort=nome&direction=asc&per_page=50&page=1
-[Wed May 13 15:49:09 2026] 127.0.0.1:54463 Closing
-[Wed May 13 15:49:09 2026] 127.0.0.1:62969 Accepted
-[Wed May 13 15:49:09 2026] 127.0.0.1:62969 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:49:09 2026] 127.0.0.1:62969 Closing
-[Wed May 13 15:49:09 2026] 127.0.0.1:55501 Accepted
-[Wed May 13 15:49:09 2026] 127.0.0.1:55501 [200]: GET /assets/css/app.css
-[Wed May 13 15:49:09 2026] 127.0.0.1:55501 Closing
-[Wed May 13 15:49:09 2026] 127.0.0.1:51736 Accepted
-[Wed May 13 15:49:09 2026] 127.0.0.1:51736 [200]: GET /assets/js/app.js
-[Wed May 13 15:49:09 2026] 127.0.0.1:52973 Accepted
-[Wed May 13 15:49:09 2026] 127.0.0.1:51736 Closing
-[Wed May 13 15:49:09 2026] 127.0.0.1:52973 [200]: GET /assets/js/charts.js
-[Wed May 13 15:49:09 2026] 127.0.0.1:52973 Closing
-[Wed May 13 15:49:09 2026] 127.0.0.1:52069 Accepted
-[Wed May 13 15:49:09 2026] 127.0.0.1:52069 [200]: GET /favicon.ico
-[Wed May 13 15:49:09 2026] 127.0.0.1:52069 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:52013 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:52013 [200]: GET /reports
-[Wed May 13 15:49:16 2026] 127.0.0.1:52013 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:59822 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:59822 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:49:16 2026] 127.0.0.1:59822 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:50677 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:50677 [200]: GET /assets/css/app.css
-[Wed May 13 15:49:16 2026] 127.0.0.1:50677 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:59222 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:59222 [200]: GET /assets/js/app.js
-[Wed May 13 15:49:16 2026] 127.0.0.1:59222 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:58006 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:58006 [200]: GET /assets/js/charts.js
-[Wed May 13 15:49:16 2026] 127.0.0.1:58006 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:63350 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:63350 [200]: GET /favicon.ico
-[Wed May 13 15:49:16 2026] 127.0.0.1:63350 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:63122 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:63122 [200]: GET /components
-[Wed May 13 15:49:16 2026] 127.0.0.1:63122 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:61270 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:61270 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:49:16 2026] 127.0.0.1:61270 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:60882 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:60882 [200]: GET /assets/css/app.css
-[Wed May 13 15:49:16 2026] 127.0.0.1:60882 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:64210 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:54363 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:64210 [200]: GET /assets/js/app.js
-[Wed May 13 15:49:16 2026] 127.0.0.1:54363 [200]: GET /assets/js/charts.js
-[Wed May 13 15:49:16 2026] 127.0.0.1:64210 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:54363 Closing
-[Wed May 13 15:49:16 2026] 127.0.0.1:53996 Accepted
-[Wed May 13 15:49:16 2026] 127.0.0.1:53996 [200]: GET /favicon.ico
-[Wed May 13 15:49:16 2026] 127.0.0.1:53996 Closing
-[Wed May 13 15:49:17 2026] 127.0.0.1:63950 Accepted
-[Wed May 13 15:49:17 2026] 127.0.0.1:63950 [200]: GET /dashboard
-[Wed May 13 15:49:17 2026] 127.0.0.1:63950 Closing
-[Wed May 13 15:49:17 2026] 127.0.0.1:55337 Accepted
-[Wed May 13 15:49:17 2026] 127.0.0.1:55337 [200]: GET /assets/css/app.css
-[Wed May 13 15:49:17 2026] 127.0.0.1:63758 Accepted
-[Wed May 13 15:49:17 2026] 127.0.0.1:55337 Closing
-[Wed May 13 15:49:17 2026] 127.0.0.1:63758 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:49:17 2026] 127.0.0.1:63758 Closing
-[Wed May 13 15:49:17 2026] 127.0.0.1:56343 Accepted
-[Wed May 13 15:49:17 2026] 127.0.0.1:56343 [200]: GET /assets/js/app.js
-[Wed May 13 15:49:17 2026] 127.0.0.1:56343 Closing
-[Wed May 13 15:49:17 2026] 127.0.0.1:56758 Accepted
-[Wed May 13 15:49:17 2026] 127.0.0.1:56758 [200]: GET /assets/js/charts.js
-[Wed May 13 15:49:17 2026] 127.0.0.1:56758 Closing
-[Wed May 13 15:49:17 2026] 127.0.0.1:59040 Accepted
-[Wed May 13 15:49:17 2026] 127.0.0.1:59040 [200]: GET /favicon.ico
-[Wed May 13 15:49:17 2026] 127.0.0.1:59040 Closing
-[Wed May 13 15:56:14 2026] 127.0.0.1:64563 Accepted
-[Wed May 13 15:56:14 2026] 127.0.0.1:64563 [200]: GET /dashboard
-[Wed May 13 15:56:14 2026] 127.0.0.1:64563 Closing
-[Wed May 13 15:56:14 2026] 127.0.0.1:64564 Accepted
-[Wed May 13 15:56:14 2026] 127.0.0.1:64564 [200]: GET /components
-[Wed May 13 15:56:14 2026] 127.0.0.1:64564 Closing
-[Wed May 13 15:56:14 2026] 127.0.0.1:64566 Accepted
-[Wed May 13 15:56:14 2026] 127.0.0.1:64566 [200]: GET /components
-[Wed May 13 15:56:14 2026] 127.0.0.1:64566 Closing
-[Wed May 13 15:56:24 2026] 127.0.0.1:49178 Accepted
-[Wed May 13 15:56:24 2026] 127.0.0.1:49178 [200]: GET /components
-[Wed May 13 15:56:24 2026] 127.0.0.1:49178 Closing
-[Wed May 13 15:56:24 2026] 127.0.0.1:49179 Accepted
-[Wed May 13 15:56:24 2026] 127.0.0.1:49179 [200]: GET /components
-[Wed May 13 15:56:24 2026] 127.0.0.1:49179 Closing
-[Wed May 13 15:56:29 2026] 127.0.0.1:53893 Accepted
-[Wed May 13 15:56:30 2026] 127.0.0.1:53893 [200]: GET /components
-[Wed May 13 15:56:30 2026] 127.0.0.1:53893 Closing
-[Wed May 13 15:56:52 2026] 127.0.0.1:60359 Accepted
-[Wed May 13 15:56:52 2026] 127.0.0.1:60359 [200]: GET /import
-[Wed May 13 15:56:52 2026] 127.0.0.1:60359 Closing
-[Wed May 13 15:56:52 2026] 127.0.0.1:60360 Accepted
-[Wed May 13 15:56:52 2026] 127.0.0.1:60360 [200]: POST /import/preview
-[Wed May 13 15:56:52 2026] 127.0.0.1:60360 Closing
-[Wed May 13 15:56:52 2026] 127.0.0.1:60361 Accepted
-[Wed May 13 15:56:52 2026] 127.0.0.1:60361 [302]: POST /import/process
-[Wed May 13 15:56:52 2026] 127.0.0.1:60361 Closing
-[Wed May 13 15:57:09 2026] 127.0.0.1:51616 Accepted
-[Wed May 13 15:57:09 2026] 127.0.0.1:51616 [200]: GET /dashboard
-[Wed May 13 15:57:09 2026] 127.0.0.1:51616 Closing
-[Wed May 13 15:58:02 2026] 127.0.0.1:56985 Accepted
-[Wed May 13 15:58:02 2026] 127.0.0.1:56985 [200]: GET /components
-[Wed May 13 15:58:02 2026] 127.0.0.1:56985 Closing
-[Wed May 13 15:58:02 2026] 127.0.0.1:53000 Accepted
-[Wed May 13 15:58:02 2026] 127.0.0.1:53000 [200]: GET /components
-[Wed May 13 15:58:02 2026] 127.0.0.1:53000 Closing
-[Wed May 13 15:58:02 2026] 127.0.0.1:51622 Accepted
-[Wed May 13 15:58:02 2026] 127.0.0.1:63287 Accepted
-[Wed May 13 15:58:02 2026] 127.0.0.1:54736 Accepted
-[Wed May 13 15:58:02 2026] 127.0.0.1:51622 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:02 2026] 127.0.0.1:63287 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:02 2026] 127.0.0.1:54736 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:02 2026] 127.0.0.1:51622 Closing
-[Wed May 13 15:58:02 2026] 127.0.0.1:63287 Closing
-[Wed May 13 15:58:02 2026] 127.0.0.1:54736 Closing
-[Wed May 13 15:58:02 2026] 127.0.0.1:60454 Accepted
-[Wed May 13 15:58:02 2026] 127.0.0.1:60454 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:58:02 2026] 127.0.0.1:60454 Closing
-[Wed May 13 15:58:02 2026] 127.0.0.1:58870 Accepted
-[Wed May 13 15:58:02 2026] 127.0.0.1:58870 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:58:02 2026] 127.0.0.1:58870 Closing
-[Wed May 13 15:58:02 2026] 127.0.0.1:49751 Accepted
-[Wed May 13 15:58:02 2026] 127.0.0.1:49751 [200]: GET /favicon.ico
-[Wed May 13 15:58:02 2026] 127.0.0.1:49751 Closing
-[Wed May 13 15:58:03 2026] 127.0.0.1:64714 Accepted
-[Wed May 13 15:58:03 2026] 127.0.0.1:64714 [200]: GET /export
-[Wed May 13 15:58:03 2026] 127.0.0.1:64714 Closing
-[Wed May 13 15:58:03 2026] 127.0.0.1:52231 Accepted
-[Wed May 13 15:58:03 2026] 127.0.0.1:49928 Accepted
-[Wed May 13 15:58:03 2026] 127.0.0.1:52231 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:58:03 2026] 127.0.0.1:60744 Accepted
-[Wed May 13 15:58:03 2026] 127.0.0.1:49928 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:03 2026] 127.0.0.1:52231 Closing
-[Wed May 13 15:58:03 2026] 127.0.0.1:60744 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:03 2026] 127.0.0.1:60508 Accepted
-[Wed May 13 15:58:03 2026] 127.0.0.1:60508 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:03 2026] 127.0.0.1:49928 Closing
-[Wed May 13 15:58:03 2026] 127.0.0.1:60744 Closing
-[Wed May 13 15:58:03 2026] 127.0.0.1:60508 Closing
-[Wed May 13 15:58:04 2026] 127.0.0.1:49311 Accepted
-[Wed May 13 15:58:04 2026] 127.0.0.1:49311 [200]: GET /favicon.ico
-[Wed May 13 15:58:04 2026] 127.0.0.1:49311 Closing
-[Wed May 13 15:58:04 2026] 127.0.0.1:57868 Accepted
-[Wed May 13 15:58:04 2026] 127.0.0.1:57868 [200]: GET /import
-[Wed May 13 15:58:04 2026] 127.0.0.1:57868 Closing
-[Wed May 13 15:58:04 2026] 127.0.0.1:53888 Accepted
-[Wed May 13 15:58:04 2026] 127.0.0.1:53888 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:58:04 2026] 127.0.0.1:53888 Closing
-[Wed May 13 15:58:04 2026] 127.0.0.1:62515 Accepted
-[Wed May 13 15:58:04 2026] 127.0.0.1:62515 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:04 2026] 127.0.0.1:62515 Closing
-[Wed May 13 15:58:04 2026] 127.0.0.1:56943 Accepted
-[Wed May 13 15:58:04 2026] 127.0.0.1:53115 Accepted
-[Wed May 13 15:58:04 2026] 127.0.0.1:56943 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:04 2026] 127.0.0.1:53115 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:04 2026] 127.0.0.1:56943 Closing
-[Wed May 13 15:58:04 2026] 127.0.0.1:53115 Closing
-[Wed May 13 15:58:04 2026] 127.0.0.1:58346 Accepted
-[Wed May 13 15:58:04 2026] 127.0.0.1:58346 [200]: GET /favicon.ico
-[Wed May 13 15:58:04 2026] 127.0.0.1:58346 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:61764 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:61764 [200]: GET /components
-[Wed May 13 15:58:05 2026] 127.0.0.1:61764 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:49743 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:49743 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:05 2026] 127.0.0.1:60226 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:49743 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:52693 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:60226 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:05 2026] 127.0.0.1:52693 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:58:05 2026] 127.0.0.1:52693 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:60226 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:61251 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:61251 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:05 2026] 127.0.0.1:61251 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:50061 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:50061 [200]: GET /favicon.ico
-[Wed May 13 15:58:05 2026] 127.0.0.1:50061 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:61086 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:61086 [200]: GET /dashboard
-[Wed May 13 15:58:05 2026] 127.0.0.1:61086 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:56073 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:56073 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 15:58:05 2026] 127.0.0.1:56073 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:60438 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:49966 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:60438 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:05 2026] 127.0.0.1:49966 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:05 2026] 127.0.0.1:60438 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:49966 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:52839 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:52839 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:05 2026] 127.0.0.1:52839 Closing
-[Wed May 13 15:58:05 2026] 127.0.0.1:53680 Accepted
-[Wed May 13 15:58:05 2026] 127.0.0.1:53680 [200]: GET /favicon.ico
-[Wed May 13 15:58:05 2026] 127.0.0.1:53680 Closing
-[Wed May 13 15:58:17 2026] 127.0.0.1:59891 Accepted
-[Wed May 13 15:58:17 2026] 127.0.0.1:59891 [200]: GET /components
-[Wed May 13 15:58:17 2026] 127.0.0.1:59891 Closing
-[Wed May 13 15:58:17 2026] 127.0.0.1:60652 Accepted
-[Wed May 13 15:58:17 2026] 127.0.0.1:60652 [200]: GET /components
-[Wed May 13 15:58:17 2026] 127.0.0.1:60652 Closing
-[Wed May 13 15:58:17 2026] 127.0.0.1:62883 Accepted
-[Wed May 13 15:58:17 2026] 127.0.0.1:62883 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:17 2026] 127.0.0.1:51843 Accepted
-[Wed May 13 15:58:17 2026] 127.0.0.1:62883 Closing
-[Wed May 13 15:58:17 2026] 127.0.0.1:54646 Accepted
-[Wed May 13 15:58:17 2026] 127.0.0.1:51843 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:17 2026] 127.0.0.1:54646 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:17 2026] 127.0.0.1:51843 Closing
-[Wed May 13 15:58:17 2026] 127.0.0.1:54646 Closing
-[Wed May 13 15:58:17 2026] 127.0.0.1:55974 Accepted
-[Wed May 13 15:58:17 2026] 127.0.0.1:55974 [200]: GET /favicon.ico
-[Wed May 13 15:58:17 2026] 127.0.0.1:55974 Closing
-[Wed May 13 15:58:18 2026] 127.0.0.1:60560 Accepted
-[Wed May 13 15:58:18 2026] 127.0.0.1:60560 [200]: GET /components
-[Wed May 13 15:58:18 2026] 127.0.0.1:60560 Closing
-[Wed May 13 15:58:18 2026] 127.0.0.1:56439 Accepted
-[Wed May 13 15:58:18 2026] 127.0.0.1:56439 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:18 2026] 127.0.0.1:65273 Accepted
-[Wed May 13 15:58:18 2026] 127.0.0.1:56439 Closing
-[Wed May 13 15:58:18 2026] 127.0.0.1:65273 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:18 2026] 127.0.0.1:65273 Closing
-[Wed May 13 15:58:18 2026] 127.0.0.1:53867 Accepted
-[Wed May 13 15:58:18 2026] 127.0.0.1:53867 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:18 2026] 127.0.0.1:53867 Closing
-[Wed May 13 15:58:18 2026] 127.0.0.1:57945 Accepted
-[Wed May 13 15:58:18 2026] 127.0.0.1:57945 [200]: GET /favicon.ico
-[Wed May 13 15:58:18 2026] 127.0.0.1:57945 Closing
-[Wed May 13 15:58:19 2026] 127.0.0.1:59934 Accepted
-[Wed May 13 15:58:19 2026] 127.0.0.1:59934 [200]: GET /reports
-[Wed May 13 15:58:19 2026] 127.0.0.1:59934 Closing
-[Wed May 13 15:58:19 2026] 127.0.0.1:65269 Accepted
-[Wed May 13 15:58:19 2026] 127.0.0.1:65269 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:19 2026] 127.0.0.1:55799 Accepted
-[Wed May 13 15:58:19 2026] 127.0.0.1:65269 Closing
-[Wed May 13 15:58:19 2026] 127.0.0.1:61406 Accepted
-[Wed May 13 15:58:19 2026] 127.0.0.1:55799 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:19 2026] 127.0.0.1:61406 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:19 2026] 127.0.0.1:55799 Closing
-[Wed May 13 15:58:19 2026] 127.0.0.1:61406 Closing
-[Wed May 13 15:58:19 2026] 127.0.0.1:51286 Accepted
-[Wed May 13 15:58:19 2026] 127.0.0.1:51286 [200]: GET /favicon.ico
-[Wed May 13 15:58:19 2026] 127.0.0.1:51286 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:61629 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:61629 [200]: GET /import
-[Wed May 13 15:58:20 2026] 127.0.0.1:61629 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:62315 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:62315 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:20 2026] 127.0.0.1:62315 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:61647 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:61647 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:20 2026] 127.0.0.1:61647 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:55991 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:55991 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:20 2026] 127.0.0.1:55991 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:51371 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:51371 [200]: GET /favicon.ico
-[Wed May 13 15:58:20 2026] 127.0.0.1:51371 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:51094 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:51094 [200]: GET /export
-[Wed May 13 15:58:20 2026] 127.0.0.1:51094 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:52347 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:52347 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:20 2026] 127.0.0.1:49364 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:49364 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:20 2026] 127.0.0.1:52347 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:58487 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:49364 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:58487 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:20 2026] 127.0.0.1:58487 Closing
-[Wed May 13 15:58:20 2026] 127.0.0.1:58417 Accepted
-[Wed May 13 15:58:20 2026] 127.0.0.1:58417 [200]: GET /favicon.ico
-[Wed May 13 15:58:20 2026] 127.0.0.1:58417 Closing
-[Wed May 13 15:58:22 2026] 127.0.0.1:59544 Accepted
-[Wed May 13 15:58:22 2026] 127.0.0.1:59544 [200]: GET /import
-[Wed May 13 15:58:22 2026] 127.0.0.1:59544 Closing
-[Wed May 13 15:58:22 2026] 127.0.0.1:52483 Accepted
-[Wed May 13 15:58:22 2026] 127.0.0.1:52483 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:22 2026] 127.0.0.1:52483 Closing
-[Wed May 13 15:58:22 2026] 127.0.0.1:53971 Accepted
-[Wed May 13 15:58:22 2026] 127.0.0.1:53971 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:22 2026] 127.0.0.1:53971 Closing
-[Wed May 13 15:58:22 2026] 127.0.0.1:59821 Accepted
-[Wed May 13 15:58:22 2026] 127.0.0.1:59821 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:22 2026] 127.0.0.1:59821 Closing
-[Wed May 13 15:58:22 2026] 127.0.0.1:64621 Accepted
-[Wed May 13 15:58:22 2026] 127.0.0.1:64621 [200]: GET /favicon.ico
-[Wed May 13 15:58:22 2026] 127.0.0.1:64621 Closing
-[Wed May 13 15:58:24 2026] 127.0.0.1:61731 Accepted
-[Wed May 13 15:58:24 2026] 127.0.0.1:61731 [200]: POST /import/preview
-[Wed May 13 15:58:24 2026] 127.0.0.1:61731 Closing
-[Wed May 13 15:58:24 2026] 127.0.0.1:60314 Accepted
-[Wed May 13 15:58:24 2026] 127.0.0.1:60314 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:24 2026] 127.0.0.1:62981 Accepted
-[Wed May 13 15:58:24 2026] 127.0.0.1:62981 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:24 2026] 127.0.0.1:60314 Closing
-[Wed May 13 15:58:24 2026] 127.0.0.1:61394 Accepted
-[Wed May 13 15:58:24 2026] 127.0.0.1:62981 Closing
-[Wed May 13 15:58:24 2026] 127.0.0.1:61394 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:24 2026] 127.0.0.1:61394 Closing
-[Wed May 13 15:58:24 2026] 127.0.0.1:59580 Accepted
-[Wed May 13 15:58:24 2026] 127.0.0.1:59580 [200]: GET /favicon.ico
-[Wed May 13 15:58:24 2026] 127.0.0.1:59580 Closing
-[Wed May 13 15:58:25 2026] 127.0.0.1:57367 Accepted
-[Wed May 13 15:58:25 2026] 127.0.0.1:57367 [302]: POST /import/process
-[Wed May 13 15:58:25 2026] 127.0.0.1:57367 Closing
-[Wed May 13 15:58:25 2026] 127.0.0.1:65191 Accepted
-[Wed May 13 15:58:25 2026] 127.0.0.1:65191 [200]: GET /components
-[Wed May 13 15:58:25 2026] 127.0.0.1:65191 Closing
-[Wed May 13 15:58:25 2026] 127.0.0.1:52594 Accepted
-[Wed May 13 15:58:25 2026] 127.0.0.1:52594 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:25 2026] 127.0.0.1:52594 Closing
-[Wed May 13 15:58:25 2026] 127.0.0.1:55800 Accepted
-[Wed May 13 15:58:25 2026] 127.0.0.1:55800 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:25 2026] 127.0.0.1:55800 Closing
-[Wed May 13 15:58:25 2026] 127.0.0.1:63059 Accepted
-[Wed May 13 15:58:25 2026] 127.0.0.1:63059 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:25 2026] 127.0.0.1:63059 Closing
-[Wed May 13 15:58:25 2026] 127.0.0.1:59855 Accepted
-[Wed May 13 15:58:25 2026] 127.0.0.1:59855 [200]: GET /favicon.ico
-[Wed May 13 15:58:25 2026] 127.0.0.1:59855 Closing
-[Wed May 13 15:58:28 2026] 127.0.0.1:63806 Accepted
-[Wed May 13 15:58:28 2026] 127.0.0.1:63806 [200]: GET /components
-[Wed May 13 15:58:28 2026] 127.0.0.1:63806 Closing
-[Wed May 13 15:58:28 2026] 127.0.0.1:50577 Accepted
-[Wed May 13 15:58:28 2026] 127.0.0.1:50577 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:28 2026] 127.0.0.1:50577 Closing
-[Wed May 13 15:58:28 2026] 127.0.0.1:52641 Accepted
-[Wed May 13 15:58:28 2026] 127.0.0.1:52641 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:28 2026] 127.0.0.1:52641 Closing
-[Wed May 13 15:58:28 2026] 127.0.0.1:61970 Accepted
-[Wed May 13 15:58:28 2026] 127.0.0.1:61970 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:28 2026] 127.0.0.1:61970 Closing
-[Wed May 13 15:58:28 2026] 127.0.0.1:50876 Accepted
-[Wed May 13 15:58:28 2026] 127.0.0.1:50876 [200]: GET /favicon.ico
-[Wed May 13 15:58:28 2026] 127.0.0.1:50876 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:61220 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:61220 [200]: GET /dashboard
-[Wed May 13 15:58:29 2026] 127.0.0.1:61220 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:49375 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:49375 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:29 2026] 127.0.0.1:49375 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:64394 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:64394 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:29 2026] 127.0.0.1:64394 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:60048 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:60048 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:29 2026] 127.0.0.1:60048 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:54647 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:54647 [200]: GET /favicon.ico
-[Wed May 13 15:58:29 2026] 127.0.0.1:54647 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:56339 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:56339 [200]: GET /dashboard
-[Wed May 13 15:58:29 2026] 127.0.0.1:56339 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:50951 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:50951 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:29 2026] 127.0.0.1:50951 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:61873 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:61873 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:29 2026] 127.0.0.1:61873 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:65016 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:65016 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:29 2026] 127.0.0.1:65016 Closing
-[Wed May 13 15:58:29 2026] 127.0.0.1:57713 Accepted
-[Wed May 13 15:58:29 2026] 127.0.0.1:57713 [200]: GET /favicon.ico
-[Wed May 13 15:58:29 2026] 127.0.0.1:57713 Closing
-[Wed May 13 15:58:31 2026] 127.0.0.1:52942 Accepted
-[Wed May 13 15:58:31 2026] 127.0.0.1:52942 [200]: GET /dashboard
-[Wed May 13 15:58:31 2026] 127.0.0.1:52942 Closing
-[Wed May 13 15:58:31 2026] 127.0.0.1:50618 Accepted
-[Wed May 13 15:58:31 2026] 127.0.0.1:58136 Accepted
-[Wed May 13 15:58:31 2026] 127.0.0.1:50618 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:31 2026] 127.0.0.1:58136 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:31 2026] 127.0.0.1:59767 Accepted
-[Wed May 13 15:58:31 2026] 127.0.0.1:50618 Closing
-[Wed May 13 15:58:31 2026] 127.0.0.1:59767 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:31 2026] 127.0.0.1:58136 Closing
-[Wed May 13 15:58:31 2026] 127.0.0.1:59767 Closing
-[Wed May 13 15:58:31 2026] 127.0.0.1:55770 Accepted
-[Wed May 13 15:58:31 2026] 127.0.0.1:55770 [200]: GET /favicon.ico
-[Wed May 13 15:58:31 2026] 127.0.0.1:55770 Closing
-[Wed May 13 15:58:35 2026] 127.0.0.1:62656 Accepted
-[Wed May 13 15:58:35 2026] 127.0.0.1:62656 [200]: GET /components
-[Wed May 13 15:58:35 2026] 127.0.0.1:62656 Closing
-[Wed May 13 15:58:35 2026] 127.0.0.1:53530 Accepted
-[Wed May 13 15:58:35 2026] 127.0.0.1:53530 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:35 2026] 127.0.0.1:53530 Closing
-[Wed May 13 15:58:35 2026] 127.0.0.1:52823 Accepted
-[Wed May 13 15:58:35 2026] 127.0.0.1:52823 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:35 2026] 127.0.0.1:52823 Closing
-[Wed May 13 15:58:35 2026] 127.0.0.1:64519 Accepted
-[Wed May 13 15:58:35 2026] 127.0.0.1:64519 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:35 2026] 127.0.0.1:64519 Closing
-[Wed May 13 15:58:35 2026] 127.0.0.1:57014 Accepted
-[Wed May 13 15:58:35 2026] 127.0.0.1:57014 [200]: GET /favicon.ico
-[Wed May 13 15:58:35 2026] 127.0.0.1:57014 Closing
-[Wed May 13 15:58:41 2026] 127.0.0.1:51000 Accepted
-[Wed May 13 15:58:41 2026] 127.0.0.1:51000 [200]: GET /components
-[Wed May 13 15:58:41 2026] 127.0.0.1:51000 Closing
-[Wed May 13 15:58:41 2026] 127.0.0.1:65148 Accepted
-[Wed May 13 15:58:41 2026] 127.0.0.1:65148 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:41 2026] 127.0.0.1:65148 Closing
-[Wed May 13 15:58:41 2026] 127.0.0.1:58833 Accepted
-[Wed May 13 15:58:41 2026] 127.0.0.1:60017 Accepted
-[Wed May 13 15:58:41 2026] 127.0.0.1:58833 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:41 2026] 127.0.0.1:60017 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:41 2026] 127.0.0.1:58833 Closing
-[Wed May 13 15:58:41 2026] 127.0.0.1:60017 Closing
-[Wed May 13 15:58:41 2026] 127.0.0.1:61546 Accepted
-[Wed May 13 15:58:41 2026] 127.0.0.1:61546 [200]: GET /favicon.ico
-[Wed May 13 15:58:41 2026] 127.0.0.1:61546 Closing
-[Wed May 13 15:58:42 2026] 127.0.0.1:64370 Accepted
-[Wed May 13 15:58:42 2026] 127.0.0.1:64370 [200]: GET /components
-[Wed May 13 15:58:42 2026] 127.0.0.1:64370 Closing
-[Wed May 13 15:58:43 2026] 127.0.0.1:53430 Accepted
-[Wed May 13 15:58:43 2026] 127.0.0.1:53430 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:43 2026] 127.0.0.1:53430 Closing
-[Wed May 13 15:58:43 2026] 127.0.0.1:64138 Accepted
-[Wed May 13 15:58:43 2026] 127.0.0.1:58207 Accepted
-[Wed May 13 15:58:43 2026] 127.0.0.1:64138 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:43 2026] 127.0.0.1:58207 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:43 2026] 127.0.0.1:64138 Closing
-[Wed May 13 15:58:43 2026] 127.0.0.1:58207 Closing
-[Wed May 13 15:58:43 2026] 127.0.0.1:55624 Accepted
-[Wed May 13 15:58:43 2026] 127.0.0.1:55624 [200]: GET /favicon.ico
-[Wed May 13 15:58:43 2026] 127.0.0.1:55624 Closing
-[Wed May 13 15:58:43 2026] 127.0.0.1:61158 Accepted
-[Wed May 13 15:58:43 2026] 127.0.0.1:61158 [200]: GET /export
-[Wed May 13 15:58:43 2026] 127.0.0.1:61158 Closing
-[Wed May 13 15:58:43 2026] 127.0.0.1:53808 Accepted
-[Wed May 13 15:58:43 2026] 127.0.0.1:53808 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:43 2026] 127.0.0.1:53808 Closing
-[Wed May 13 15:58:43 2026] 127.0.0.1:51605 Accepted
-[Wed May 13 15:58:43 2026] 127.0.0.1:59187 Accepted
-[Wed May 13 15:58:43 2026] 127.0.0.1:51605 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:43 2026] 127.0.0.1:59187 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:43 2026] 127.0.0.1:51605 Closing
-[Wed May 13 15:58:43 2026] 127.0.0.1:59187 Closing
-[Wed May 13 15:58:43 2026] 127.0.0.1:58603 Accepted
-[Wed May 13 15:58:43 2026] 127.0.0.1:58603 [200]: GET /favicon.ico
-[Wed May 13 15:58:43 2026] 127.0.0.1:58603 Closing
-[Wed May 13 15:58:44 2026] 127.0.0.1:61106 Accepted
-[Wed May 13 15:58:44 2026] 127.0.0.1:61106 [200]: GET /import
-[Wed May 13 15:58:44 2026] 127.0.0.1:61106 Closing
-[Wed May 13 15:58:44 2026] 127.0.0.1:50453 Accepted
-[Wed May 13 15:58:44 2026] 127.0.0.1:50453 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:44 2026] 127.0.0.1:50453 Closing
-[Wed May 13 15:58:44 2026] 127.0.0.1:63416 Accepted
-[Wed May 13 15:58:44 2026] 127.0.0.1:54595 Accepted
-[Wed May 13 15:58:44 2026] 127.0.0.1:63416 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:44 2026] 127.0.0.1:54595 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:44 2026] 127.0.0.1:63416 Closing
-[Wed May 13 15:58:44 2026] 127.0.0.1:54595 Closing
-[Wed May 13 15:58:44 2026] 127.0.0.1:58073 Accepted
-[Wed May 13 15:58:44 2026] 127.0.0.1:58073 [200]: GET /favicon.ico
-[Wed May 13 15:58:44 2026] 127.0.0.1:58073 Closing
-[Wed May 13 15:58:47 2026] 127.0.0.1:56476 Accepted
-[Wed May 13 15:58:47 2026] 127.0.0.1:56476 [200]: POST /import/preview
-[Wed May 13 15:58:47 2026] 127.0.0.1:56476 Closing
-[Wed May 13 15:58:47 2026] 127.0.0.1:57466 Accepted
-[Wed May 13 15:58:47 2026] 127.0.0.1:61335 Accepted
-[Wed May 13 15:58:47 2026] 127.0.0.1:53999 Accepted
-[Wed May 13 15:58:47 2026] 127.0.0.1:57466 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:47 2026] 127.0.0.1:61335 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:47 2026] 127.0.0.1:53999 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:47 2026] 127.0.0.1:57466 Closing
-[Wed May 13 15:58:47 2026] 127.0.0.1:61335 Closing
-[Wed May 13 15:58:47 2026] 127.0.0.1:53999 Closing
-[Wed May 13 15:58:47 2026] 127.0.0.1:56013 Accepted
-[Wed May 13 15:58:47 2026] 127.0.0.1:56013 [200]: GET /favicon.ico
-[Wed May 13 15:58:47 2026] 127.0.0.1:56013 Closing
-[Wed May 13 15:58:48 2026] 127.0.0.1:59643 Accepted
-[Wed May 13 15:58:48 2026] 127.0.0.1:59643 [302]: POST /import/process
-[Wed May 13 15:58:48 2026] 127.0.0.1:59643 Closing
-[Wed May 13 15:58:48 2026] 127.0.0.1:57671 Accepted
-[Wed May 13 15:58:48 2026] 127.0.0.1:57671 [200]: GET /components
-[Wed May 13 15:58:48 2026] 127.0.0.1:57671 Closing
-[Wed May 13 15:58:48 2026] 127.0.0.1:58304 Accepted
-[Wed May 13 15:58:48 2026] 127.0.0.1:58304 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:48 2026] 127.0.0.1:58304 Closing
-[Wed May 13 15:58:48 2026] 127.0.0.1:55196 Accepted
-[Wed May 13 15:58:48 2026] 127.0.0.1:52621 Accepted
-[Wed May 13 15:58:48 2026] 127.0.0.1:55196 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:48 2026] 127.0.0.1:52621 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:48 2026] 127.0.0.1:55196 Closing
-[Wed May 13 15:58:48 2026] 127.0.0.1:52621 Closing
-[Wed May 13 15:58:48 2026] 127.0.0.1:62006 Accepted
-[Wed May 13 15:58:48 2026] 127.0.0.1:62006 [200]: GET /favicon.ico
-[Wed May 13 15:58:48 2026] 127.0.0.1:62006 Closing
-[Wed May 13 15:58:59 2026] 127.0.0.1:64049 Accepted
-[Wed May 13 15:58:59 2026] 127.0.0.1:64049 [200]: GET /reports
-[Wed May 13 15:58:59 2026] 127.0.0.1:64049 Closing
-[Wed May 13 15:58:59 2026] 127.0.0.1:52177 Accepted
-[Wed May 13 15:58:59 2026] 127.0.0.1:61723 Accepted
-[Wed May 13 15:58:59 2026] 127.0.0.1:58835 Accepted
-[Wed May 13 15:58:59 2026] 127.0.0.1:52177 [200]: GET /assets/css/app.css
-[Wed May 13 15:58:59 2026] 127.0.0.1:61723 [200]: GET /assets/js/app.js
-[Wed May 13 15:58:59 2026] 127.0.0.1:58835 [200]: GET /assets/js/charts.js
-[Wed May 13 15:58:59 2026] 127.0.0.1:52177 Closing
-[Wed May 13 15:58:59 2026] 127.0.0.1:61723 Closing
-[Wed May 13 15:58:59 2026] 127.0.0.1:58835 Closing
-[Wed May 13 15:58:59 2026] 127.0.0.1:53530 Accepted
-[Wed May 13 15:58:59 2026] 127.0.0.1:53530 [200]: GET /favicon.ico
-[Wed May 13 15:58:59 2026] 127.0.0.1:53530 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:55999 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:55999 [200]: GET /components
-[Wed May 13 15:59:00 2026] 127.0.0.1:55999 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:61386 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:57592 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:51439 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:61386 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:00 2026] 127.0.0.1:57592 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:00 2026] 127.0.0.1:51439 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:00 2026] 127.0.0.1:61386 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:57592 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:51439 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:52808 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:52808 [200]: GET /favicon.ico
-[Wed May 13 15:59:00 2026] 127.0.0.1:52808 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:65528 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:65528 [200]: GET /dashboard
-[Wed May 13 15:59:00 2026] 127.0.0.1:65528 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:64442 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:59082 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:64442 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:00 2026] 127.0.0.1:64442 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:63816 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:59082 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:00 2026] 127.0.0.1:63816 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:00 2026] 127.0.0.1:59082 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:63816 Closing
-[Wed May 13 15:59:00 2026] 127.0.0.1:53386 Accepted
-[Wed May 13 15:59:00 2026] 127.0.0.1:53386 [200]: GET /favicon.ico
-[Wed May 13 15:59:00 2026] 127.0.0.1:53386 Closing
-[Wed May 13 15:59:02 2026] 127.0.0.1:54222 Accepted
-[Wed May 13 15:59:02 2026] 127.0.0.1:54222 [200]: GET /components
-[Wed May 13 15:59:02 2026] 127.0.0.1:54222 Closing
-[Wed May 13 15:59:02 2026] 127.0.0.1:59676 Accepted
-[Wed May 13 15:59:02 2026] 127.0.0.1:59676 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:02 2026] 127.0.0.1:59676 Closing
-[Wed May 13 15:59:02 2026] 127.0.0.1:52872 Accepted
-[Wed May 13 15:59:02 2026] 127.0.0.1:59610 Accepted
-[Wed May 13 15:59:02 2026] 127.0.0.1:52872 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:02 2026] 127.0.0.1:59610 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:02 2026] 127.0.0.1:52872 Closing
-[Wed May 13 15:59:02 2026] 127.0.0.1:59610 Closing
-[Wed May 13 15:59:02 2026] 127.0.0.1:59617 Accepted
-[Wed May 13 15:59:02 2026] 127.0.0.1:59617 [200]: GET /favicon.ico
-[Wed May 13 15:59:02 2026] 127.0.0.1:59617 Closing
-[Wed May 13 15:59:05 2026] 127.0.0.1:58232 Accepted
-[Wed May 13 15:59:05 2026] 127.0.0.1:58232 [302]: POST /components/delete
-[Wed May 13 15:59:05 2026] 127.0.0.1:58232 Closing
-[Wed May 13 15:59:05 2026] 127.0.0.1:58690 Accepted
-[Wed May 13 15:59:05 2026] 127.0.0.1:58690 [200]: GET /components
-[Wed May 13 15:59:05 2026] 127.0.0.1:58690 Closing
-[Wed May 13 15:59:05 2026] 127.0.0.1:57820 Accepted
-[Wed May 13 15:59:05 2026] 127.0.0.1:57820 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:05 2026] 127.0.0.1:57820 Closing
-[Wed May 13 15:59:05 2026] 127.0.0.1:52839 Accepted
-[Wed May 13 15:59:05 2026] 127.0.0.1:57131 Accepted
-[Wed May 13 15:59:05 2026] 127.0.0.1:52839 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:05 2026] 127.0.0.1:57131 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:05 2026] 127.0.0.1:52839 Closing
-[Wed May 13 15:59:05 2026] 127.0.0.1:57131 Closing
-[Wed May 13 15:59:05 2026] 127.0.0.1:53820 Accepted
-[Wed May 13 15:59:05 2026] 127.0.0.1:53820 [200]: GET /favicon.ico
-[Wed May 13 15:59:05 2026] 127.0.0.1:53820 Closing
-[Wed May 13 15:59:08 2026] 127.0.0.1:53236 Accepted
-[Wed May 13 15:59:08 2026] 127.0.0.1:53236 [302]: POST /components/delete
-[Wed May 13 15:59:08 2026] 127.0.0.1:53236 Closing
-[Wed May 13 15:59:08 2026] 127.0.0.1:58465 Accepted
-[Wed May 13 15:59:08 2026] 127.0.0.1:58465 [200]: GET /components
-[Wed May 13 15:59:08 2026] 127.0.0.1:58465 Closing
-[Wed May 13 15:59:08 2026] 127.0.0.1:49417 Accepted
-[Wed May 13 15:59:08 2026] 127.0.0.1:49417 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:08 2026] 127.0.0.1:49417 Closing
-[Wed May 13 15:59:08 2026] 127.0.0.1:51735 Accepted
-[Wed May 13 15:59:08 2026] 127.0.0.1:57296 Accepted
-[Wed May 13 15:59:08 2026] 127.0.0.1:51735 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:08 2026] 127.0.0.1:57296 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:08 2026] 127.0.0.1:51735 Closing
-[Wed May 13 15:59:08 2026] 127.0.0.1:57296 Closing
-[Wed May 13 15:59:08 2026] 127.0.0.1:60036 Accepted
-[Wed May 13 15:59:08 2026] 127.0.0.1:60036 [200]: GET /favicon.ico
-[Wed May 13 15:59:08 2026] 127.0.0.1:60036 Closing
-[Wed May 13 15:59:09 2026] 127.0.0.1:59033 Accepted
-[Wed May 13 15:59:09 2026] 127.0.0.1:59033 [302]: POST /components/delete
-[Wed May 13 15:59:09 2026] 127.0.0.1:59033 Closing
-[Wed May 13 15:59:09 2026] 127.0.0.1:57395 Accepted
-[Wed May 13 15:59:09 2026] 127.0.0.1:57395 [200]: GET /components
-[Wed May 13 15:59:09 2026] 127.0.0.1:57395 Closing
-[Wed May 13 15:59:09 2026] 127.0.0.1:63807 Accepted
-[Wed May 13 15:59:09 2026] 127.0.0.1:64508 Accepted
-[Wed May 13 15:59:09 2026] 127.0.0.1:61959 Accepted
-[Wed May 13 15:59:09 2026] 127.0.0.1:63807 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:09 2026] 127.0.0.1:64508 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:09 2026] 127.0.0.1:61959 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:09 2026] 127.0.0.1:63807 Closing
-[Wed May 13 15:59:09 2026] 127.0.0.1:64508 Closing
-[Wed May 13 15:59:09 2026] 127.0.0.1:61959 Closing
-[Wed May 13 15:59:09 2026] 127.0.0.1:51610 Accepted
-[Wed May 13 15:59:09 2026] 127.0.0.1:51610 [200]: GET /favicon.ico
-[Wed May 13 15:59:09 2026] 127.0.0.1:51610 Closing
-[Wed May 13 15:59:12 2026] 127.0.0.1:51997 Accepted
-[Wed May 13 15:59:12 2026] 127.0.0.1:51997 [200]: GET /components
-[Wed May 13 15:59:12 2026] 127.0.0.1:51997 Closing
-[Wed May 13 15:59:12 2026] 127.0.0.1:61332 Accepted
-[Wed May 13 15:59:12 2026] 127.0.0.1:61332 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:12 2026] 127.0.0.1:61332 Closing
-[Wed May 13 15:59:12 2026] 127.0.0.1:51326 Accepted
-[Wed May 13 15:59:12 2026] 127.0.0.1:56741 Accepted
-[Wed May 13 15:59:12 2026] 127.0.0.1:51326 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:12 2026] 127.0.0.1:56741 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:12 2026] 127.0.0.1:51326 Closing
-[Wed May 13 15:59:12 2026] 127.0.0.1:56741 Closing
-[Wed May 13 15:59:12 2026] 127.0.0.1:60917 Accepted
-[Wed May 13 15:59:12 2026] 127.0.0.1:60917 [200]: GET /favicon.ico
-[Wed May 13 15:59:12 2026] 127.0.0.1:60917 Closing
-[Wed May 13 15:59:15 2026] 127.0.0.1:62838 Accepted
-[Wed May 13 15:59:15 2026] 127.0.0.1:62838 [200]: GET /components
-[Wed May 13 15:59:15 2026] 127.0.0.1:62838 Closing
-[Wed May 13 15:59:15 2026] 127.0.0.1:55916 Accepted
-[Wed May 13 15:59:15 2026] 127.0.0.1:55916 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:15 2026] 127.0.0.1:53086 Accepted
-[Wed May 13 15:59:15 2026] 127.0.0.1:55916 Closing
-[Wed May 13 15:59:15 2026] 127.0.0.1:53086 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:15 2026] 127.0.0.1:53086 Closing
-[Wed May 13 15:59:15 2026] 127.0.0.1:53540 Accepted
-[Wed May 13 15:59:15 2026] 127.0.0.1:53540 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:15 2026] 127.0.0.1:53540 Closing
-[Wed May 13 15:59:15 2026] 127.0.0.1:52603 Accepted
-[Wed May 13 15:59:15 2026] 127.0.0.1:52603 [200]: GET /favicon.ico
-[Wed May 13 15:59:15 2026] 127.0.0.1:52603 Closing
-[Wed May 13 15:59:17 2026] 127.0.0.1:65112 Accepted
-[Wed May 13 15:59:17 2026] 127.0.0.1:65112 [200]: GET /components
-[Wed May 13 15:59:17 2026] 127.0.0.1:65112 Closing
-[Wed May 13 15:59:17 2026] 127.0.0.1:50559 Accepted
-[Wed May 13 15:59:17 2026] 127.0.0.1:50559 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:17 2026] 127.0.0.1:59281 Accepted
-[Wed May 13 15:59:17 2026] 127.0.0.1:50559 Closing
-[Wed May 13 15:59:17 2026] 127.0.0.1:59281 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:17 2026] 127.0.0.1:59281 Closing
-[Wed May 13 15:59:17 2026] 127.0.0.1:63501 Accepted
-[Wed May 13 15:59:17 2026] 127.0.0.1:63501 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:17 2026] 127.0.0.1:63501 Closing
-[Wed May 13 15:59:17 2026] 127.0.0.1:58153 Accepted
-[Wed May 13 15:59:17 2026] 127.0.0.1:58153 [200]: GET /favicon.ico
-[Wed May 13 15:59:17 2026] 127.0.0.1:58153 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:59521 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:59521 [200]: GET /components
-[Wed May 13 15:59:18 2026] 127.0.0.1:59521 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:63863 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:63863 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:18 2026] 127.0.0.1:60251 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:63863 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:60251 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:18 2026] 127.0.0.1:60251 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:59490 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:59490 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:18 2026] 127.0.0.1:59490 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:60206 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:60206 [200]: GET /favicon.ico
-[Wed May 13 15:59:18 2026] 127.0.0.1:60206 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:55058 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:55058 [200]: GET /components
-[Wed May 13 15:59:18 2026] 127.0.0.1:55058 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:58032 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:58032 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:18 2026] 127.0.0.1:58032 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:56128 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:56128 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:18 2026] 127.0.0.1:56128 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:65328 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:65328 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:18 2026] 127.0.0.1:65328 Closing
-[Wed May 13 15:59:18 2026] 127.0.0.1:58744 Accepted
-[Wed May 13 15:59:18 2026] 127.0.0.1:58744 [200]: GET /favicon.ico
-[Wed May 13 15:59:18 2026] 127.0.0.1:58744 Closing
-[Wed May 13 15:59:29 2026] 127.0.0.1:56273 Accepted
-[Wed May 13 15:59:29 2026] 127.0.0.1:56273 [200]: GET /components
-[Wed May 13 15:59:29 2026] 127.0.0.1:56273 Closing
-[Wed May 13 15:59:29 2026] 127.0.0.1:54638 Accepted
-[Wed May 13 15:59:29 2026] 127.0.0.1:54638 [200]: GET /components
-[Wed May 13 15:59:29 2026] 127.0.0.1:54638 Closing
-[Wed May 13 15:59:29 2026] 127.0.0.1:52314 Accepted
-[Wed May 13 15:59:29 2026] 127.0.0.1:52314 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:29 2026] 127.0.0.1:57698 Accepted
-[Wed May 13 15:59:29 2026] 127.0.0.1:52314 Closing
-[Wed May 13 15:59:29 2026] 127.0.0.1:58948 Accepted
-[Wed May 13 15:59:29 2026] 127.0.0.1:57698 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:29 2026] 127.0.0.1:58948 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:29 2026] 127.0.0.1:57698 Closing
-[Wed May 13 15:59:29 2026] 127.0.0.1:58948 Closing
-[Wed May 13 15:59:29 2026] 127.0.0.1:52650 Accepted
-[Wed May 13 15:59:29 2026] 127.0.0.1:52650 [200]: GET /favicon.ico
-[Wed May 13 15:59:29 2026] 127.0.0.1:52650 Closing
-[Wed May 13 15:59:30 2026] 127.0.0.1:58325 Accepted
-[Wed May 13 15:59:30 2026] 127.0.0.1:62566 Accepted
-[Wed May 13 15:59:30 2026] 127.0.0.1:58325 [200]: GET /import
-[Wed May 13 15:59:30 2026] 127.0.0.1:58325 Closing
-[Wed May 13 15:59:30 2026] 127.0.0.1:62566 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:30 2026] 127.0.0.1:62566 Closing
-[Wed May 13 15:59:30 2026] 127.0.0.1:60556 Accepted
-[Wed May 13 15:59:30 2026] 127.0.0.1:56125 Accepted
-[Wed May 13 15:59:30 2026] 127.0.0.1:60556 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:30 2026] 127.0.0.1:56125 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:30 2026] 127.0.0.1:60556 Closing
-[Wed May 13 15:59:30 2026] 127.0.0.1:56125 Closing
-[Wed May 13 15:59:30 2026] 127.0.0.1:49501 Accepted
-[Wed May 13 15:59:30 2026] 127.0.0.1:49501 [200]: GET /favicon.ico
-[Wed May 13 15:59:30 2026] 127.0.0.1:49501 Closing
-[Wed May 13 15:59:31 2026] 127.0.0.1:49997 Accepted
-[Wed May 13 15:59:31 2026] 127.0.0.1:49997 [200]: GET /export
-[Wed May 13 15:59:31 2026] 127.0.0.1:49997 Closing
-[Wed May 13 15:59:31 2026] 127.0.0.1:50463 Accepted
-[Wed May 13 15:59:31 2026] 127.0.0.1:50463 [200]: GET /assets/css/app.css
-[Wed May 13 15:59:31 2026] 127.0.0.1:50463 Closing
-[Wed May 13 15:59:31 2026] 127.0.0.1:52196 Accepted
-[Wed May 13 15:59:31 2026] 127.0.0.1:52196 [200]: GET /assets/js/app.js
-[Wed May 13 15:59:31 2026] 127.0.0.1:52196 Closing
-[Wed May 13 15:59:31 2026] 127.0.0.1:53809 Accepted
-[Wed May 13 15:59:31 2026] 127.0.0.1:53809 [200]: GET /assets/js/charts.js
-[Wed May 13 15:59:31 2026] 127.0.0.1:53809 Closing
-[Wed May 13 15:59:31 2026] 127.0.0.1:55091 Accepted
-[Wed May 13 15:59:31 2026] 127.0.0.1:55091 [200]: GET /favicon.ico
-[Wed May 13 15:59:31 2026] 127.0.0.1:55091 Closing
-[Wed May 13 16:57:45 2026] 127.0.0.1:56152 Accepted
-[Wed May 13 16:57:45 2026] 127.0.0.1:56152 [200]: GET /assets/css/app.css
-[Wed May 13 16:57:45 2026] 127.0.0.1:56152 Closing
-[Wed May 13 16:57:45 2026] 127.0.0.1:62848 Accepted
-[Wed May 13 16:57:45 2026] 127.0.0.1:62848 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:57:45 2026] 127.0.0.1:62848 Closing
-[Wed May 13 16:58:09 2026] 127.0.0.1:57964 Accepted
-[Wed May 13 16:58:09 2026] 127.0.0.1:57964 [200]: GET /components/view?id=1035
-[Wed May 13 16:58:09 2026] 127.0.0.1:57964 Closing
-[Wed May 13 16:58:09 2026] 127.0.0.1:62290 Accepted
-[Wed May 13 16:58:09 2026] 127.0.0.1:55919 Accepted
-[Wed May 13 16:58:09 2026] 127.0.0.1:62290 [200]: GET /assets/css/app.css
-[Wed May 13 16:58:09 2026] 127.0.0.1:55919 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:58:09 2026] 127.0.0.1:55919 Closing
-[Wed May 13 16:58:09 2026] 127.0.0.1:61358 Accepted
-[Wed May 13 16:58:09 2026] 127.0.0.1:62290 Closing
-[Wed May 13 16:58:09 2026] 127.0.0.1:61994 Accepted
-[Wed May 13 16:58:09 2026] 127.0.0.1:61358 [200]: GET /assets/js/app.js
-[Wed May 13 16:58:09 2026] 127.0.0.1:61994 [200]: GET /assets/js/charts.js
-[Wed May 13 16:58:09 2026] 127.0.0.1:61358 Closing
-[Wed May 13 16:58:09 2026] 127.0.0.1:61994 Closing
-[Wed May 13 16:58:09 2026] 127.0.0.1:64421 Accepted
-[Wed May 13 16:58:09 2026] 127.0.0.1:64421 [200]: GET /favicon.ico
-[Wed May 13 16:58:09 2026] 127.0.0.1:64421 Closing
-[Wed May 13 16:58:24 2026] 127.0.0.1:55209 Accepted
-[Wed May 13 16:58:24 2026] 127.0.0.1:55209 [302]: POST /components/stock-move
-[Wed May 13 16:58:24 2026] 127.0.0.1:55209 Closing
-[Wed May 13 16:58:24 2026] 127.0.0.1:62040 Accepted
-[Wed May 13 16:58:24 2026] 127.0.0.1:62040 [200]: GET /components/view?id=1035
-[Wed May 13 16:58:24 2026] 127.0.0.1:62040 Closing
-[Wed May 13 16:58:24 2026] 127.0.0.1:61782 Accepted
-[Wed May 13 16:58:24 2026] 127.0.0.1:61782 [200]: GET /assets/css/app.css
-[Wed May 13 16:58:24 2026] 127.0.0.1:61782 Closing
-[Wed May 13 16:58:24 2026] 127.0.0.1:62407 Accepted
-[Wed May 13 16:58:24 2026] 127.0.0.1:61075 Accepted
-[Wed May 13 16:58:24 2026] 127.0.0.1:62407 [200]: GET /assets/js/app.js
-[Wed May 13 16:58:24 2026] 127.0.0.1:61075 [200]: GET /assets/js/charts.js
-[Wed May 13 16:58:24 2026] 127.0.0.1:62407 Closing
-[Wed May 13 16:58:24 2026] 127.0.0.1:61075 Closing
-[Wed May 13 16:58:24 2026] 127.0.0.1:56191 Accepted
-[Wed May 13 16:58:24 2026] 127.0.0.1:56191 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:58:24 2026] 127.0.0.1:56191 Closing
-[Wed May 13 16:58:24 2026] 127.0.0.1:64692 Accepted
-[Wed May 13 16:58:24 2026] 127.0.0.1:64692 [200]: GET /favicon.ico
-[Wed May 13 16:58:24 2026] 127.0.0.1:64692 Closing
-[Wed May 13 16:58:40 2026] 127.0.0.1:60847 Accepted
-[Wed May 13 16:58:40 2026] 127.0.0.1:60847 [302]: POST /components/stock-move
-[Wed May 13 16:58:40 2026] 127.0.0.1:60847 Closing
-[Wed May 13 16:58:40 2026] 127.0.0.1:51425 Accepted
-[Wed May 13 16:58:40 2026] 127.0.0.1:51425 [200]: GET /components/view?id=1035
-[Wed May 13 16:58:40 2026] 127.0.0.1:51425 Closing
-[Wed May 13 16:58:40 2026] 127.0.0.1:60031 Accepted
-[Wed May 13 16:58:40 2026] 127.0.0.1:60031 [200]: GET /assets/css/app.css
-[Wed May 13 16:58:40 2026] 127.0.0.1:60031 Closing
-[Wed May 13 16:58:40 2026] 127.0.0.1:64340 Accepted
-[Wed May 13 16:58:40 2026] 127.0.0.1:60605 Accepted
-[Wed May 13 16:58:40 2026] 127.0.0.1:64340 [200]: GET /assets/js/app.js
-[Wed May 13 16:58:40 2026] 127.0.0.1:60605 [200]: GET /assets/js/charts.js
-[Wed May 13 16:58:40 2026] 127.0.0.1:64340 Closing
-[Wed May 13 16:58:40 2026] 127.0.0.1:60605 Closing
-[Wed May 13 16:58:40 2026] 127.0.0.1:49189 Accepted
-[Wed May 13 16:58:40 2026] 127.0.0.1:49189 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:58:40 2026] 127.0.0.1:49189 Closing
-[Wed May 13 16:58:40 2026] 127.0.0.1:60926 Accepted
-[Wed May 13 16:58:40 2026] 127.0.0.1:60926 [200]: GET /favicon.ico
-[Wed May 13 16:58:40 2026] 127.0.0.1:60926 Closing
-[Wed May 13 16:58:49 2026] 127.0.0.1:62433 Accepted
-[Wed May 13 16:58:49 2026] 127.0.0.1:62433 [200]: GET /components/view?id=1035
-[Wed May 13 16:58:49 2026] 127.0.0.1:62433 Closing
-[Wed May 13 16:58:49 2026] 127.0.0.1:52969 Accepted
-[Wed May 13 16:58:49 2026] 127.0.0.1:52969 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:58:49 2026] 127.0.0.1:52969 Closing
-[Wed May 13 16:58:49 2026] 127.0.0.1:55384 Accepted
-[Wed May 13 16:58:49 2026] 127.0.0.1:55384 [200]: GET /favicon.ico
-[Wed May 13 16:58:49 2026] 127.0.0.1:55384 Closing
-[Wed May 13 16:58:57 2026] 127.0.0.1:53337 Accepted
-[Wed May 13 16:58:57 2026] 127.0.0.1:53337 [200]: GET /components/view?id=1035
-[Wed May 13 16:58:57 2026] 127.0.0.1:53337 Closing
-[Wed May 13 16:58:57 2026] 127.0.0.1:52159 Accepted
-[Wed May 13 16:58:57 2026] 127.0.0.1:52159 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:58:57 2026] 127.0.0.1:52159 Closing
-[Wed May 13 16:58:57 2026] 127.0.0.1:51243 Accepted
-[Wed May 13 16:58:57 2026] 127.0.0.1:51243 [200]: GET /favicon.ico
-[Wed May 13 16:58:57 2026] 127.0.0.1:51243 Closing
-[Wed May 13 16:59:00 2026] 127.0.0.1:58705 Accepted
-[Wed May 13 16:59:00 2026] 127.0.0.1:58705 [200]: GET /components/view?id=1035
-[Wed May 13 16:59:00 2026] 127.0.0.1:58705 Closing
-[Wed May 13 16:59:00 2026] 127.0.0.1:51746 Accepted
-[Wed May 13 16:59:00 2026] 127.0.0.1:51746 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:59:00 2026] 127.0.0.1:51746 Closing
-[Wed May 13 16:59:00 2026] 127.0.0.1:50845 Accepted
-[Wed May 13 16:59:00 2026] 127.0.0.1:50845 [200]: GET /favicon.ico
-[Wed May 13 16:59:00 2026] 127.0.0.1:50845 Closing
-[Wed May 13 16:59:04 2026] 127.0.0.1:49584 Accepted
-[Wed May 13 16:59:04 2026] 127.0.0.1:49584 [200]: GET /components/view?id=1035
-[Wed May 13 16:59:04 2026] 127.0.0.1:49584 Closing
-[Wed May 13 16:59:04 2026] 127.0.0.1:56923 Accepted
-[Wed May 13 16:59:04 2026] 127.0.0.1:56923 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:59:04 2026] 127.0.0.1:56923 Closing
-[Wed May 13 16:59:05 2026] 127.0.0.1:51992 Accepted
-[Wed May 13 16:59:05 2026] 127.0.0.1:51992 [200]: GET /favicon.ico
-[Wed May 13 16:59:05 2026] 127.0.0.1:51992 Closing
-[Wed May 13 16:59:06 2026] 127.0.0.1:49339 Accepted
-[Wed May 13 16:59:06 2026] 127.0.0.1:49339 [200]: GET /dashboard
-[Wed May 13 16:59:06 2026] 127.0.0.1:49339 Closing
-[Wed May 13 16:59:06 2026] 127.0.0.1:64251 Accepted
-[Wed May 13 16:59:06 2026] 127.0.0.1:64251 [200]: GET /assets/css/app.css
-[Wed May 13 16:59:06 2026] 127.0.0.1:57843 Accepted
-[Wed May 13 16:59:06 2026] 127.0.0.1:64251 Closing
-[Wed May 13 16:59:06 2026] 127.0.0.1:57843 [200]: GET /assets/js/app.js
-[Wed May 13 16:59:06 2026] 127.0.0.1:57843 Closing
-[Wed May 13 16:59:06 2026] 127.0.0.1:63034 Accepted
-[Wed May 13 16:59:06 2026] 127.0.0.1:63034 [200]: GET /assets/js/charts.js
-[Wed May 13 16:59:06 2026] 127.0.0.1:63034 Closing
-[Wed May 13 16:59:06 2026] 127.0.0.1:57217 Accepted
-[Wed May 13 16:59:06 2026] 127.0.0.1:57217 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:59:06 2026] 127.0.0.1:57217 Closing
-[Wed May 13 16:59:06 2026] 127.0.0.1:65300 Accepted
-[Wed May 13 16:59:06 2026] 127.0.0.1:65300 [200]: GET /favicon.ico
-[Wed May 13 16:59:06 2026] 127.0.0.1:65300 Closing
-[Wed May 13 16:59:11 2026] 127.0.0.1:61515 Accepted
-[Wed May 13 16:59:12 2026] 127.0.0.1:61515 [200]: GET /components
-[Wed May 13 16:59:12 2026] 127.0.0.1:61515 Closing
-[Wed May 13 16:59:12 2026] 127.0.0.1:56627 Accepted
-[Wed May 13 16:59:12 2026] 127.0.0.1:56627 [200]: GET /assets/css/app.css
-[Wed May 13 16:59:12 2026] 127.0.0.1:56627 Closing
-[Wed May 13 16:59:12 2026] 127.0.0.1:56722 Accepted
-[Wed May 13 16:59:12 2026] 127.0.0.1:64164 Accepted
-[Wed May 13 16:59:12 2026] 127.0.0.1:56722 [200]: GET /assets/js/app.js
-[Wed May 13 16:59:12 2026] 127.0.0.1:64164 [200]: GET /assets/js/charts.js
-[Wed May 13 16:59:12 2026] 127.0.0.1:56722 Closing
-[Wed May 13 16:59:12 2026] 127.0.0.1:64164 Closing
-[Wed May 13 16:59:12 2026] 127.0.0.1:63463 Accepted
-[Wed May 13 16:59:12 2026] 127.0.0.1:63463 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:59:12 2026] 127.0.0.1:63463 Closing
-[Wed May 13 16:59:12 2026] 127.0.0.1:51312 Accepted
-[Wed May 13 16:59:12 2026] 127.0.0.1:51312 [200]: GET /favicon.ico
-[Wed May 13 16:59:12 2026] 127.0.0.1:51312 Closing
-[Wed May 13 16:59:14 2026] 127.0.0.1:56162 Accepted
-[Wed May 13 16:59:14 2026] 127.0.0.1:56162 [200]: GET /components
-[Wed May 13 16:59:14 2026] 127.0.0.1:56162 Closing
-[Wed May 13 16:59:14 2026] 127.0.0.1:64803 Accepted
-[Wed May 13 16:59:14 2026] 127.0.0.1:64803 [200]: GET /assets/css/app.css
-[Wed May 13 16:59:14 2026] 127.0.0.1:64803 Closing
-[Wed May 13 16:59:14 2026] 127.0.0.1:52763 Accepted
-[Wed May 13 16:59:14 2026] 127.0.0.1:56331 Accepted
-[Wed May 13 16:59:14 2026] 127.0.0.1:52763 [200]: GET /assets/js/app.js
-[Wed May 13 16:59:14 2026] 127.0.0.1:56331 [200]: GET /assets/js/charts.js
-[Wed May 13 16:59:14 2026] 127.0.0.1:52763 Closing
-[Wed May 13 16:59:14 2026] 127.0.0.1:56331 Closing
-[Wed May 13 16:59:14 2026] 127.0.0.1:58236 Accepted
-[Wed May 13 16:59:14 2026] 127.0.0.1:58236 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 16:59:14 2026] 127.0.0.1:58236 Closing
-[Wed May 13 16:59:14 2026] 127.0.0.1:55023 Accepted
-[Wed May 13 16:59:14 2026] 127.0.0.1:55023 [200]: GET /favicon.ico
-[Wed May 13 16:59:14 2026] 127.0.0.1:55023 Closing
-[Wed May 13 17:00:32 2026] 127.0.0.1:58363 Accepted
-[Wed May 13 17:00:32 2026] 127.0.0.1:58363 [200]: GET /components?q=&category=&sort=nome&direction=asc&per_page=10
-[Wed May 13 17:00:32 2026] 127.0.0.1:58363 Closing
-[Wed May 13 17:00:32 2026] 127.0.0.1:63277 Accepted
-[Wed May 13 17:00:32 2026] 127.0.0.1:63277 [200]: GET /assets/css/app.css
-[Wed May 13 17:00:32 2026] 127.0.0.1:63277 Closing
-[Wed May 13 17:00:32 2026] 127.0.0.1:50181 Accepted
-[Wed May 13 17:00:32 2026] 127.0.0.1:50181 [200]: GET /assets/js/app.js
-[Wed May 13 17:00:32 2026] 127.0.0.1:50181 Closing
-[Wed May 13 17:00:32 2026] 127.0.0.1:52845 Accepted
-[Wed May 13 17:00:32 2026] 127.0.0.1:52845 [200]: GET /assets/js/charts.js
-[Wed May 13 17:00:32 2026] 127.0.0.1:52845 Closing
-[Wed May 13 17:00:32 2026] 127.0.0.1:58644 Accepted
-[Wed May 13 17:00:32 2026] 127.0.0.1:58644 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:00:32 2026] 127.0.0.1:58644 Closing
-[Wed May 13 17:00:32 2026] 127.0.0.1:61994 Accepted
-[Wed May 13 17:00:32 2026] 127.0.0.1:61994 [200]: GET /favicon.ico
-[Wed May 13 17:00:32 2026] 127.0.0.1:61994 Closing
-[Wed May 13 17:00:34 2026] 127.0.0.1:59556 Accepted
-[Wed May 13 17:00:34 2026] 127.0.0.1:59556 [200]: GET /components?q=&category=&sort=nome&direction=asc&per_page=10&below_min=1
-[Wed May 13 17:00:34 2026] 127.0.0.1:59556 Closing
-[Wed May 13 17:00:34 2026] 127.0.0.1:54412 Accepted
-[Wed May 13 17:00:34 2026] 127.0.0.1:54412 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:00:34 2026] 127.0.0.1:54412 Closing
-[Wed May 13 17:00:34 2026] 127.0.0.1:53323 Accepted
-[Wed May 13 17:00:34 2026] 127.0.0.1:53323 [200]: GET /assets/css/app.css
-[Wed May 13 17:00:34 2026] 127.0.0.1:53323 Closing
-[Wed May 13 17:00:34 2026] 127.0.0.1:56840 Accepted
-[Wed May 13 17:00:34 2026] 127.0.0.1:60859 Accepted
-[Wed May 13 17:00:34 2026] 127.0.0.1:56840 [200]: GET /assets/js/app.js
-[Wed May 13 17:00:34 2026] 127.0.0.1:60859 [200]: GET /assets/js/charts.js
-[Wed May 13 17:00:34 2026] 127.0.0.1:56840 Closing
-[Wed May 13 17:00:34 2026] 127.0.0.1:60859 Closing
-[Wed May 13 17:00:34 2026] 127.0.0.1:61511 Accepted
-[Wed May 13 17:00:34 2026] 127.0.0.1:61511 [200]: GET /favicon.ico
-[Wed May 13 17:00:34 2026] 127.0.0.1:61511 Closing
-[Wed May 13 17:00:43 2026] 127.0.0.1:53757 Accepted
-[Wed May 13 17:00:43 2026] 127.0.0.1:53757 [200]: GET /components?q=&category=&sort=nome&direction=asc&per_page=10&zeroed=1&below_min=1
-[Wed May 13 17:00:43 2026] 127.0.0.1:53757 Closing
-[Wed May 13 17:00:43 2026] 127.0.0.1:50980 Accepted
-[Wed May 13 17:00:43 2026] 127.0.0.1:55206 Accepted
-[Wed May 13 17:00:43 2026] 127.0.0.1:50980 [200]: GET /assets/css/app.css
-[Wed May 13 17:00:43 2026] 127.0.0.1:55206 [200]: GET /assets/js/app.js
-[Wed May 13 17:00:43 2026] 127.0.0.1:50980 Closing
-[Wed May 13 17:00:43 2026] 127.0.0.1:53051 Accepted
-[Wed May 13 17:00:43 2026] 127.0.0.1:55206 Closing
-[Wed May 13 17:00:43 2026] 127.0.0.1:53051 [200]: GET /assets/js/charts.js
-[Wed May 13 17:00:43 2026] 127.0.0.1:53051 Closing
-[Wed May 13 17:00:43 2026] 127.0.0.1:59091 Accepted
-[Wed May 13 17:00:43 2026] 127.0.0.1:59091 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:00:43 2026] 127.0.0.1:59091 Closing
-[Wed May 13 17:00:43 2026] 127.0.0.1:53649 Accepted
-[Wed May 13 17:00:43 2026] 127.0.0.1:53649 [200]: GET /favicon.ico
-[Wed May 13 17:00:43 2026] 127.0.0.1:53649 Closing
-[Wed May 13 17:00:45 2026] 127.0.0.1:54027 Accepted
-[Wed May 13 17:00:45 2026] 127.0.0.1:54027 [200]: GET /components?q=&category=&sort=nome&direction=asc&per_page=10&zeroed=1
-[Wed May 13 17:00:45 2026] 127.0.0.1:54027 Closing
-[Wed May 13 17:00:45 2026] 127.0.0.1:52470 Accepted
-[Wed May 13 17:00:45 2026] 127.0.0.1:52470 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:00:45 2026] 127.0.0.1:52470 Closing
-[Wed May 13 17:00:45 2026] 127.0.0.1:54889 Accepted
-[Wed May 13 17:00:45 2026] 127.0.0.1:54889 [200]: GET /assets/css/app.css
-[Wed May 13 17:00:45 2026] 127.0.0.1:54889 Closing
-[Wed May 13 17:00:45 2026] 127.0.0.1:49697 Accepted
-[Wed May 13 17:00:45 2026] 127.0.0.1:49697 [200]: GET /assets/js/app.js
-[Wed May 13 17:00:45 2026] 127.0.0.1:49697 Closing
-[Wed May 13 17:00:45 2026] 127.0.0.1:58001 Accepted
-[Wed May 13 17:00:45 2026] 127.0.0.1:58001 [200]: GET /assets/js/charts.js
-[Wed May 13 17:00:45 2026] 127.0.0.1:58001 Closing
-[Wed May 13 17:00:45 2026] 127.0.0.1:58226 Accepted
-[Wed May 13 17:00:45 2026] 127.0.0.1:58226 [200]: GET /favicon.ico
-[Wed May 13 17:00:45 2026] 127.0.0.1:58226 Closing
-[Wed May 13 17:00:47 2026] 127.0.0.1:58553 Accepted
-[Wed May 13 17:00:47 2026] 127.0.0.1:58553 [200]: GET /components?q=&category=&sort=nome&direction=asc&per_page=10
-[Wed May 13 17:00:47 2026] 127.0.0.1:58553 Closing
-[Wed May 13 17:00:47 2026] 127.0.0.1:59705 Accepted
-[Wed May 13 17:00:47 2026] 127.0.0.1:59705 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:00:47 2026] 127.0.0.1:59705 Closing
-[Wed May 13 17:00:47 2026] 127.0.0.1:49711 Accepted
-[Wed May 13 17:00:47 2026] 127.0.0.1:49711 [200]: GET /assets/css/app.css
-[Wed May 13 17:00:47 2026] 127.0.0.1:49711 Closing
-[Wed May 13 17:00:47 2026] 127.0.0.1:65366 Accepted
-[Wed May 13 17:00:47 2026] 127.0.0.1:60544 Accepted
-[Wed May 13 17:00:47 2026] 127.0.0.1:65366 [200]: GET /assets/js/app.js
-[Wed May 13 17:00:47 2026] 127.0.0.1:60544 [200]: GET /assets/js/charts.js
-[Wed May 13 17:00:47 2026] 127.0.0.1:65366 Closing
-[Wed May 13 17:00:47 2026] 127.0.0.1:60544 Closing
-[Wed May 13 17:00:47 2026] 127.0.0.1:62815 Accepted
-[Wed May 13 17:00:47 2026] 127.0.0.1:62815 [200]: GET /favicon.ico
-[Wed May 13 17:00:47 2026] 127.0.0.1:62815 Closing
-[Wed May 13 17:00:53 2026] 127.0.0.1:60926 Accepted
-[Wed May 13 17:00:53 2026] 127.0.0.1:60926 [200]: POST /components/inline
-[Wed May 13 17:00:53 2026] 127.0.0.1:60926 Closing
-[Wed May 13 17:00:55 2026] 127.0.0.1:57278 Accepted
-[Wed May 13 17:00:55 2026] 127.0.0.1:57278 [200]: GET /components?q=&category=&sort=nome&direction=asc&per_page=10&zeroed=1
-[Wed May 13 17:00:55 2026] 127.0.0.1:57278 Closing
-[Wed May 13 17:00:55 2026] 127.0.0.1:49293 Accepted
-[Wed May 13 17:00:55 2026] 127.0.0.1:49293 [200]: GET /assets/css/app.css
-[Wed May 13 17:00:55 2026] 127.0.0.1:62251 Accepted
-[Wed May 13 17:00:55 2026] 127.0.0.1:62251 [200]: GET /assets/js/app.js
-[Wed May 13 17:00:55 2026] 127.0.0.1:49293 Closing
-[Wed May 13 17:00:55 2026] 127.0.0.1:62251 Closing
-[Wed May 13 17:00:55 2026] 127.0.0.1:58938 Accepted
-[Wed May 13 17:00:55 2026] 127.0.0.1:58938 [200]: GET /assets/js/charts.js
-[Wed May 13 17:00:55 2026] 127.0.0.1:58938 Closing
-[Wed May 13 17:00:55 2026] 127.0.0.1:56321 Accepted
-[Wed May 13 17:00:55 2026] 127.0.0.1:56321 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:00:55 2026] 127.0.0.1:56321 Closing
-[Wed May 13 17:00:56 2026] 127.0.0.1:52204 Accepted
-[Wed May 13 17:00:56 2026] 127.0.0.1:52204 [200]: GET /favicon.ico
-[Wed May 13 17:00:56 2026] 127.0.0.1:52204 Closing
-[Wed May 13 17:00:58 2026] 127.0.0.1:64342 Accepted
-[Wed May 13 17:00:58 2026] 127.0.0.1:64342 [200]: GET /components/view?id=1035
-[Wed May 13 17:00:58 2026] 127.0.0.1:64342 Closing
-[Wed May 13 17:00:59 2026] 127.0.0.1:54536 Accepted
-[Wed May 13 17:00:59 2026] 127.0.0.1:54536 [200]: GET /assets/css/app.css
-[Wed May 13 17:00:59 2026] 127.0.0.1:54536 Closing
-[Wed May 13 17:00:59 2026] 127.0.0.1:60283 Accepted
-[Wed May 13 17:00:59 2026] 127.0.0.1:61781 Accepted
-[Wed May 13 17:00:59 2026] 127.0.0.1:60283 [200]: GET /assets/js/app.js
-[Wed May 13 17:00:59 2026] 127.0.0.1:61781 [200]: GET /assets/js/charts.js
-[Wed May 13 17:00:59 2026] 127.0.0.1:60283 Closing
-[Wed May 13 17:00:59 2026] 127.0.0.1:61781 Closing
-[Wed May 13 17:00:59 2026] 127.0.0.1:55253 Accepted
-[Wed May 13 17:00:59 2026] 127.0.0.1:55253 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:00:59 2026] 127.0.0.1:55253 Closing
-[Wed May 13 17:00:59 2026] 127.0.0.1:63143 Accepted
-[Wed May 13 17:00:59 2026] 127.0.0.1:63143 [200]: GET /favicon.ico
-[Wed May 13 17:00:59 2026] 127.0.0.1:63143 Closing
-[Wed May 13 17:01:13 2026] 127.0.0.1:64623 Accepted
-[Wed May 13 17:01:13 2026] 127.0.0.1:64623 [200]: GET /dashboard
-[Wed May 13 17:01:13 2026] 127.0.0.1:64623 Closing
-[Wed May 13 17:01:13 2026] 127.0.0.1:65459 Accepted
-[Wed May 13 17:01:13 2026] 127.0.0.1:58761 Accepted
-[Wed May 13 17:01:13 2026] 127.0.0.1:65459 [200]: GET /assets/css/app.css
-[Wed May 13 17:01:13 2026] 127.0.0.1:65459 Closing
-[Wed May 13 17:01:13 2026] 127.0.0.1:62315 Accepted
-[Wed May 13 17:01:13 2026] 127.0.0.1:58761 [200]: GET /assets/js/app.js
-[Wed May 13 17:01:13 2026] 127.0.0.1:62315 [200]: GET /assets/js/charts.js
-[Wed May 13 17:01:13 2026] 127.0.0.1:58761 Closing
-[Wed May 13 17:01:13 2026] 127.0.0.1:62315 Closing
-[Wed May 13 17:01:13 2026] 127.0.0.1:59041 Accepted
-[Wed May 13 17:01:13 2026] 127.0.0.1:59041 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:01:13 2026] 127.0.0.1:59041 Closing
-[Wed May 13 17:01:13 2026] 127.0.0.1:58040 Accepted
-[Wed May 13 17:01:13 2026] 127.0.0.1:58040 [200]: GET /favicon.ico
-[Wed May 13 17:01:13 2026] 127.0.0.1:58040 Closing
-[Wed May 13 17:01:16 2026] 127.0.0.1:63183 Accepted
-[Wed May 13 17:01:16 2026] 127.0.0.1:63183 [200]: GET /export
-[Wed May 13 17:01:16 2026] 127.0.0.1:63183 Closing
-[Wed May 13 17:01:16 2026] 127.0.0.1:63080 Accepted
-[Wed May 13 17:01:16 2026] 127.0.0.1:63080 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:01:16 2026] 127.0.0.1:63080 Closing
-[Wed May 13 17:01:16 2026] 127.0.0.1:52022 Accepted
-[Wed May 13 17:01:16 2026] 127.0.0.1:52022 [200]: GET /assets/css/app.css
-[Wed May 13 17:01:16 2026] 127.0.0.1:52022 Closing
-[Wed May 13 17:01:16 2026] 127.0.0.1:60839 Accepted
-[Wed May 13 17:01:16 2026] 127.0.0.1:60839 [200]: GET /assets/js/app.js
-[Wed May 13 17:01:16 2026] 127.0.0.1:60839 Closing
-[Wed May 13 17:01:16 2026] 127.0.0.1:50236 Accepted
-[Wed May 13 17:01:16 2026] 127.0.0.1:50236 [200]: GET /assets/js/charts.js
-[Wed May 13 17:01:16 2026] 127.0.0.1:50236 Closing
-[Wed May 13 17:01:16 2026] 127.0.0.1:52952 Accepted
-[Wed May 13 17:01:16 2026] 127.0.0.1:52952 [200]: GET /favicon.ico
-[Wed May 13 17:01:16 2026] 127.0.0.1:52952 Closing
-[Wed May 13 17:01:17 2026] 127.0.0.1:56472 Accepted
-[Wed May 13 17:01:18 2026] 127.0.0.1:56472 [200]: GET /reports
-[Wed May 13 17:01:18 2026] 127.0.0.1:56472 Closing
-[Wed May 13 17:01:18 2026] 127.0.0.1:54251 Accepted
-[Wed May 13 17:01:18 2026] 127.0.0.1:54251 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:01:18 2026] 127.0.0.1:54251 Closing
-[Wed May 13 17:01:18 2026] 127.0.0.1:52236 Accepted
-[Wed May 13 17:01:18 2026] 127.0.0.1:52236 [200]: GET /assets/css/app.css
-[Wed May 13 17:01:18 2026] 127.0.0.1:52236 Closing
-[Wed May 13 17:01:18 2026] 127.0.0.1:64149 Accepted
-[Wed May 13 17:01:18 2026] 127.0.0.1:61869 Accepted
-[Wed May 13 17:01:18 2026] 127.0.0.1:64149 [200]: GET /assets/js/app.js
-[Wed May 13 17:01:18 2026] 127.0.0.1:61869 [200]: GET /assets/js/charts.js
-[Wed May 13 17:01:18 2026] 127.0.0.1:64149 Closing
-[Wed May 13 17:01:18 2026] 127.0.0.1:61869 Closing
-[Wed May 13 17:01:18 2026] 127.0.0.1:53239 Accepted
-[Wed May 13 17:01:18 2026] 127.0.0.1:53239 [200]: GET /favicon.ico
-[Wed May 13 17:01:18 2026] 127.0.0.1:53239 Closing
-[Wed May 13 17:01:20 2026] 127.0.0.1:61694 Accepted
-[Wed May 13 17:01:20 2026] 127.0.0.1:61694 [200]: GET /reports/moves?from=&to=
-[Wed May 13 17:01:20 2026] 127.0.0.1:61694 Closing
-[Wed May 13 17:01:20 2026] 127.0.0.1:61516 Accepted
-[Wed May 13 17:01:20 2026] 127.0.0.1:61516 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:01:20 2026] 127.0.0.1:61516 Closing
-[Wed May 13 17:01:20 2026] 127.0.0.1:60970 Accepted
-[Wed May 13 17:01:20 2026] 127.0.0.1:60970 [200]: GET /assets/css/app.css
-[Wed May 13 17:01:20 2026] 127.0.0.1:60970 Closing
-[Wed May 13 17:01:20 2026] 127.0.0.1:64628 Accepted
-[Wed May 13 17:01:20 2026] 127.0.0.1:54425 Accepted
-[Wed May 13 17:01:20 2026] 127.0.0.1:64628 [200]: GET /assets/js/app.js
-[Wed May 13 17:01:20 2026] 127.0.0.1:54425 [200]: GET /assets/js/charts.js
-[Wed May 13 17:01:20 2026] 127.0.0.1:64628 Closing
-[Wed May 13 17:01:20 2026] 127.0.0.1:54425 Closing
-[Wed May 13 17:01:21 2026] 127.0.0.1:56626 Accepted
-[Wed May 13 17:01:21 2026] 127.0.0.1:56626 [200]: GET /favicon.ico
-[Wed May 13 17:01:21 2026] 127.0.0.1:56626 Closing
-[Wed May 13 17:01:31 2026] 127.0.0.1:54413 Accepted
-[Wed May 13 17:01:31 2026] 127.0.0.1:54413 [200]: GET /components
-[Wed May 13 17:01:31 2026] 127.0.0.1:54413 Closing
-[Wed May 13 17:01:31 2026] 127.0.0.1:63838 Accepted
-[Wed May 13 17:01:31 2026] 127.0.0.1:63838 [200]: GET /assets/css/app.css
-[Wed May 13 17:01:31 2026] 127.0.0.1:63838 Closing
-[Wed May 13 17:01:31 2026] 127.0.0.1:60063 Accepted
-[Wed May 13 17:01:31 2026] 127.0.0.1:60063 [200]: GET /assets/js/app.js
-[Wed May 13 17:01:31 2026] 127.0.0.1:60063 Closing
-[Wed May 13 17:01:31 2026] 127.0.0.1:51502 Accepted
-[Wed May 13 17:01:31 2026] 127.0.0.1:51502 [200]: GET /assets/js/charts.js
-[Wed May 13 17:01:31 2026] 127.0.0.1:51502 Closing
-[Wed May 13 17:01:31 2026] 127.0.0.1:57244 Accepted
-[Wed May 13 17:01:31 2026] 127.0.0.1:57244 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:01:31 2026] 127.0.0.1:57244 Closing
-[Wed May 13 17:01:31 2026] 127.0.0.1:52886 Accepted
-[Wed May 13 17:01:31 2026] 127.0.0.1:52886 [200]: GET /favicon.ico
-[Wed May 13 17:01:31 2026] 127.0.0.1:52886 Closing
-[Wed May 13 17:01:47 2026] 127.0.0.1:53489 Accepted
-[Wed May 13 17:01:47 2026] 127.0.0.1:53489 [200]: GET /components
-[Wed May 13 17:01:47 2026] 127.0.0.1:53489 Closing
-[Wed May 13 17:01:47 2026] 127.0.0.1:54068 Accepted
-[Wed May 13 17:01:47 2026] 127.0.0.1:54068 [200]: GET /assets/css/app.css
-[Wed May 13 17:01:47 2026] 127.0.0.1:54068 Closing
-[Wed May 13 17:01:48 2026] 127.0.0.1:64044 Accepted
-[Wed May 13 17:01:48 2026] 127.0.0.1:59855 Accepted
-[Wed May 13 17:01:48 2026] 127.0.0.1:64044 [200]: GET /assets/js/app.js
-[Wed May 13 17:01:48 2026] 127.0.0.1:59855 [200]: GET /assets/js/charts.js
-[Wed May 13 17:01:48 2026] 127.0.0.1:64044 Closing
-[Wed May 13 17:01:48 2026] 127.0.0.1:59855 Closing
-[Wed May 13 17:01:48 2026] 127.0.0.1:51612 Accepted
-[Wed May 13 17:01:48 2026] 127.0.0.1:51612 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
-[Wed May 13 17:01:48 2026] 127.0.0.1:51612 Closing
-[Wed May 13 17:01:48 2026] 127.0.0.1:51155 Accepted
-[Wed May 13 17:01:48 2026] 127.0.0.1:51155 [200]: GET /favicon.ico
-[Wed May 13 17:01:48 2026] 127.0.0.1:51155 Closing
-[Wed May 13 17:06:42 2026] 127.0.0.1:56324 Accepted
-[Wed May 13 17:06:42 2026] 127.0.0.1:56324 [200]: GET /dashboard
-[Wed May 13 17:06:42 2026] 127.0.0.1:56324 Closing
-[Wed May 13 18:04:53 2026] 127.0.0.1:61236 Accepted
-[Wed May 13 18:04:53 2026] 127.0.0.1:61236 [200]: GET /components
-[Wed May 13 18:04:53 2026] 127.0.0.1:61236 Closing
-[Wed May 13 18:04:54 2026] 127.0.0.1:54420 Accepted
-[Wed May 13 18:04:54 2026] 127.0.0.1:54420 [200]: GET /favicon.ico
-[Wed May 13 18:04:54 2026] 127.0.0.1:54420 Closing
+[Wed Jun 17 12:11:07 2026] PHP 8.4.22 Development Server (http://127.0.0.1:8000) started
+[Wed Jun 17 12:11:26 2026] 127.0.0.1:62764 Accepted
+[Wed Jun 17 12:11:26 2026] 127.0.0.1:62764 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:11:26 2026] 127.0.0.1:62764 Closing
+[Wed Jun 17 12:11:38 2026] 127.0.0.1:62777 Accepted
+[Wed Jun 17 12:11:38 2026] 127.0.0.1:62777 Closing
+[Wed Jun 17 12:11:49 2026] 127.0.0.1:64528 Accepted
+[Wed Jun 17 12:11:49 2026] 127.0.0.1:64528 Closing
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:64503 Accepted
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:64503 Closing
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:49182 Accepted
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:49182 Closing
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:59641 Accepted
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:59641 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:50989 Accepted
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:50989 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:60199 Accepted
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:59641 Closing
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:60199 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:50989 Closing
+[Wed Jun 17 12:11:51 2026] 127.0.0.1:60199 Closing
+[Wed Jun 17 12:11:54 2026] 127.0.0.1:60204 Accepted
+[Wed Jun 17 12:11:55 2026] 127.0.0.1:60204 Closing
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:57301 Accepted
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:57301 Closing
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:61765 Accepted
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:61765 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:61765 Closing
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:50982 Accepted
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:60986 Accepted
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:50982 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:60986 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:50982 Closing
+[Wed Jun 17 12:11:56 2026] 127.0.0.1:60986 Closing
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:55235 Accepted
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:55235 Closing
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:52676 Accepted
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:52676 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:55309 Accepted
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:55309 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:63895 Accepted
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:52676 Closing
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:63895 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:55309 Closing
+[Wed Jun 17 12:12:08 2026] 127.0.0.1:63895 Closing
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:49928 Accepted
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:49928 Closing
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:64012 Accepted
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:51852 Accepted
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:64012 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:49321 Accepted
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:51852 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:49321 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:64012 Closing
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:51852 Closing
+[Wed Jun 17 12:12:56 2026] 127.0.0.1:49321 Closing
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:51411 Accepted
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:51411 Closing
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:59180 Accepted
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:59180 Closing
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:57008 Accepted
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:57008 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:57736 Accepted
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:57736 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:58281 Accepted
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:57008 Closing
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:58281 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:57736 Closing
+[Wed Jun 17 12:13:04 2026] 127.0.0.1:58281 Closing
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:53739 Accepted
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:53739 Closing
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:52246 Accepted
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:49916 Accepted
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:52246 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:49916 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:52246 Closing
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:49916 Closing
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:54128 Accepted
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:54128 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:13:14 2026] 127.0.0.1:54128 Closing
+[Wed Jun 17 12:13:19 2026] 127.0.0.1:64296 Accepted
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:64296 Closing
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:61421 Accepted
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:61421 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:61421 Closing
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:54543 Accepted
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:54543 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:59374 Accepted
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:59374 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:54543 Closing
+[Wed Jun 17 12:13:20 2026] 127.0.0.1:59374 Closing
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:49340 Accepted
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:49340 Closing
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:61711 Accepted
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:61711 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:61711 Closing
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:64645 Accepted
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:64645 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:60152 Accepted
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:60152 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:64645 Closing
+[Wed Jun 17 12:13:25 2026] 127.0.0.1:60152 Closing
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:54923 Accepted
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:54923 Closing
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:51941 Accepted
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:51941 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:50258 Accepted
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:50258 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:58275 Accepted
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:51941 Closing
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:58275 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:50258 Closing
+[Wed Jun 17 12:13:27 2026] 127.0.0.1:58275 Closing
+[Wed Jun 17 12:13:33 2026] 127.0.0.1:64890 Accepted
+[Wed Jun 17 12:13:33 2026] 127.0.0.1:64890 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:13:33 2026] 127.0.0.1:64890 Closing
+[Wed Jun 17 12:13:33 2026] 127.0.0.1:57763 Accepted
+[Wed Jun 17 12:13:33 2026] 127.0.0.1:57763 Closing
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:60785 Accepted
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:60785 Closing
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:60925 Accepted
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:60925 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:56451 Accepted
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:56451 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:60925 Closing
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:53098 Accepted
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:56451 Closing
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:53098 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:53098 Closing
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:55447 Accepted
+[Wed Jun 17 12:13:41 2026] 127.0.0.1:55447 Closing
+[Wed Jun 17 12:13:46 2026] 127.0.0.1:55611 Accepted
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:55611 Closing
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:58067 Accepted
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:58067 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:53617 Accepted
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:59598 Accepted
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:58067 Closing
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:53617 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:59598 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:53617 Closing
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:59598 Closing
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:65246 Accepted
+[Wed Jun 17 12:13:47 2026] 127.0.0.1:65246 Closing
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:58055 Accepted
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:58055 Closing
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:54473 Accepted
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:54473 Closing
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:64328 Accepted
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:64328 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:57306 Accepted
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:57306 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:51592 Accepted
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:64328 Closing
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:51592 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:57306 Closing
+[Wed Jun 17 12:13:54 2026] 127.0.0.1:51592 Closing
+[Wed Jun 17 12:15:17 2026] 127.0.0.1:56231 Accepted
+[Wed Jun 17 12:15:17 2026] 127.0.0.1:56231 Closing
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:57801 Accepted
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:57801 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:60564 Accepted
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:60564 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:57801 Closing
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:60564 Closing
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:63374 Accepted
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:63374 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:63374 Closing
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:53148 Accepted
+[Wed Jun 17 12:15:18 2026] 127.0.0.1:53148 Closing
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:57765 Accepted
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:57765 Closing
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:62494 Accepted
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:62494 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:62494 Closing
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:51554 Accepted
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:51554 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:61050 Accepted
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:61050 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:51554 Closing
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:61050 Closing
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:56930 Accepted
+[Wed Jun 17 12:15:28 2026] 127.0.0.1:56930 Closing
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:51839 Accepted
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:51839 Closing
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:57873 Accepted
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:57053 Accepted
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:57873 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:57053 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:57873 Closing
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:57053 Closing
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:57623 Accepted
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:57623 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:57623 Closing
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:65013 Accepted
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:65013 Closing
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:50470 Accepted
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:50470 Closing
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:54806 Accepted
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:54806 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:55334 Accepted
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:54806 Closing
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:55334 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:54281 Accepted
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:54281 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:55334 Closing
+[Wed Jun 17 12:15:32 2026] 127.0.0.1:54281 Closing
+[Wed Jun 17 12:15:33 2026] 127.0.0.1:53276 Accepted
+[Wed Jun 17 12:15:33 2026] 127.0.0.1:53276 Closing
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:63618 Accepted
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:63618 Closing
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:57338 Accepted
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:49594 Accepted
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:57338 Closing
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:53881 Accepted
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:49594 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:51364 Accepted
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:53881 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:51364 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:49594 Closing
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:53881 Closing
+[Wed Jun 17 12:15:53 2026] 127.0.0.1:51364 Closing
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:64698 Accepted
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:64698 Closing
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:59949 Accepted
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:60444 Accepted
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:59949 Closing
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:56928 Accepted
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:60444 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:52410 Accepted
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:56928 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:52410 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:60444 Closing
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:56928 Closing
+[Wed Jun 17 12:15:58 2026] 127.0.0.1:52410 Closing
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:57624 Accepted
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:57624 Closing
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:49847 Accepted
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:49847 Closing
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:51490 Accepted
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:51490 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:59350 Accepted
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:59350 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:51895 Accepted
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:51490 Closing
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:51895 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:59350 Closing
+[Wed Jun 17 12:16:09 2026] 127.0.0.1:51895 Closing
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:61038 Accepted
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:61038 Closing
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:51287 Accepted
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:51287 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:64971 Accepted
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:64971 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:51608 Accepted
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:51287 Closing
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:51608 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:64971 Closing
+[Wed Jun 17 12:16:13 2026] 127.0.0.1:51608 Closing
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:55488 Accepted
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:55488 Closing
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:63604 Accepted
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:63604 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:63313 Accepted
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:56201 Accepted
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:63604 Closing
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:63313 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:56201 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:63313 Closing
+[Wed Jun 17 12:16:18 2026] 127.0.0.1:56201 Closing
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:49206 Accepted
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:49206 Closing
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:65223 Accepted
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:65223 Closing
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:51432 Accepted
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:51432 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:56361 Accepted
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:52717 Accepted
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:51432 Closing
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:56361 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:52717 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:56361 Closing
+[Wed Jun 17 12:16:40 2026] 127.0.0.1:52717 Closing
+[Wed Jun 17 12:16:42 2026] 127.0.0.1:58618 Accepted
+[Wed Jun 17 12:16:42 2026] 127.0.0.1:58618 Closing
+[Wed Jun 17 12:16:43 2026] 127.0.0.1:52611 Accepted
+[Wed Jun 17 12:16:43 2026] 127.0.0.1:52611 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:16:43 2026] 127.0.0.1:54874 Accepted
+[Wed Jun 17 12:16:43 2026] 127.0.0.1:54874 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:16:43 2026] 127.0.0.1:61847 Accepted
+[Wed Jun 17 12:16:43 2026] 127.0.0.1:52611 Closing
+[Wed Jun 17 12:16:43 2026] 127.0.0.1:61847 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:16:43 2026] 127.0.0.1:54874 Closing
+[Wed Jun 17 12:16:43 2026] 127.0.0.1:61847 Closing
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:49443 Accepted
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:49443 Closing
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:61310 Accepted
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:61310 [200]: GET /assets/css/app.css
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:53916 Accepted
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:54389 Accepted
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:61310 Closing
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:53916 [200]: GET /assets/js/app.js
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:54389 [200]: GET /assets/js/charts.js
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:53916 Closing
+[Wed Jun 17 12:16:47 2026] 127.0.0.1:54389 Closing

@@ -7,7 +7,7 @@ $csrfInline = $csrfInline ?? '';
 $csrfDelete = $csrfDelete ?? '';
 $csrfStock = $csrfStock ?? '';
 ?>
-<div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+<div data-tour="components-table" class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
     <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700">
         <thead class="bg-slate-50 dark:bg-slate-800/60">
             <tr class="text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">

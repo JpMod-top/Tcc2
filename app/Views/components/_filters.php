@@ -5,7 +5,7 @@ declare(strict_types=1);
 $filters = $filters ?? [];
 $categories = $categories ?? [];
 ?>
-<form method="GET" action="/components" class="space-y-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+<form method="GET" action="/components" data-tour="components-filters" class="space-y-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <label class="block text-sm font-medium text-slate-600 dark:text-slate-300">
             Busca

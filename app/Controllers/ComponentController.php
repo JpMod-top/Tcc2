@@ -38,6 +38,7 @@ class ComponentController
         ];
 
         $result = Component::paginateForUser($userId, $params);
+        $summary = Component::dashboardSummary($userId);
 
         View::render('components/list', [
             'title' => 'Componentes',
@@ -47,7 +48,10 @@ class ComponentController
             'categories' => Component::categories($userId),
             'csrfInline' => Csrf::token('components_inline'),
             'csrfDelete' => Csrf::token('components_delete'),
+            'csrfDeleteAll' => Csrf::token('components_delete_all'),
+            'csrfSeedTest' => Csrf::token('components_seed_test'),
             'csrfStock' => Csrf::token('components_stock'),
+            'totalComponents' => (int)($summary['total_componentes'] ?? 0),
             'user' => $user,
         ]);
     }
@@ -232,6 +236,72 @@ class ComponentController
         );
 
         $this->flash('success', 'Componente removido.');
+        $this->redirect('/components');
+    }
+
+    public function destroyAll(): void
+    {
+        Auth::requireAuth();
+
+        if (!$this->verifyCsrf('components_delete_all', $_POST['_token'] ?? null)) {
+            $this->flash('error', 'Sessao expirada.');
+            $this->redirect('/components');
+        }
+
+        $userId = Auth::userId();
+        $deleted = Component::softDeleteAllForUser($userId);
+
+        AuditLog::record(
+            $userId,
+            'components',
+            null,
+            'delete_all',
+            ['deleted' => $deleted],
+            $this->clientIp(),
+            $_SERVER['HTTP_USER_AGENT'] ?? null
+        );
+
+        if ($deleted > 0) {
+            $this->flash('success', "{$deleted} componentes removidos.");
+        } else {
+            $this->flash('info', 'Nenhum componente para remover.');
+        }
+
+        $this->redirect('/components');
+    }
+
+    public function seedTestComponents(): void
+    {
+        Auth::requireAuth();
+
+        if (!$this->verifyCsrf('components_seed_test', $_POST['_token'] ?? null)) {
+            $this->flash('error', 'Sessao expirada.');
+            $this->redirect('/components');
+        }
+
+        $userId = Auth::userId();
+        $result = Component::bulkUpsert($userId, $this->testComponentRows(), false);
+
+        AuditLog::record(
+            $userId,
+            'components',
+            null,
+            'seed_test_components',
+            [
+                'requested' => 100,
+                'inserted' => $result['inserted'],
+                'skipped' => 100 - $result['inserted'],
+            ],
+            $this->clientIp(),
+            $_SERVER['HTTP_USER_AGENT'] ?? null
+        );
+
+        if ($result['inserted'] > 0) {
+            $this->flash('success', "{$result['inserted']} componentes de teste adicionados.");
+        } else {
+            $this->flash('info', 'Os 100 componentes de teste ja existem neste estoque.');
+        }
+
         $this->redirect('/components');
     }
 
@@ -751,6 +821,66 @@ class ComponentController
                 throw new RuntimeException('Nao foi possivel criar diretorio de uploads.');
             }
         }
+    }
+
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    private function testComponentRows(): array
+    {
+        $categories = [
+            ['Resistores', 'Resistor', 'Yageo', 'RES', 'Axial', '5%', '0.25W', null, 0.05],
+            ['Capacitores', 'Capacitor', 'Murata', 'CAP', '0603', null, null, '50V', 0.12],
+            ['Circuitos Integrados', 'Circuito integrado', 'Texas Instruments', 'CI', 'SOIC-8', null, null, '5V', 4.80],
+            ['MOSFETs', 'MOSFET', 'Infineon', 'MOS', 'TO-220', null, null, '60V', 2.40],
+            ['Sensores', 'Sensor', 'Bosch', 'SNS', 'DIP', null, null, '3.3V', 8.90],
+            ['Indutores', 'Indutor', 'Bourns', 'IND', 'SMD', '10%', null, null, 0.75],
+            ['Microcontroladores', 'Microcontrolador', 'Microchip', 'MCU', 'TQFP-32', null, null, '3.3V', 12.50],
+            ['Diodos', 'Diodo', 'Vishay', 'DIO', 'DO-41', null, null, '100V', 0.18],
+            ['LEDs', 'LED', 'Kingbright', 'LED', 'THT 5mm', null, null, '2V', 0.20],
+            ['Reguladores', 'Regulador', 'STMicroelectronics', 'REG', 'SOT-223', null, null, '12V', 1.35],
+        ];
+
+        $variants = [
+            'A', 'B', 'C', 'D', 'E',
+            'F', 'G', 'H', 'I', 'J',
+        ];
+
+        $rows = [];
+        $index = 1;
+
+        foreach ($categories as $category) {
+            foreach ($variants as $variantIndex => $variant) {
+                $sku = sprintf('TEST-%03d', $index);
+                $quantity = 5 + (($index * 7) % 95);
+                $minStock = 3 + ($index % 12);
+                $unitCost = (float)$category[8] + ($variantIndex * 0.03);
+
+                $rows[] = [
+                    'nome' => $category[1] . ' teste ' . $variant,
+                    'sku' => $sku,
+                    'fabricante' => $category[2],
+                    'cod_fabricante' => $category[3] . '-' . $variant . '-' . str_pad((string)$index, 3, '0', STR_PAD_LEFT),
+                    'descricao' => 'Componente de teste gerado pelo sistema para popular o estoque.',
+                    'categoria' => $category[0],
+                    'tags' => 'teste,demo,' . strtolower(str_replace(' ', '-', (string)$category[0])),
+                    'quantidade' => $quantity,
+                    'unidade' => 'un',
+                    'localizacao' => 'Demo ' . chr(65 + (($index - 1) % 5)) . '-' . (1 + (($index - 1) % 20)),
+                    'tolerancia' => $category[5],
+                    'potencia' => $category[6],
+                    'tensao_max' => $category[7],
+                    'footprint' => $category[4],
+                    'custo_unitario' => round($unitCost, 2),
+                    'preco_medio' => round($unitCost, 2),
+                    'min_estoque' => $minStock,
+                ];
+
+                $index++;
+            }
+        }
+
+        return $rows;
     }
 
     private function abort404(): void

@@ -16,7 +16,7 @@ $csrfMoves = $csrfMoves ?? '';
         <p class="text-sm text-slate-500 dark:text-slate-400">Explore métricas essenciais para o estoque.</p>
     </div>
 
-    <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <section data-tour="reports-summary" class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
             <h2 class="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Componentes</h2>
             <p class="mt-2 text-2xl font-bold text-slate-800 dark:text-slate-100">
@@ -43,7 +43,7 @@ $csrfMoves = $csrfMoves ?? '';
         </article>
     </section>
 
-    <section class="grid gap-4 md:grid-cols-2">
+    <section data-tour="reports-options" class="grid gap-4 md:grid-cols-2">
         <a href="/reports/low-stock" class="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-400 hover:shadow dark:border-slate-700 dark:bg-slate-900 dark:hover:border-blue-400/70">
             <h3 class="text-lg font-semibold text-slate-800 transition group-hover:text-blue-600 dark:text-slate-100 dark:group-hover:text-blue-300">Componentes abaixo do mínimo</h3>
             <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Lista de componentes com estoque crítico.</p>

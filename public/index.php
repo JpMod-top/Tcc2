@@ -144,6 +144,8 @@ $router->get('/components/view', [ComponentController::class, 'show']);
 $router->get('/components/edit', [ComponentController::class, 'edit']);
 $router->post('/components/update', [ComponentController::class, 'update']);
 $router->post('/components/delete', [ComponentController::class, 'destroy']);
+$router->post('/components/delete-all', [ComponentController::class, 'destroyAll']);
+$router->post('/components/seed-test', [ComponentController::class, 'seedTestComponents']);
 $router->post('/components/inline', [ComponentController::class, 'inlineUpdate']);
 $router->post('/components/stock-move', [ComponentController::class, 'stockMove']);
 $router->post('/components/upload-image', [ComponentController::class, 'uploadImage']);
@@ -164,6 +166,7 @@ $router->post('/reports/moves/export', [ReportController::class, 'exportMovesCsv
 
 $router->get('/import', [ImportController::class, 'index']);
 $router->post('/import/preview', [ImportController::class, 'preview']);
+$router->post('/import/cancel', [ImportController::class, 'cancel']);
 $router->post('/import/process', [ImportController::class, 'process']);
 
 $router->get('/export', [ExportController::class, 'index']);

@@ -13,7 +13,7 @@ $recent = $recent ?? [];
 $valueByCategory = $valueByCategory ?? [];
 ?>
 <div class="space-y-8">
-    <section class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <section data-tour="dashboard-summary" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
             <h2 class="text-sm font-semibold text-slate-500 dark:text-slate-400">Componentes</h2>
             <p class="mt-2 text-3xl font-bold text-slate-800 dark:text-slate-100">
@@ -44,8 +44,8 @@ $valueByCategory = $valueByCategory ?? [];
         </article>
     </section>
 
-    <section class="grid gap-6 lg:grid-cols-2">
-        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <section data-tour="dashboard-details" class="grid gap-4 lg:grid-cols-2 lg:gap-6">
+        <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900 sm:p-6">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-semibold text-slate-800 dark:text-slate-100">Valor por categoria</h2>
                 <a href="/reports/value-category" class="text-sm text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">Ver relatório</a>
@@ -60,13 +60,13 @@ $valueByCategory = $valueByCategory ?? [];
             ?>
             <canvas
                 id="category-chart"
-                class="mt-6 h-64 w-full"
+                class="mt-4 h-52 w-full sm:mt-6 sm:h-64"
                 aria-label="Gráfico de valor por categoria"
                 data-chart-type="category-bar"
                 data-chart-values="<?php echo htmlspecialchars(json_encode($chartData, JSON_THROW_ON_ERROR), ENT_QUOTES, 'UTF-8'); ?>"
             ></canvas>
         </div>
-        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+        <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900 sm:p-6">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-semibold text-slate-800 dark:text-slate-100">Últimos componentes</h2>
                 <a href="/components" class="text-sm text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">Ver todos</a>
