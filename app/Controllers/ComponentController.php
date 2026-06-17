@@ -664,9 +664,6 @@ class ComponentController
         exit;
     }
 
-    /**
-     * @return array<string, mixed>|null
-     */
     public function serveImage(): void
     {
         Auth::requireAuth();
@@ -912,7 +909,6 @@ class ComponentController
         exit;
     }
 }
-
 
 
 
