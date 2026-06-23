@@ -32,9 +32,15 @@ $user = Auth::user();
             <button type="button" data-onboarding-reopen class="inline-flex items-center rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-blue-400 hover:text-blue-500 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-500 dark:hover:text-blue-400">
                 Tour
             </button>
-            <div class="hidden flex-col text-right text-xs text-slate-500 dark:text-slate-400 sm:flex">
+            <div class="hidden max-w-md flex-col items-end text-right text-xs text-slate-500 dark:text-slate-400 sm:flex">
                 <span class="font-semibold text-slate-700 dark:text-slate-100"><?php echo htmlspecialchars($user['name'] ?? 'Estoque anonimo', ENT_QUOTES, 'UTF-8'); ?></span>
-                <span>Estoque deste navegador</span>
+                <span
+                    class="mt-1 inline-flex items-start gap-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-left text-amber-800 shadow-sm dark:border-amber-500 dark:bg-amber-900/40 dark:text-amber-100"
+                    title="Os dados ficam salvos no banco, mas este estoque e vinculado ao identificador deste navegador. Se voce limpar cookies/localStorage, trocar de navegador ou usar outro dispositivo, pode perder o acesso a este estoque."
+                >
+                    <span class="font-bold">Aviso:</span>
+                    <span>vinculado a este navegador. Limpar cookies ou trocar de navegador pode ocultar seus dados.</span>
+                </span>
             </div>
         </div>
         <form method="GET" action="/components" data-tour="global-search" class="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 shadow-sm focus-within:border-blue-400 focus-within:bg-white focus-within:text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 md:hidden">
