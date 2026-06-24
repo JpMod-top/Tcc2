@@ -180,14 +180,14 @@
         white-space: nowrap;
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: 1024px) {
         .app-table-wrap th:last-child,
         .app-table-wrap td[data-label='Acoes'] {
             min-width: 14rem;
         }
     }
 
-    @media (max-width: 639px) {
+    @media (max-width: 1023px) {
         .app-table-wrap {
             @apply overflow-visible border-0 bg-transparent shadow-none;
         }
