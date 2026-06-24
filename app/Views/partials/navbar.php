@@ -7,8 +7,7 @@ use App\Core\View;
 
 $user = Auth::user();
 ?>
-<header data-tour="topbar" class="app-topbar">
-    <div class="md:pl-64">
+<header data-tour="topbar" class="app-topbar md:ml-64">
     <div class="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-8 md:py-3.5 lg:px-10">
         <div class="flex items-center justify-between gap-3 md:justify-start">
             <button
@@ -52,6 +51,5 @@ $user = Auth::user();
             <input name="q" type="search" placeholder="Buscar componentes..." class="flex-1 bg-transparent outline-none" aria-label="Buscar componentes">
             <button type="submit" class="font-medium text-brand-600 hover:text-brand-500 dark:text-brand-300 dark:hover:text-brand-200">Buscar</button>
         </form>
-    </div>
     </div>
 </header>
