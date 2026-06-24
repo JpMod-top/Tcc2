@@ -172,7 +172,19 @@
     }
 
     .app-table-actions {
-        @apply flex items-center justify-end gap-2;
+        @apply flex flex-nowrap items-center justify-end gap-2;
+    }
+
+    .app-table-actions a,
+    .app-table-actions button {
+        white-space: nowrap;
+    }
+
+    @media (min-width: 640px) {
+        .app-table-wrap th:last-child,
+        .app-table-wrap td[data-label='Acoes'] {
+            min-width: 14rem;
+        }
     }
 
     @media (max-width: 639px) {

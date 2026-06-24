@@ -8,7 +8,7 @@ use App\Core\View;
 $user = Auth::user();
 ?>
 <header data-tour="topbar" class="app-topbar">
-    <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-8 md:py-3.5">
+    <div class="flex w-full flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-8 md:py-3.5 lg:px-10">
         <div class="flex items-center justify-between gap-3 md:justify-start">
             <button
                 type="button"
