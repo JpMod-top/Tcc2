@@ -7,14 +7,14 @@ $csrfCancel = $csrfCancel ?? '';
 $hasPending = $hasPending ?? false;
 ?>
 <div class="space-y-6">
-    <div>
-        <h1 class="text-2xl font-semibold text-slate-800 dark:text-slate-100">Importar componentes</h1>
-        <p class="text-sm text-slate-500 dark:text-slate-400">
+    <header class="app-page-header">
+        <h1>Importar componentes</h1>
+        <p>
             Envie um arquivo CSV para cadastrar ou atualizar componentes rapidamente. O arquivo deve conter pelo menos as colunas <strong>nome</strong> e <strong>sku</strong>.
         </p>
-    </div>
+    </header>
 
-    <section class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <section class="app-panel">
         <h2 class="text-lg font-semibold text-slate-800 dark:text-slate-100">Estrutura recomendada</h2>
         <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-600 dark:text-slate-300">
             <li><code>nome</code> (obrigatorio)</li>
@@ -28,7 +28,7 @@ $hasPending = $hasPending ?? false;
     <form method="POST" action="/import/preview" enctype="multipart/form-data" data-tour="import-upload" class="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-600 transition hover:border-blue-400 dark:border-slate-600 dark:bg-slate-800/60 dark:text-slate-300">
         <input type="hidden" name="_token" value="<?php echo htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8'); ?>">
         <p>Selecione um arquivo CSV (.csv). Maximo de 500 linhas sera considerado por importacao.</p>
-        <label class="mt-4 inline-flex cursor-pointer items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500 dark:bg-blue-500 dark:text-slate-900 dark:hover:bg-blue-400">
+        <label class="mt-4 inline-flex cursor-pointer items-center app-btn-primary">
             <input type="file" name="file" accept=".csv,text/csv" class="hidden" onchange="this.form.submit()">
             Escolher arquivo
         </label>

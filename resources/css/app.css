@@ -2,7 +2,213 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply font-sans text-slate-700 antialiased;
+        font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    }
+
+    ::selection {
+        @apply bg-brand-100 text-brand-900;
+    }
+
+    .dark ::selection {
+        @apply bg-brand-900/50 text-brand-100;
+    }
+}
+
 @layer components {
+    .app-topbar {
+        @apply sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/90;
+    }
+
+    .app-sidebar {
+        @apply border-r border-slate-200/80 bg-white dark:border-slate-800 dark:bg-slate-950;
+    }
+
+    .app-main {
+        @apply bg-slate-50/80 dark:bg-slate-950;
+    }
+
+    .app-footer {
+        @apply border-t border-slate-200/80 bg-white px-4 py-4 text-center text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400;
+    }
+
+    .app-brand {
+        @apply flex flex-col leading-tight;
+    }
+
+    .app-brand-title {
+        @apply text-base font-semibold tracking-tight text-brand-700 dark:text-brand-300;
+    }
+
+    .app-brand-subtitle {
+        @apply hidden text-[11px] font-medium text-slate-500 dark:text-slate-400 sm:block;
+    }
+
+    .app-nav-link {
+        @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition duration-150 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-900 dark:hover:text-slate-100;
+    }
+
+    .app-nav-link--active {
+        @apply bg-brand-50 text-brand-700 shadow-sm ring-1 ring-brand-100 dark:bg-brand-950/40 dark:text-brand-200 dark:ring-brand-900/60;
+    }
+
+    .app-nav-icon {
+        @apply inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-300;
+    }
+
+    .app-nav-link--active .app-nav-icon {
+        @apply bg-brand-100 text-brand-600 dark:bg-brand-900/50 dark:text-brand-300;
+    }
+
+    .app-page-header h1 {
+        @apply text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50;
+    }
+
+    .app-page-header p {
+        @apply mt-1 max-w-2xl text-sm leading-relaxed text-slate-500 dark:text-slate-400;
+    }
+
+    .app-card {
+        @apply rounded-2xl border border-slate-200/80 bg-white shadow-soft dark:border-slate-800 dark:bg-slate-900;
+    }
+
+    .app-panel {
+        @apply app-card p-5 sm:p-6;
+    }
+
+    .app-stat-card {
+        @apply relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-soft transition duration-200 hover:-translate-y-0.5 hover:shadow-card dark:border-slate-800 dark:bg-slate-900;
+    }
+
+    .app-stat-card::before {
+        content: '';
+        @apply absolute inset-y-0 left-0 w-1 rounded-l-2xl;
+    }
+
+    .app-stat-card--brand::before {
+        @apply bg-brand-500;
+    }
+
+    .app-stat-card--warning::before {
+        @apply bg-amber-500;
+    }
+
+    .app-stat-card--danger::before {
+        @apply bg-rose-500;
+    }
+
+    .app-stat-card--success::before {
+        @apply bg-emerald-500;
+    }
+
+    .app-stat-label {
+        @apply text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400;
+    }
+
+    .app-stat-value {
+        @apply mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50;
+    }
+
+    .app-stat-hint {
+        @apply mt-1 text-xs text-slate-500 dark:text-slate-400;
+    }
+
+    .app-btn {
+        @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-900;
+    }
+
+    .app-btn-primary {
+        @apply app-btn bg-brand-600 text-white hover:bg-brand-500 focus:ring-brand-400 dark:bg-brand-500 dark:text-white dark:hover:bg-brand-400;
+    }
+
+    .app-btn-secondary {
+        @apply app-btn border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 focus:ring-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800;
+    }
+
+    .app-btn-outline-success {
+        @apply app-btn border border-emerald-300 text-emerald-700 hover:bg-emerald-50 focus:ring-emerald-300 dark:border-emerald-700 dark:text-emerald-300 dark:hover:bg-emerald-950/30;
+    }
+
+    .app-btn-outline-danger {
+        @apply app-btn border border-rose-300 text-rose-700 hover:bg-rose-50 focus:ring-rose-300 dark:border-rose-700 dark:text-rose-300 dark:hover:bg-rose-950/30;
+    }
+
+    .app-link {
+        @apply text-sm font-medium text-brand-600 transition hover:text-brand-500 dark:text-brand-300 dark:hover:text-brand-200;
+    }
+
+    .app-table-wrap {
+        @apply app-card overflow-hidden;
+    }
+
+    .app-table-wrap table {
+        @apply min-w-full divide-y divide-slate-200 dark:divide-slate-800;
+    }
+
+    .app-table-wrap thead {
+        @apply bg-slate-50/90 dark:bg-slate-900/80;
+    }
+
+    .app-table-wrap th {
+        @apply px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400;
+    }
+
+    .app-table-wrap tbody {
+        @apply divide-y divide-slate-100 text-sm dark:divide-slate-800 dark:text-slate-100;
+    }
+
+    .app-table-wrap tr {
+        @apply transition hover:bg-slate-50/80 dark:hover:bg-slate-800/40;
+    }
+
+    .app-table-wrap td {
+        @apply px-4 py-3 align-middle;
+    }
+
+    .app-field input:not([type='checkbox']):not([type='file']):not([type='hidden']),
+    .app-field select,
+    .app-field textarea,
+    .app-filters input:not([type='checkbox']):not([type='file']):not([type='hidden']),
+    .app-filters select,
+    .app-filters textarea {
+        @apply mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 shadow-sm transition focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-400/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100;
+    }
+
+    .app-field label,
+    .app-filters label {
+        @apply block text-sm font-medium text-slate-600 dark:text-slate-300;
+    }
+
+    .app-empty-state {
+        @apply rounded-xl border border-dashed border-slate-200 bg-slate-50/80 p-6 text-center text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-400;
+    }
+
+    .app-notice {
+        @apply inline-flex max-w-md items-start gap-2 rounded-xl border border-amber-200/80 bg-amber-50/90 px-3 py-2 text-left text-[11px] leading-relaxed text-amber-800 dark:border-amber-800/60 dark:bg-amber-950/30 dark:text-amber-100;
+    }
+
+    .app-report-link {
+        @apply app-card block p-6 transition duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-card dark:hover:border-brand-800/60;
+    }
+
+    .app-report-link:hover h3 {
+        @apply text-brand-600 dark:text-brand-300;
+    }
+
+    .app-report-link h3 {
+        @apply text-lg font-semibold text-slate-800 transition dark:text-slate-100;
+    }
+
+    .app-report-link p {
+        @apply mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400;
+    }
+
     .app-tour-overlay {
         position: fixed;
         inset: 0;
@@ -13,7 +219,7 @@
     .app-tour-highlight {
         position: fixed;
         z-index: 70;
-        border: 2px solid rgb(96, 165, 250);
+        border: 2px solid rgb(99, 102, 241);
         border-radius: 14px;
         box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.58), 0 16px 40px rgba(15, 23, 42, 0.22);
         pointer-events: none;
@@ -46,7 +252,7 @@
     }
 
     .app-tour-eyebrow {
-        color: rgb(37, 99, 235);
+        color: rgb(79, 70, 229);
         font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.08em;
@@ -68,9 +274,9 @@
     }
 
     .app-tour-close:hover {
-        border-color: rgb(147, 197, 253);
-        color: rgb(37, 99, 235);
-        background: rgb(239, 246, 255);
+        border-color: rgb(165, 180, 252);
+        color: rgb(79, 70, 229);
+        background: rgb(238, 242, 255);
     }
 
     .app-tour-title {
@@ -122,12 +328,12 @@
     }
 
     .app-tour-btn-primary {
-        background: rgb(37, 99, 235);
+        background: rgb(79, 70, 229);
         color: white;
     }
 
     .app-tour-btn-primary:hover {
-        background: rgb(59, 130, 246);
+        background: rgb(99, 102, 241);
     }
 
     .app-tour-btn-secondary {
@@ -136,9 +342,9 @@
     }
 
     .app-tour-btn-secondary:hover {
-        border-color: rgb(147, 197, 253);
-        color: rgb(37, 99, 235);
-        background: rgb(239, 246, 255);
+        border-color: rgb(165, 180, 252);
+        color: rgb(79, 70, 229);
+        background: rgb(238, 242, 255);
     }
 
     .app-tour-btn:disabled {
@@ -165,17 +371,23 @@
 
     .dark .app-tour-close:hover,
     .dark .app-tour-btn-secondary:hover {
-        border-color: rgb(96, 165, 250);
-        color: rgb(147, 197, 253);
-        background: rgba(59, 130, 246, 0.1);
+        border-color: rgb(129, 140, 248);
+        color: rgb(165, 180, 252);
+        background: rgba(99, 102, 241, 0.1);
     }
 
     .dark .app-tour-btn-primary {
-        background: rgb(59, 130, 246);
-        color: rgb(15, 23, 42);
+        background: rgb(99, 102, 241);
+        color: white;
     }
 
     .dark .app-tour-btn-primary:hover {
-        background: rgb(96, 165, 250);
+        background: rgb(129, 140, 248);
+    }
+}
+
+@layer utilities {
+    .app-content-width {
+        @apply mx-auto w-full max-w-7xl;
     }
 }

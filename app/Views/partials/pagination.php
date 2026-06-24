@@ -32,10 +32,10 @@ $buildUrl = static function (int $page) use ($path, $params): string {
     </div>
     <div class="flex items-center gap-2">
         <?php if ($currentPage > 1): ?>
-            <a href="<?php echo htmlspecialchars($buildUrl($currentPage - 1), ENT_QUOTES, 'UTF-8'); ?>" class="rounded-md border border-slate-200 px-3 py-1 text-sm text-slate-600 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">Anterior</a>
+            <a href="<?php echo htmlspecialchars($buildUrl($currentPage - 1), ENT_QUOTES, 'UTF-8'); ?>" class="app-btn-secondary px-3 py-1">Anterior</a>
         <?php endif; ?>
         <?php if ($currentPage < $lastPage): ?>
-            <a href="<?php echo htmlspecialchars($buildUrl($currentPage + 1), ENT_QUOTES, 'UTF-8'); ?>" class="rounded-md border border-slate-200 px-3 py-1 text-sm text-slate-600 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">Proxima</a>
+            <a href="<?php echo htmlspecialchars($buildUrl($currentPage + 1), ENT_QUOTES, 'UTF-8'); ?>" class="app-btn-secondary px-3 py-1">Proxima</a>
         <?php endif; ?>
     </div>
 </nav>

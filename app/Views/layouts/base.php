@@ -13,6 +13,9 @@ $title = $title ?? 'Meu Estoque Eletronicos';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($title . ' | Meu Estoque', ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         (function () {
             function fallbackUuid() {
@@ -51,33 +54,39 @@ $title = $title ?? 'Meu Estoque Eletronicos';
             var storageKey = 'meu-estoque-theme';
             try {
                 var stored = localStorage.getItem(storageKey);
-                if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                if (stored === 'dark') {
                     document.documentElement.classList.add('dark');
                 } else {
                     document.documentElement.classList.remove('dark');
                 }
             } catch (err) {
-                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('dark');
             }
         })();
     </script>
     <link rel="stylesheet" href="/assets/css/app.css">
 </head>
-<body class="h-full bg-slate-100 text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-100">
-    <div class="min-h-screen flex flex-col">
+<body class="h-full bg-slate-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100">
+    <div class="flex min-h-screen flex-col">
         <?php View::partial('partials/navbar'); ?>
 
         <div class="flex flex-1">
             <?php View::partial('partials/sidebar'); ?>
-            <div id="app-sidebar-backdrop" class="fixed inset-0 z-30 hidden bg-slate-900/60 backdrop-blur-sm md:hidden" data-sidebar-backdrop></div>
+            <div id="app-sidebar-backdrop" class="fixed inset-0 z-30 hidden bg-slate-900/50 backdrop-blur-sm md:hidden" data-sidebar-backdrop></div>
 
-            <main data-tour="page-content" class="flex-1 overflow-x-auto px-4 py-6 md:px-10 md:py-10">
-                <?php View::partial('partials/flash'); ?>
-                <div class="mt-4 space-y-6">
-                    <?php echo $content ?? ''; ?>
+            <main data-tour="page-content" class="app-main flex-1 overflow-x-auto px-4 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10">
+                <div class="app-content-width">
+                    <?php View::partial('partials/flash'); ?>
+                    <div class="mt-4 space-y-6 md:space-y-8">
+                        <?php echo $content ?? ''; ?>
+                    </div>
                 </div>
             </main>
         </div>
+
+        <footer class="app-footer">
+            Sistema de Gestão de Estoque de Componentes Eletrônicos — Trabalho de Conclusão de Curso
+        </footer>
     </div>
 
     <?php View::partial('partials/toasts'); ?>

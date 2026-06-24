@@ -7,20 +7,20 @@ $csrfInline = $csrfInline ?? '';
 $csrfDelete = $csrfDelete ?? '';
 $csrfStock = $csrfStock ?? '';
 ?>
-<div data-tour="components-table" class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
-    <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700">
-        <thead class="bg-slate-50 dark:bg-slate-800/60">
-            <tr class="text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                <th class="px-4 py-3">Nome</th>
-                <th class="px-4 py-3">SKU</th>
-                <th class="px-4 py-3">Categoria</th>
-                <th class="px-4 py-3">Quantidade</th>
-                <th class="px-4 py-3">Localizacao</th>
-                <th class="px-4 py-3">Tags</th>
-                <th class="px-4 py-3 text-right">Acoes</th>
+<div data-tour="components-table" class="app-table-wrap">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>SKU</th>
+                <th>Categoria</th>
+                <th>Quantidade</th>
+                <th>Localizacao</th>
+                <th>Tags</th>
+                <th class="text-right">Acoes</th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-slate-200 text-sm dark:divide-slate-700 dark:text-slate-100">
+        <tbody>
             <?php if (empty($components)): ?>
                 <tr>
                     <td colspan="7" class="px-4 py-6 text-center text-slate-500 dark:text-slate-400">
@@ -29,7 +29,7 @@ $csrfStock = $csrfStock ?? '';
                 </tr>
             <?php else: ?>
                 <?php foreach ($components as $component): ?>
-                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60">
+                    <tr>
                         <td class="px-4 py-3 font-medium">
                             <div class="flex flex-col">
                                 <a href="/components/view?id=<?php echo (int)$component['id']; ?>" class="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">
