@@ -35,8 +35,23 @@ ini_set('display_errors', $debug ? '1' : '0');
 ini_set('log_errors', '1');
 error_reporting(E_ALL);
 
-set_exception_handler(static function (Throwable $throwable) use ($debug): void {
+set_exception_handler(static function (Throwable $throwable) use ($debug, $projectRoot): void {
     error_log((string)$throwable);
+
+    $logDir = $projectRoot . '/storage/logs';
+    if (is_dir($projectRoot . '/storage') && (!is_dir($logDir) || is_writable(dirname($logDir)))) {
+        if (!is_dir($logDir)) {
+            @mkdir($logDir, 0755, true);
+        }
+
+        if (is_dir($logDir) && is_writable($logDir)) {
+            @file_put_contents(
+                $logDir . '/app.log',
+                '[' . date('Y-m-d H:i:s') . '] ' . (string)$throwable . PHP_EOL,
+                FILE_APPEND | LOCK_EX
+            );
+        }
+    }
 
     if (!headers_sent()) {
         http_response_code(500);
