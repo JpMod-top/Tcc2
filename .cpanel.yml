@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/aazi1366/public_html
-    - /bin/rsync -avz --exclude '.git' ./ $DEPLOYPATH
+    - export PUBLICPATH=/home/aazi1366/public_html
+    - /bin/rsync -avz --delete public/ $PUBLICPATH

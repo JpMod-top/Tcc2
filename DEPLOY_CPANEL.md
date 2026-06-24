@@ -7,7 +7,21 @@
 - Banco MySQL/MariaDB criado pelo cPanel.
 - SSL ativo para o dominio.
 
-## Arquivos para subir
+## Estrutura recomendada no cPanel
+
+Mantenha o projeto completo em:
+
+- `/home/SEU_USUARIO/repositories/Tcc2/`
+
+Copie somente o conteudo de `public/` para:
+
+- `/home/SEU_USUARIO/public_html/`
+
+O arquivo `public_html/index.php` procura automaticamente o projeto em `../repositories/Tcc2`, entao o restante da aplicacao fica fora da pasta publica.
+
+Importante: copie tambem o arquivo oculto `public/.htaccess` para `public_html/.htaccess`. Sem ele, o servidor pode mostrar `Index of /` e rotas como `/dashboard` podem nao funcionar.
+
+## Arquivos para subir no repositorio
 
 Suba:
 
@@ -69,11 +83,9 @@ npm run build:css
 
 Suba o arquivo gerado em `public/assets/css/app.css`.
 
-## Document root
+## Deploy automatico do cPanel
 
-Ideal: apontar o dominio para a pasta `public/`.
-
-Se o cPanel nao permitir alterar o document root, suba o projeto inteiro fora de `public_html` e copie o conteudo de `public/` para `public_html/`, ajustando os caminhos de `index.php` conforme a estrutura usada.
+Com o projeto em `/home/SEU_USUARIO/repositories/Tcc2`, o arquivo `.cpanel.yml` copia `public/` para `public_html/`.
 
 ## Permissoes
 

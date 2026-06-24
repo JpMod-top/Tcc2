@@ -13,12 +13,17 @@ use App\Core\DB;
 use App\Core\Router;
 
 $projectRoot = dirname(__DIR__);
-$repositoryRoot = realpath(__DIR__ . '/../repositories/Tcc2') ?: __DIR__ . '/../repositories/Tcc2';
+$projectRootCandidates = [
+    __DIR__ . '/../repositories/Tcc2',
+    dirname(__DIR__),
+    __DIR__ . '/../estoque',
+];
 
-if (is_file($repositoryRoot . '/vendor/autoload.php')) {
-    $projectRoot = $repositoryRoot;
-} elseif (!is_file($projectRoot . '/vendor/autoload.php') && is_file(__DIR__ . '/../estoque/vendor/autoload.php')) {
-    $projectRoot = realpath(__DIR__ . '/../estoque') ?: __DIR__ . '/../estoque';
+foreach ($projectRootCandidates as $candidate) {
+    if (is_file($candidate . '/vendor/autoload.php')) {
+        $projectRoot = realpath($candidate) ?: $candidate;
+        break;
+    }
 }
 
 require $projectRoot . '/vendor/autoload.php';
