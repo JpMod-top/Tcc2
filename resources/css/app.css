@@ -236,8 +236,27 @@
         }
 
         .app-table-actions {
-            flex-wrap: wrap;
-            justify-content: flex-start;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+            justify-content: stretch;
+        }
+
+        .app-table-wrap td[data-label='Acoes'] {
+            grid-template-columns: 1fr;
+        }
+
+        .app-table-wrap td[data-label='Acoes'] .app-table-actions > *,
+        .app-table-wrap td[data-label='Acoes'] .app-table-actions a,
+        .app-table-wrap td[data-label='Acoes'] .app-table-actions button {
+            width: 100%;
+            justify-content: center;
+        }
+
+        @media (min-width: 380px) {
+            .app-table-actions {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
         }
     }
 
