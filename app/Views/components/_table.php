@@ -30,7 +30,7 @@ $csrfStock = $csrfStock ?? '';
             <?php else: ?>
                 <?php foreach ($components as $component): ?>
                     <tr>
-                        <td class="px-4 py-3 font-medium">
+                        <td data-label="Nome" class="px-4 py-3 font-medium">
                             <div class="flex flex-col">
                                 <a href="/components/view?id=<?php echo (int)$component['id']; ?>" class="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">
                                     <?php echo htmlspecialchars($component['nome'], ENT_QUOTES, 'UTF-8'); ?>
@@ -40,13 +40,13 @@ $csrfStock = $csrfStock ?? '';
                                 </span>
                             </div>
                         </td>
-                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300">
+                        <td data-label="SKU" class="px-4 py-3 text-slate-600 dark:text-slate-300">
                             <?php echo htmlspecialchars($component['sku'], ENT_QUOTES, 'UTF-8'); ?>
                         </td>
-                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300">
+                        <td data-label="Categoria" class="px-4 py-3 text-slate-600 dark:text-slate-300">
                             <?php echo htmlspecialchars($component['categoria'] ?? 'â€”', ENT_QUOTES, 'UTF-8'); ?>
                         </td>
-                        <td class="px-4 py-3">
+                        <td data-label="Quantidade" class="px-4 py-3">
                             <input
                                 type="number"
                                 class="inline-editor w-24 rounded border border-slate-300 bg-white px-2 py-1 text-sm text-slate-700 focus:border-blue-500 focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
@@ -56,7 +56,7 @@ $csrfStock = $csrfStock ?? '';
                                 value="<?php echo (int)$component['quantidade']; ?>"
                             >
                         </td>
-                        <td class="px-4 py-3">
+                        <td data-label="Localizacao" class="px-4 py-3">
                             <input
                                 type="text"
                                 class="inline-editor w-full rounded border border-slate-300 bg-white px-2 py-1 text-sm text-slate-700 focus:border-blue-500 focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
@@ -66,7 +66,7 @@ $csrfStock = $csrfStock ?? '';
                                 value="<?php echo htmlspecialchars((string)($component['localizacao'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>"
                             >
                         </td>
-                        <td class="px-4 py-3">
+                        <td data-label="Tags" class="px-4 py-3">
                             <input
                                 type="text"
                                 class="inline-editor w-full rounded border border-slate-300 bg-white px-2 py-1 text-sm text-slate-700 focus:border-blue-500 focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
@@ -76,8 +76,8 @@ $csrfStock = $csrfStock ?? '';
                                 value="<?php echo htmlspecialchars((string)($component['tags'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>"
                             >
                         </td>
-                        <td class="px-4 py-3 text-right">
-                            <div class="flex items-center justify-end gap-2">
+                        <td data-label="Acoes" class="px-4 py-3 text-right">
+                            <div class="app-table-actions">
                                 <button
                                     type="button"
                                     data-component="<?php echo (int)$component['id']; ?>"

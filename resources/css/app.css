@@ -171,6 +171,76 @@
         @apply px-4 py-3 align-middle;
     }
 
+    .app-table-actions {
+        @apply flex items-center justify-end gap-2;
+    }
+
+    @media (max-width: 639px) {
+        .app-table-wrap {
+            @apply overflow-visible border-0 bg-transparent shadow-none;
+        }
+
+        .app-table-wrap table,
+        .app-table-wrap tbody,
+        .app-table-wrap tr,
+        .app-table-wrap td {
+            display: block;
+            width: 100%;
+        }
+
+        .app-table-wrap table {
+            min-width: 0;
+        }
+
+        .app-table-wrap thead {
+            display: none;
+        }
+
+        .app-table-wrap tbody {
+            @apply grid gap-3 divide-y-0;
+        }
+
+        .app-table-wrap tr {
+            @apply overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900;
+        }
+
+        .app-table-wrap td {
+            @apply grid gap-2 border-t border-slate-100 px-4 py-3 text-left first:border-t-0 dark:border-slate-800;
+            grid-template-columns: minmax(6.5rem, 38%) minmax(0, 1fr);
+        }
+
+        .app-table-wrap td::before {
+            content: attr(data-label);
+            @apply text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400;
+        }
+
+        .app-table-wrap td[colspan] {
+            display: block;
+            text-align: center !important;
+        }
+
+        .app-table-wrap td[colspan]::before {
+            content: none;
+        }
+
+        .app-table-wrap td.text-right,
+        .app-table-wrap td [class*='text-right'] {
+            text-align: left;
+        }
+
+        .app-table-wrap td .inline-editor,
+        .app-table-wrap td input,
+        .app-table-wrap td select {
+            width: 100%;
+            min-width: 0;
+        }
+
+        .app-table-actions {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+    }
+
     .app-field input:not([type='checkbox']):not([type='file']):not([type='hidden']),
     .app-field select,
     .app-field textarea,

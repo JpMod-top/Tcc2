@@ -73,7 +73,7 @@ $csrfExport = $csrfExport ?? '';
         </form>
     </div>
 
-    <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <div class="app-table-wrap">
         <table class="min-w-full divide-y divide-slate-200 text-sm dark:divide-slate-700 dark:text-slate-200">
             <thead class="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:bg-slate-800/60 dark:text-slate-400">
                 <tr>
@@ -94,9 +94,9 @@ $csrfExport = $csrfExport ?? '';
                 <?php else: ?>
                     <?php foreach ($moves as $move): ?>
                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60">
-                            <td class="px-4 py-3"><?php echo htmlspecialchars($move['created_at'], ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td class="px-4 py-3 capitalize"><?php echo htmlspecialchars($move['tipo'], ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td class="px-4 py-3">
+                            <td data-label="Data" class="px-4 py-3"><?php echo htmlspecialchars($move['created_at'], ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td data-label="Tipo" class="px-4 py-3 capitalize"><?php echo htmlspecialchars($move['tipo'], ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td data-label="Componente" class="px-4 py-3">
                                 <?php
                                 $componentName = '';
                                 foreach ($components as $component) {
@@ -108,10 +108,10 @@ $csrfExport = $csrfExport ?? '';
                                 ?>
                                 <?php echo htmlspecialchars($componentName ?: 'ID ' . $move['component_id'], ENT_QUOTES, 'UTF-8'); ?>
                             </td>
-                            <td class="px-4 py-3 text-right <?php echo ((int)$move['quantidade']) < 0 ? 'text-rose-500 dark:text-rose-300' : 'text-emerald-600 dark:text-emerald-300'; ?>">
+                            <td data-label="Quantidade" class="px-4 py-3 text-right <?php echo ((int)$move['quantidade']) < 0 ? 'text-rose-500 dark:text-rose-300' : 'text-emerald-600 dark:text-emerald-300'; ?>">
                                 <?php echo (int)$move['quantidade']; ?>
                             </td>
-                            <td class="px-4 py-3 text-slate-500 dark:text-slate-400"><?php echo htmlspecialchars($move['motivo'] ?? '—', ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td data-label="Motivo" class="px-4 py-3 text-slate-500 dark:text-slate-400"><?php echo htmlspecialchars($move['motivo'] ?? '-', ENT_QUOTES, 'UTF-8'); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>

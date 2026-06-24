@@ -10,7 +10,7 @@ $items = $items ?? [];
         <p class="text-sm text-slate-500 dark:text-slate-400">Itens sem nenhuma unidade disponível em estoque.</p>
     </div>
 
-    <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <div class="app-table-wrap">
         <table class="min-w-full divide-y divide-slate-200 text-sm dark:divide-slate-700 dark:text-slate-200">
             <thead class="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:bg-slate-800/60 dark:text-slate-400">
                 <tr>
@@ -30,14 +30,14 @@ $items = $items ?? [];
                 <?php else: ?>
                     <?php foreach ($items as $item): ?>
                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60">
-                            <td class="px-4 py-3 font-medium text-slate-800 dark:text-slate-100">
+                            <td data-label="Nome" class="px-4 py-3 font-medium text-slate-800 dark:text-slate-100">
                                 <a href="/components/view?id=<?php echo (int)$item['id']; ?>" class="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">
                                     <?php echo htmlspecialchars($item['nome'], ENT_QUOTES, 'UTF-8'); ?>
                                 </a>
                             </td>
-                            <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?php echo htmlspecialchars($item['sku'], ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?php echo htmlspecialchars($item['categoria'] ?? '—', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td class="px-4 py-3 text-right text-slate-500 dark:text-slate-400"><?php echo htmlspecialchars($item['updated_at'], ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td data-label="SKU" class="px-4 py-3 text-slate-600 dark:text-slate-300"><?php echo htmlspecialchars($item['sku'], ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td data-label="Categoria" class="px-4 py-3 text-slate-600 dark:text-slate-300"><?php echo htmlspecialchars($item['categoria'] ?? '-', ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td data-label="Ultima atualizacao" class="px-4 py-3 text-right text-slate-500 dark:text-slate-400"><?php echo htmlspecialchars($item['updated_at'], ENT_QUOTES, 'UTF-8'); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>

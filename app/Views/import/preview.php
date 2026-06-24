@@ -23,7 +23,7 @@ $csrfCancel = $csrfCancel ?? '';
         </form>
     </div>
 
-    <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <div class="app-table-wrap">
         <table class="min-w-full divide-y divide-slate-200 text-xs dark:divide-slate-700 dark:text-slate-200">
             <thead class="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:bg-slate-800/60 dark:text-slate-400">
                 <tr>
@@ -44,8 +44,8 @@ $csrfCancel = $csrfCancel ?? '';
                 <?php else: ?>
                     <?php foreach ($preview as $row): ?>
                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60">
-                            <?php foreach ($row as $value): ?>
-                                <td class="px-3 py-2"><?php echo htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8'); ?></td>
+                            <?php foreach ($row as $column => $value): ?>
+                                <td data-label="<?php echo htmlspecialchars((string)$column, ENT_QUOTES, 'UTF-8'); ?>" class="px-3 py-2"><?php echo htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8'); ?></td>
                             <?php endforeach; ?>
                         </tr>
                     <?php endforeach; ?>
