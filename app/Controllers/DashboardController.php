@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Core\Auth;
 use App\Core\View;
 use App\Models\Component;
+use App\Services\DefaultComponentSeeder;
 
 class DashboardController
 {
@@ -14,6 +15,7 @@ class DashboardController
     {
         Auth::requireAuth();
         $userId = Auth::userId();
+        DefaultComponentSeeder::ensureSeededForUser($userId);
 
         $summary = Component::dashboardSummary($userId);
         $recent = Component::recent($userId, 5);

@@ -13,6 +13,7 @@ use App\Models\AuditLog;
 use App\Models\Component;
 use App\Models\Image;
 use App\Models\StockMove;
+use App\Services\DefaultComponentSeeder;
 
 use RuntimeException;
 
@@ -25,6 +26,7 @@ class ComponentController
         Auth::requireAuth();
         $user = Auth::user();
         $userId = Auth::userId();
+        DefaultComponentSeeder::ensureSeededForUser($userId);
 
         $params = [
             'page' => $_GET['page'] ?? 1,
@@ -909,7 +911,6 @@ class ComponentController
         exit;
     }
 }
-
 
 
 
