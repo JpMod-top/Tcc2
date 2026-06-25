@@ -252,8 +252,22 @@
         if (upButton) {
             var target = parentPath(normalizedPath());
             if (target) {
+                var heading = document.querySelector('[data-tour="page-content"] h1');
+                var titleRow = null;
+
                 upButton.setAttribute('href', target);
                 upButton.classList.remove('hidden');
+
+                if (heading) {
+                    titleRow = heading.closest('.app-page-title-row');
+                    if (!titleRow) {
+                        titleRow = document.createElement('div');
+                        titleRow.className = 'app-page-title-row';
+                        heading.parentNode.insertBefore(titleRow, heading);
+                        titleRow.appendChild(heading);
+                    }
+                    titleRow.insertBefore(upButton, titleRow.firstChild);
+                }
             } else {
                 upButton.classList.add('hidden');
             }
