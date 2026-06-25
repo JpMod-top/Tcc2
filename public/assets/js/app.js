@@ -200,6 +200,74 @@
         syncSidebarState();
     }
 
+    function initFloatingActions() {
+        var upButton = document.querySelector('[data-up-button]');
+        var topButton = document.querySelector('[data-scroll-top]');
+
+        function normalizedPath() {
+            var path = window.location.pathname || '/';
+            path = path.replace(/\/+$/, '');
+            return path || '/';
+        }
+
+        function parentPath(path) {
+            var parts;
+
+            if (path === '/' || path === '/dashboard') {
+                return '';
+            }
+
+            if (path === '/components' || path === '/reports' || path === '/import' || path === '/export') {
+                return '/dashboard';
+            }
+
+            if (path.indexOf('/components/') === 0 || path === '/components/view' || path === '/components/edit') {
+                return '/components';
+            }
+
+            if (path.indexOf('/reports/') === 0) {
+                return '/reports';
+            }
+
+            if (path.indexOf('/import/') === 0) {
+                return '/import';
+            }
+
+            parts = path.split('/').filter(Boolean);
+            if (parts.length <= 1) {
+                return '/dashboard';
+            }
+
+            return '/' + parts.slice(0, -1).join('/');
+        }
+
+        function updateScrollTopButton() {
+            if (!topButton) {
+                return;
+            }
+
+            topButton.classList.toggle('app-floating-action--hidden', window.scrollY < 320);
+        }
+
+        if (upButton) {
+            var target = parentPath(normalizedPath());
+            if (target) {
+                upButton.setAttribute('href', target);
+                upButton.classList.remove('hidden');
+            } else {
+                upButton.classList.add('hidden');
+            }
+        }
+
+        if (topButton) {
+            topButton.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            window.addEventListener('scroll', updateScrollTopButton, { passive: true });
+            updateScrollTopButton();
+        }
+    }
+
     function initOnboardingTour() {
         var storageKey = 'meu-estoque-onboarding-v1';
         var activeTour = null;
@@ -640,6 +708,7 @@
         initDarkMode();
         initAutoSubmitSelects();
         initSidebarToggle();
+        initFloatingActions();
         initOnboardingTour();
     });
 })();
