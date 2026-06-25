@@ -25,7 +25,7 @@ $totalComponents = $totalComponents ?? 0;
             <form method="POST" action="/components/seed-test" class="inline" onsubmit="return confirm('Adicionar 100 componentes de teste a este estoque? Itens ja existentes com SKU TEST-001 a TEST-100 serao ignorados.');">
                 <input type="hidden" name="_token" value="<?php echo htmlspecialchars($csrfSeedTest, ENT_QUOTES, 'UTF-8'); ?>">
                 <button type="submit" class="app-btn-outline-success">
-                        Adicionar componentes
+                        Importar Dados para Teste
                 </button>
             </form>
             <?php if ((int)$totalComponents > 0): ?>
