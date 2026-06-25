@@ -8,20 +8,20 @@ use App\Core\View;
 $user = Auth::user();
 ?>
 <header data-tour="topbar" class="app-topbar md:ml-64">
-    <div class="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-8 md:py-3.5 lg:px-10">
-        <div class="flex items-center justify-between gap-3 md:justify-start">
+    <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-3 py-2 md:px-8 md:py-3.5 lg:px-10">
+        <div class="flex min-w-0 items-center gap-2 md:gap-3">
             <button
                 type="button"
                 data-sidebar-toggle
                 data-tour="sidebar-toggle"
-                class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-600 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-400/40 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900 md:hidden"
+                class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-slate-600 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-400/40 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900 md:hidden"
                 aria-label="Abrir menu"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
-            <a href="/dashboard" data-tour="brand-dashboard" class="app-brand">
+            <a href="/dashboard" data-tour="brand-dashboard" class="app-brand min-w-0">
                 <span class="app-brand-title">Meu Estoque</span>
                 <span class="app-brand-subtitle">Gestão de componentes eletrônicos</span>
             </a>
@@ -30,9 +30,9 @@ $user = Auth::user();
                 <button type="submit" class="font-medium text-brand-600 hover:text-brand-500 dark:text-brand-300 dark:hover:text-brand-200">Buscar</button>
             </form>
         </div>
-        <div class="flex flex-wrap items-center gap-3 md:justify-end">
+        <div class="flex shrink-0 items-center gap-2 md:gap-3 md:justify-end">
             <?php View::partial('partials/darkmode_toggle'); ?>
-            <button type="button" data-onboarding-reopen class="app-btn-secondary px-3 py-1.5 text-xs">
+            <button type="button" data-onboarding-reopen class="app-btn-secondary px-2.5 py-1.5 text-xs md:px-3">
                 Tour
             </button>
             <div class="hidden flex-col items-end text-right sm:flex">
@@ -47,9 +47,5 @@ $user = Auth::user();
                 </span>
             </div>
         </div>
-        <form method="GET" action="/components" data-tour="global-search" class="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-sm text-slate-600 shadow-sm focus-within:border-brand-300 focus-within:bg-white focus-within:text-slate-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 md:hidden">
-            <input name="q" type="search" placeholder="Buscar componentes..." class="flex-1 bg-transparent outline-none" aria-label="Buscar componentes">
-            <button type="submit" class="font-medium text-brand-600 hover:text-brand-500 dark:text-brand-300 dark:hover:text-brand-200">Buscar</button>
-        </form>
     </div>
 </header>
