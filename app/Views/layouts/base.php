@@ -72,7 +72,7 @@ $title = $title ?? 'Meu Estoque Eletronicos';
 
         <div class="flex flex-1">
             <?php View::partial('partials/sidebar'); ?>
-            <div id="app-sidebar-backdrop" class="fixed inset-0 z-30 hidden bg-slate-900/50 backdrop-blur-sm md:hidden" data-sidebar-backdrop></div>
+            <div id="app-sidebar-backdrop" class="fixed inset-0 z-40 hidden bg-slate-900/45 md:hidden" data-sidebar-backdrop></div>
 
             <main data-tour="page-content" class="app-main min-w-0 flex-1 overflow-x-hidden px-4 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10">
                 <div class="app-content-width">

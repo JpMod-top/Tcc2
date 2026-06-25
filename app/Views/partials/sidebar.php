@@ -22,7 +22,7 @@ $navClass = static function (string $path) use ($isActive): string {
 <aside
     id="app-sidebar"
     data-tour="main-nav"
-    class="app-sidebar fixed inset-y-0 left-0 z-[60] w-64 -translate-x-full transform px-4 py-6 text-sm shadow-xl transition duration-200 ease-out md:static md:z-0 md:translate-x-0 md:shadow-none"
+    class="app-sidebar fixed inset-y-0 left-0 z-50 w-64 -translate-x-full transform px-4 py-6 text-sm shadow-xl transition duration-200 ease-out md:static md:z-0 md:translate-x-0 md:shadow-none"
     aria-label="Menu lateral"
 >
     <div class="mb-6 flex items-center justify-between md:hidden">
